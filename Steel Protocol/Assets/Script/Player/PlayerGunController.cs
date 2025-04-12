@@ -4,14 +4,18 @@ namespace SteelProtocol
 {
     public class PlayerGunController : MonoBehaviour
     {
-        public Transform gun;
-        public float rotationSpeed = 50f;
 
-        // Negative = raise, Positive = lower (Unity's inverted pitch)
-        public float maxElevation = -15f;   // looking up
-        public float minDepression = 5f;  // looking down
+        #region Variables
 
-        private float pitch; // up/down angle
+        public Transform gun; // Muzzle/Gun
+        public float rotationSpeed = 50f; // Vertical Rotation Speed
+        public float maxElevation = -15f;   // Positive Vertical Guidance
+        public float minDepression = 5f;  // Negative Vertical Guidance
+        private float pitch;
+
+        #endregion
+        
+        #region Builtin Methods
 
         void Start()
         {
@@ -37,5 +41,7 @@ namespace SteelProtocol
             Quaternion targetRotation = Quaternion.Euler(pitch, 0f, 0f);
             gun.localRotation = Quaternion.Slerp(gun.localRotation, targetRotation, Time.deltaTime * 10f);
         }
+
+        #endregion
     }
 }

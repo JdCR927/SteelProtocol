@@ -13,12 +13,12 @@ namespace SteelProtocol
         private float currentSpeed = 0f;
         public float moveSpeed = 15f;
         public float acceleration = 20f;
-        public float decceleration = 50f;
+        public float deceleration = 50f;
         public float rotateSpeed = 120f;
 
         #endregion
 
-        
+        #region Custom Methods
 
         void HandleAcceleration()
         {
@@ -33,16 +33,18 @@ namespace SteelProtocol
             {
                 if (currentSpeed > 0)
                 {
-                    currentSpeed -= decceleration * Time.fixedDeltaTime;
+                    currentSpeed -= deceleration * Time.fixedDeltaTime;
                     currentSpeed = Mathf.Max(currentSpeed, 0f);
                 }
                 else if (currentSpeed < 0)
                 {
-                    currentSpeed += decceleration * Time.fixedDeltaTime;
+                    currentSpeed += deceleration * Time.fixedDeltaTime;
                     currentSpeed = Mathf.Min(currentSpeed, 0f);
                 }
             }
         }
+
+        #endregion
 
         #region Builtin Methods
 
