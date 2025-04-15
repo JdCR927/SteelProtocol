@@ -58,6 +58,7 @@
     },
     "dotnet.defaultSolution": "Steel Protocol.sln",
     "cSpell.words": [
+        "Dont",
         "Mathf",
         "Slerp"
     ]
