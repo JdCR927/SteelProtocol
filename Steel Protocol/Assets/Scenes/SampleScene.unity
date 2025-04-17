@@ -314,52 +314,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &374713899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374713894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ad84e0b09b3324cb23047a6ed8bc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  acceleration: 10
-  deceleration: 50
-  rotateSpeed: 30
---- !u!114 &374713900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374713894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94d445ea6837f547aba351fb8ee5828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 1659202934}
-  rotationSpeed: 1
---- !u!114 &374713902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374713894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2658f5c7ea5da0941aa9bcefee94807a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 238655927}
-  rotationSpeed: 1
-  maxElevation: -15
-  minDepression: 5
 --- !u!114 &374713904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,8 +341,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374713905}
-        m_TargetAssemblyTypeName: SteelProtocol.Input.PlayerInputRelay, Assembly-CSharp
+      - m_Target: {fileID: 374713912}
+        m_TargetAssemblyTypeName: SteelProtocol.Controller.Player.PlayerInputRelay,
+          Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -403,20 +358,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374713900}
-        m_TargetAssemblyTypeName: SteelProtocol.Player.PlayerTurretController, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 374713902}
-        m_TargetAssemblyTypeName: SteelProtocol.Player.PlayerGunController, Assembly-CSharp
+      - m_Target: {fileID: 374713912}
+        m_TargetAssemblyTypeName: SteelProtocol.Controller.Player.PlayerInputRelay,
+          Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
         m_Arguments:
@@ -490,7 +434,65 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &374713905
+--- !u!114 &374713908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94d445ea6837f547aba351fb8ee5828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &374713909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b176aaf9b683944cbc0d525ef884171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 1659202934}
+  rotationSpeed: 1
+  gun: {fileID: 238655927}
+  elevationSpeed: 1
+  maxElevation: -15
+  minDepression: 5
+--- !u!114 &374713910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ad84e0b09b3324cb23047a6ed8bc43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &374713911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8523c5ceabb1d8342ac3f93688e5c0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 15
+  acceleration: 20
+  deceleration: 50
+  rotateSpeed: 30
+--- !u!114 &374713912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -857,19 +859,22 @@ PrefabInstance:
       addedObject: {fileID: 374713896}
     - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 374713899}
-    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 374713905}
-    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 374713900}
-    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 374713902}
-    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 374713904}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713912}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713911}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713910}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713909}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713908}
   m_SourcePrefab: {fileID: 100100000, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
