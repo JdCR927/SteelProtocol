@@ -9,7 +9,7 @@ namespace SteelProtocol.Controller.Player
     /// </summary>
     [RequireComponent(typeof(MovementController))]
     [RequireComponent(typeof(IInputSource))]
-    public class PlTankController : TankController
+    public class PlMovementController : MonoBehaviour
     {
         private IInputSource input;
         private MovementController movement;
