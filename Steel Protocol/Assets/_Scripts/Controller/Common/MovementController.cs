@@ -11,10 +11,10 @@ namespace SteelProtocol.Controller
     {
         [Header("Tank Movement Settings")]
         [Tooltip("Maximum forward/backward speed.")]
-        public float moveSpeed = 15f;
+        public float moveSpeed = 10f;
 
         [Tooltip("Rate of acceleration when input is applied.")]
-        public float acceleration = 20f;
+        public float acceleration = 10f;
 
         [Tooltip("Rate of deceleration when no input is applied.")]
         public float deceleration = 50f;
@@ -44,6 +44,10 @@ namespace SteelProtocol.Controller
 
             rb.MovePosition(rb.position + movement);
             rb.MoveRotation(rb.rotation * rotation);
+
+            // ToDo: Check physics-based movement for better feel
+            //rb.AddForce(transform.forward * forwardInput * acceleration);
+            //rb.AddTorque(Vector3.up * turnInput * rotateSpeed);
         }
 
         /// <summary>
@@ -61,6 +65,11 @@ namespace SteelProtocol.Controller
             {
                 currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.fixedDeltaTime);
             }
+        }
+
+        public float GetCurrentSpeed()
+        {
+            return Mathf.Abs(currentSpeed);
         }
     }
 }

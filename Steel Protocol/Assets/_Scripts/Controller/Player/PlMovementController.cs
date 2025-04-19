@@ -1,3 +1,4 @@
+using SteelProtocol.Controller.Manager;
 using SteelProtocol.Input;
 using UnityEngine;
 
@@ -27,7 +28,11 @@ namespace SteelProtocol.Controller.Player
 
         private void FixedUpdate()
         {
-            movement.Move(input.GetForwardInput(), input.GetTurnInput());
+            float forwardInput = input.GetForwardInput();
+            float turnInput = input.GetTurnInput();
+
+            movement.Move(forwardInput, turnInput);
+
         }
 
     }

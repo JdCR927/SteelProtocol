@@ -527,8 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8523c5ceabb1d8342ac3f93688e5c0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  acceleration: 20
+  moveSpeed: 10
+  acceleration: 10
   deceleration: 50
   rotateSpeed: 30
 --- !u!114 &374713912
@@ -586,6 +586,45 @@ MonoBehaviour:
   mainWeapon: {fileID: 374713915}
   secondaryWeapon: {fileID: 0}
   tertiaryWeapon: {fileID: 0}
+--- !u!114 &374713918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf2a924c4093244f9f15a7cf13ac819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engineVolume: 0.2
+--- !u!114 &374713919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5aa620d35561346b5919509710a6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretVolume: 1
+--- !u!114 &374713920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374713894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec265958bd58f3643adf26fad7ca8205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackVolume: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leopard2
       objectReference: {fileID: 0}
+    - target: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7768539143731497747, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -966,7 +1009,72 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
       insertIndex: -1
       addedObject: {fileID: 374713915}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713918}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713920}
+    - targetCorrespondingSourceObject: {fileID: 6954883412887146921, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 374713919}
   m_SourcePrefab: {fileID: 100100000, guid: 7140d6bd1a3d53b4cb6f0f05526d7489, type: 3}
+--- !u!1 &1758992442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1758992444}
+  - component: {fileID: 1758992443}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1758992443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758992442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88b5322a0a67494689806dcd6651c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: []
+  sfx:
+  - name: Cannon
+    clip: {fileID: 8300000, guid: 58a71ca2b90bdd343b7f2ed4b9c5696c, type: 3}
+  - name: Engine
+    clip: {fileID: 8300000, guid: b6ecb9297bbfd6046a755a9eea16263e, type: 3}
+  - name: Tracks
+    clip: {fileID: 8300000, guid: ca642a8b7aba86d428bad9ee41cf470a, type: 3}
+  - name: Turret
+    clip: {fileID: 8300000, guid: 674cfda16e28bf844b9fea017ce900bb, type: 3}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 7787793060570886268, guid: 1348ddd6a684f22418b174167aa9959a, type: 3}
+--- !u!4 &1758992444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758992442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.0679445, y: 4.9138274, z: -5.9675145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -975,3 +1083,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 961913869}
   - {fileID: 1662489011}
+  - {fileID: 1758992444}

@@ -1,3 +1,4 @@
+using SteelProtocol.Controller.Manager;
 using UnityEngine;
 
 namespace SteelProtocol.Controller
@@ -44,6 +45,15 @@ namespace SteelProtocol.Controller
 
             turret.localRotation = Quaternion.Slerp(turret.localRotation, Quaternion.Euler(0f, yaw, 0f), Time.deltaTime * 10f);
             gun.localRotation = Quaternion.Slerp(gun.localRotation, Quaternion.Euler(pitch, 0f, 0f), Time.deltaTime * 10f);
+        }
+
+        public float GetYaw()
+        {
+            return yaw;
+        }
+        public float GetPitch()
+        {
+            return pitch;
         }
     }
 }

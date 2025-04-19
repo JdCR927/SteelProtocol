@@ -1,5 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Controller.Common;
+using SteelProtocol.Controller.Common.Weapons;
 
 namespace SteelProtocol.Controller
 {
