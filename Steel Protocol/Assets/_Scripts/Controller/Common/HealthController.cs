@@ -12,13 +12,16 @@ namespace SteelProtocol.Controller.Common
 
         public void Awake()
         {
+            // Initialize health taking into account the type of armor
             currentHealth = health * armorMultiplier;
         }
 
         public void TakeDamage(float damage)
         {
+            // Applies damage to the current health
             currentHealth -= damage;
 
+            // Checks for death
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -28,7 +31,9 @@ namespace SteelProtocol.Controller.Common
 
         public void Die()
         {
-            Debug.Log("This tank has died");
+            // Destroy the game object
+            // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution
+            Destroy(gameObject); 
         }
     }
 }
