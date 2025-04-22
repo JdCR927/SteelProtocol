@@ -1,4 +1,4 @@
-using SteelProtocol.Controller.Manager;
+using SteelProtocol.Manager;
 using UnityEngine;
 
 namespace SteelProtocol.Controller.Common.Weapons
@@ -39,10 +39,10 @@ namespace SteelProtocol.Controller.Common.Weapons
             shell.transform.Rotate(-90, 0, 0);
 
             // Add force to shoot it forward
-            Rigidbody rb = shell.GetComponent<Rigidbody>();
-            if (rb != null)
+            // Also, not gonna lie to you chief, the IDE did whatever this If condition is. Thank it, because I have no idea exactly what it does
+            if (shell.TryGetComponent<Rigidbody>(out var rb))
             {
-                // ToDo: Change the hardcoded value for a variable. Force/Speed will be extracted from... somewhere
+                // ToDo: Change the hardcoded value for a variable. Force/Speed will be extracted from... somewhere (JSON maybe? Structs I guess?)
                 float shootForce = 3000f;
                 rb.AddForce(firePoint.forward * shootForce);
             }

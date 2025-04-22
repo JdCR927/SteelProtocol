@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace SteelProtocol.Controller.Manager
+namespace SteelProtocol.Manager
 {
     /// <summary>
     /// 

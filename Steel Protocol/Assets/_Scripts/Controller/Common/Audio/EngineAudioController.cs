@@ -1,5 +1,5 @@
 using UnityEngine;
-using SteelProtocol.Controller.Manager;
+using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Common.Audio
 {

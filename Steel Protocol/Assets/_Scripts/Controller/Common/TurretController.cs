@@ -1,4 +1,4 @@
-using SteelProtocol.Controller.Manager;
+using SteelProtocol.Manager;
 using UnityEngine;
 
 namespace SteelProtocol.Controller
