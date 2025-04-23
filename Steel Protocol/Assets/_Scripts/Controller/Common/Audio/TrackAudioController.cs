@@ -7,8 +7,6 @@ namespace SteelProtocol.Controller.Common.Audio
     public class TrackAudioController : MonoBehaviour
     {
         [SerializeField] private float trackVolume = 1f;
-
-        private Rigidbody rb;
         private MovementController movement;
         private AudioSource trackAudioSource;
 

@@ -33,6 +33,7 @@ namespace SteelProtocol.Controller.Player
         private void FixedUpdate()
         {
             aiming.Aim(input.GetLookInput());
+            Debug.Log("Aiming: " + input.GetLookInput());
         }
 
     }

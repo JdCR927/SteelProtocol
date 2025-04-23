@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace SteelProtocol.Controller.Common.Weapons
 {
-    /// <summary>
-    /// Generic weapon system controller that delegates firing to multiple weapon slots.
-    /// </summary>
     [RequireComponent(typeof(IInputSource))]
     public class WeaponController : MonoBehaviour
     {
@@ -22,7 +19,6 @@ namespace SteelProtocol.Controller.Common.Weapons
             input = GetComponent<IInputSource>();
         }
 
-        // ToDo: Absolute hack, get rid of this ASAP.
         private void Update()
         {
             if (input == null) return;

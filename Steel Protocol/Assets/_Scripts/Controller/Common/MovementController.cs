@@ -11,7 +11,7 @@ namespace SteelProtocol.Controller
     {
         [Header("Tank Movement Settings")]
         [Tooltip("Maximum forward/backward speed.")]
-        public float moveSpeed = 10f;
+        public float maxSpeed = 10f;
 
         [Tooltip("Rate of acceleration when input is applied.")]
         public float acceleration = 10f;
@@ -30,11 +30,7 @@ namespace SteelProtocol.Controller
             rb = GetComponent<Rigidbody>();
         }
 
-        /// <summary>
-        /// Applies movement and rotation based on input.
-        /// </summary>
-        /// <param name="forwardInput">Forward/backward movement input.</param>
-        /// <param name="turnInput">Left/right rotation input.</param>
+
         public void Move(float forwardInput, float turnInput)
         {
             HandleAcceleration(forwardInput);
@@ -44,22 +40,14 @@ namespace SteelProtocol.Controller
 
             rb.MovePosition(rb.position + movement);
             rb.MoveRotation(rb.rotation * rotation);
-
-            // ToDo: Check physics-based movement for better feel
-            //rb.AddForce(transform.forward * forwardInput * acceleration);
-            //rb.AddTorque(Vector3.up * turnInput * rotateSpeed);
         }
 
-        /// <summary>
-        /// Applies acceleration or deceleration to the tank based on input.
-        /// </summary>
-        /// <param name="input">Current forward/backward input.</param>
         private void HandleAcceleration(float input)
         {
             if (input != 0)
             {
                 currentSpeed += input * acceleration * Time.fixedDeltaTime;
-                currentSpeed = Mathf.Clamp(currentSpeed, -moveSpeed, moveSpeed);
+                currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
             }
             else
             {

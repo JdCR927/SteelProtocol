@@ -12,8 +12,8 @@ namespace SteelProtocol.Controller.Common.Audio
         private IInputSource input;
         private TurretController turret;
         private AudioSource turretAudioSource;
-        private float pitch;
 
+        
         private void Start()
         {
             turret = GetComponent<TurretController>();
@@ -30,14 +30,11 @@ namespace SteelProtocol.Controller.Common.Audio
             // Checks for turret input
             CheckTurretMovement(input.GetLookInput());
 
-            // Random float between 0.90 and 1.05
-            pitch = Random.Range(0.90f, 1.05f);
-
             // Adjusts the pitch of the audio
-            AdjustTurretPitch(pitch);
+            AdjustTurretPitch();
         }
 
-        
+        // Checks if the turret is moving and plays/stops the sound accordingly
         private void CheckTurretMovement(Vector2 input)
         {
             // Checks if the turret is moving
@@ -63,10 +60,12 @@ namespace SteelProtocol.Controller.Common.Audio
             }
         }
 
-
-        private void AdjustTurretPitch(float pitch)
+        // Adjusts the pitch of the turret audio
+        private void AdjustTurretPitch()
         {
-            // Check if turretAudioSource is null or not
+            float pitch = Random.Range(0.90f, 1.05f);
+
+            // Check if turretAudioSource is null or not and adjusts the pitch accordingly
             if (turretAudioSource != null)
             {
                 // Changes pitch
