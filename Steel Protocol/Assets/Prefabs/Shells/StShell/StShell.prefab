@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 53a4fc60406865c4f9d0707f1e13e3ad, type: 3}
       propertyPath: m_Name
-      value: Shell
+      value: StShell
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53a4fc60406865c4f9d0707f1e13e3ad, type: 3}
       propertyPath: m_LocalScale.x

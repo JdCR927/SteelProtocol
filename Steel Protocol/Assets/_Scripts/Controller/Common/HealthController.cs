@@ -5,10 +5,19 @@ namespace SteelProtocol.Controller.Common
 {
     public class HealthController: MonoBehaviour
     {
+        // Tank's health max and initial health
         [Header("Tank Health")]
-        public float health = 100f;
+        [SerializeField]private float health = 100f;
+        
+        ///////////////////////////////////////////////////////////////////////
+        // ToDo: Get the armor multiplier from somewhere else, not hardcoded //
+        ///////////////////////////////////////////////////////////////////////
+        // Tank's armor multiplier
         private float armorMultiplier = 1f;
+
+        // Tank's current health
         private float currentHealth;
+
 
         public void Awake()
         {
@@ -16,6 +25,8 @@ namespace SteelProtocol.Controller.Common
             currentHealth = health * armorMultiplier;
         }
 
+
+        // Method to apply damage to the tank's health
         public void TakeDamage(float damage)
         {
             // Applies damage to the current health
@@ -29,10 +40,14 @@ namespace SteelProtocol.Controller.Common
             }
         }
 
+
+        // Method called when the tank runs out of health
         public void Die()
         {
-            // Destroy the game object
-            // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution //
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Destroys the game object
             Destroy(gameObject); 
         }
     }

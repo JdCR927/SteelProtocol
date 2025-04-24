@@ -4,23 +4,18 @@ using SteelProtocol.Input;
 
 namespace SteelProtocol.Controller.Common.Audio
 {
-    [RequireComponent(typeof(TurretController))]
     public class TurretAudioController : MonoBehaviour
     {
-        [SerializeField] private float turretVolume = 1f;
+        // The volume of the turret sound, between 0 and 1
+        // 0 = silent, 1 = max volume
+        [SerializeField] private float turretVolume = 0.5f;
 
+        // Input interface to check for turret movement
         private IInputSource input;
-        private TurretController turret;
+
+        // The AudioSource that will play the turret sound
         private AudioSource turretAudioSource;
 
-        
-        private void Start()
-        {
-            turret = GetComponent<TurretController>();
-
-            if (turret == null)
-                Debug.LogError("Missing TurretController for TurretAudioController");
-        }
 
         private void FixedUpdate()
         {
@@ -33,6 +28,7 @@ namespace SteelProtocol.Controller.Common.Audio
             // Adjusts the pitch of the audio
             AdjustTurretPitch();
         }
+        
 
         // Checks if the turret is moving and plays/stops the sound accordingly
         private void CheckTurretMovement(Vector2 input)
@@ -59,6 +55,7 @@ namespace SteelProtocol.Controller.Common.Audio
                 }
             }
         }
+
 
         // Adjusts the pitch of the turret audio
         private void AdjustTurretPitch()
