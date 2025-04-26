@@ -39,7 +39,7 @@ namespace SteelProtocol.Controller.Player
             //////////////////////////////////////////////////////////////
             // ToDo: Debug the input values for mouse sensitivity stuff //
             //////////////////////////////////////////////////////////////
-            Debug.Log("Aiming: " + input.GetLookInput());
+            // Debug.Log("Aiming: " + input.GetLookInput());
         }
 
     }

@@ -11,6 +11,7 @@ namespace SteelProtocol.Controller.Player
         private bool fireMain;
         private bool fireSecondary;
         private bool fireTertiary;
+        private bool exitGame;
 
 
         // Get's the context from the input system and assigns it to the movementInput variable
@@ -54,6 +55,12 @@ namespace SteelProtocol.Controller.Player
         }
 
 
+        public void OnExit(InputAction.CallbackContext context)
+        {
+            exitGame = context.ReadValue<float>() > 0.5f;
+        }
+
+
         // Get's the movement input from the player, specifically the W and S keys
         // Or the vertical movement of the left joystick for forward and backward movement
         public float GetForwardInput() => movementInput.y;
@@ -78,5 +85,7 @@ namespace SteelProtocol.Controller.Player
 
         // Get's the fire input from the player, specifically the middle mouse button (Or left shoulder)
         public bool IsFiringTer() => fireTertiary;
+
+        public bool IsExiting() => exitGame;
     }
 }

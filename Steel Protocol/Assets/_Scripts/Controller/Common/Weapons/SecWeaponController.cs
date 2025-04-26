@@ -9,7 +9,7 @@ namespace SteelProtocol.Controller.Common.Weapons
 
         [SerializeField] private Transform firePoint;
 
-        [SerializeField] private float fireCooldown = 2f;
+        // [SerializeField] private float fireCooldown = 2f;
 
         private float cooldownTimer;
 

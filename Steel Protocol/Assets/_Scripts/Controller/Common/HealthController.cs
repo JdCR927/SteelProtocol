@@ -29,8 +29,14 @@ namespace SteelProtocol.Controller.Common
         // Method to apply damage to the tank's health
         public void TakeDamage(float damage)
         {
+            // Makes the tank kinematic to avoid physics interactions while applying damage
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
             // Applies damage to the current health
             currentHealth -= damage;
+
+            // Makes the tank non-kinematic again to allow physics interactions
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
             // Checks for death
             if (currentHealth <= 0)
