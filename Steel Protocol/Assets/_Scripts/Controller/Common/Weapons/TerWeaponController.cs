@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SteelProtocol.Controller.Common.Weapons
+namespace SteelProtocol.Controller.Weapons
 {
     [RequireComponent(typeof(WeaponController))]
     public class TerWeaponController : MonoBehaviour

@@ -10,11 +10,11 @@ namespace SteelProtocol.Controller
         // Transform of the turret to rotate horizontally
         // Assigned in the inspector
         [Tooltip("Transform of the turret to rotate horizontally.")]
-        public Transform turret;
+        [SerializeField] private Transform turret;
 
         // Units per second for horizontal rotation speed
         [Tooltip("Speed of turret horizontal rotation.")]
-        public float rotationSpeed = 1f;
+        [SerializeField] private float rotationSpeed = 1f;
 
 
         [Header("Gun Settings")]

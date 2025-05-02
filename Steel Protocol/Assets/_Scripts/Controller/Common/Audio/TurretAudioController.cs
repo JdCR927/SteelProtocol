@@ -2,7 +2,7 @@ using UnityEngine;
 using SteelProtocol.Manager;
 using SteelProtocol.Input;
 
-namespace SteelProtocol.Controller.Common.Audio
+namespace SteelProtocol.Controller.Audio
 {
     public class TurretAudioController : MonoBehaviour
     {

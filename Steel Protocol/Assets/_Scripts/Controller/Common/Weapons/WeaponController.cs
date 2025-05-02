@@ -1,7 +1,7 @@
 using SteelProtocol.Input;
 using UnityEngine;
 
-namespace SteelProtocol.Controller.Common.Weapons
+namespace SteelProtocol.Controller.Weapons
 {
     [RequireComponent(typeof(IInputSource))]
     public class WeaponController : MonoBehaviour

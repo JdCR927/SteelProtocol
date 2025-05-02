@@ -1,5 +1,5 @@
 using UnityEngine;
-using SteelProtocol.Controller.Common;
+using SteelProtocol.Controller;
 
 namespace SteelProtocol
 {

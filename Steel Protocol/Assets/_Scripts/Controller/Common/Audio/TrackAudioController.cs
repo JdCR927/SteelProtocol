@@ -1,7 +1,7 @@
 using UnityEngine;
 using SteelProtocol.Manager;
 
-namespace SteelProtocol.Controller.Common.Audio
+namespace SteelProtocol.Controller.Audio
 {
     public class TrackAudioController : MonoBehaviour
     {
@@ -55,7 +55,7 @@ namespace SteelProtocol.Controller.Common.Audio
         // Calculates the pitch based on the current speed of the vehicle
         private float CalculatePitch()
         {
-            speed = movement.GetCurrentSpeed();
+            speed = movement.GetCurrentSpeedAbsolute();
 
             // E.g. If at 20 units of speed, sets the pitch to 1.2
             float pitch = 1f + (speed / 100f);

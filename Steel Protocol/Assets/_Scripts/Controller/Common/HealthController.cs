@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SteelProtocol.Controller.Common
+namespace SteelProtocol.Controller
 {
     public class HealthController: MonoBehaviour
     {

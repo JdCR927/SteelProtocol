@@ -10,25 +10,17 @@ namespace SteelProtocol.Controller
         // Maximum forward/backward speed in units per second
         // Can in theory be surpassed if the tank were to be pushed by another object
         // Or if the tank were to be on a slope
-        [Tooltip("Maximum forward/backward speed.")]
         [SerializeField] private float maxSpeed = 10f;
 
-        // Units per second for acceleration speed
-        [Tooltip("Rate of acceleration when input is applied.")]
         [SerializeField] private float acceleration = 10f;
 
-        // Units per second for deceleration speed/friction
-        [Tooltip("Rate of deceleration when no input is applied.")]
-        [SerializeField] private float deceleration = 50f;
+        [SerializeField] private float deceleration = 10f;
 
-        // Units per second for rotation speed
-        [Tooltip("Turning speed of the tank.")]
         [SerializeField] private float rotateSpeed = 30f;
 
-        // Rigid body component of the tank
+
         private Rigidbody rb;
 
-        // Current speed of the tank, positive for forward, negative for backward
         private float currentSpeed = 0f;
 
 
@@ -75,6 +67,13 @@ namespace SteelProtocol.Controller
 
         // Returns the current speed of the tank
         public float GetCurrentSpeed()
+        {
+            return currentSpeed;
+        }
+
+
+        // Returns the current ABSOLUTE (No negatives) speed of the tank
+        public float GetCurrentSpeedAbsolute()
         {
             return Mathf.Abs(currentSpeed);
         }
