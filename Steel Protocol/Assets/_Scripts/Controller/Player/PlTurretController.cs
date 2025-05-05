@@ -4,7 +4,6 @@ using UnityEngine;
 namespace SteelProtocol.Controller.Player
 {
     [RequireComponent(typeof(TurretController))]
-    [RequireComponent(typeof(IInputSource))]
     public class PlTurretController: MonoBehaviour
     {
         // Interface for input handling
@@ -33,13 +32,11 @@ namespace SteelProtocol.Controller.Player
 
         private void FixedUpdate()
         {
+            ///////////////////////////////////////////////////////////////////////////
+            // ToDo: Cap the value at 1 maybe? 1 is the max value for gamepads so... //
+            ///////////////////////////////////////////////////////////////////////////
             // Get the input values for aiming
             aiming.Aim(input.GetLookInput());
-
-            //////////////////////////////////////////////////////////////
-            // ToDo: Debug the input values for mouse sensitivity stuff //
-            //////////////////////////////////////////////////////////////
-            // Debug.Log("Aiming: " + input.GetLookInput());
         }
 
     }

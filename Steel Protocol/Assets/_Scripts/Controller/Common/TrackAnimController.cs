@@ -2,7 +2,8 @@ using UnityEngine;
 
 namespace SteelProtocol.Controller
 {
-    public class TrackMovementController : MonoBehaviour
+    [RequireComponent(typeof(MovementController))]
+    public class TrackAnimController : MonoBehaviour
     {
         [SerializeField] private Transform leftTrack;
         [SerializeField] private Transform rightTrack;

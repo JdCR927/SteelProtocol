@@ -3,6 +3,7 @@ using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Audio
 {
+    [RequireComponent(typeof(MovementController))]
     public class TrackAudioController : MonoBehaviour
     {
         // The volume of the track sound, between 0 and 1

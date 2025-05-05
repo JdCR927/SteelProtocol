@@ -19,6 +19,5 @@ namespace SteelProtocol.Input
         bool IsFiringTer();
         #endregion
 
-        bool IsExiting();
     }
 }

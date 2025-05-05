@@ -3,6 +3,7 @@ using SteelProtocol.Controller;
 
 namespace SteelProtocol
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Shell : MonoBehaviour
     {
         // The prefab for the explosion effect

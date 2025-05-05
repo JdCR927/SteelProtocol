@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 namespace SteelProtocol.Controller
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class HealthController: MonoBehaviour
     {
         // Tank's health max and initial health

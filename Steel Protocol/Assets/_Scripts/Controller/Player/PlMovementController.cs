@@ -5,7 +5,6 @@ using UnityEngine;
 namespace SteelProtocol.Controller.Player
 {
     [RequireComponent(typeof(MovementController))]
-    [RequireComponent(typeof(IInputSource))]
     public class PlMovementController : MonoBehaviour
     {
         // Interface for input handling
