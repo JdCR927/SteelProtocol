@@ -1,5 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Input;
+using SteelProtocol.Controller.Player;
 
 
 namespace SteelProtocol.Controller
@@ -11,15 +12,15 @@ namespace SteelProtocol.Controller
         //                I know what I want to do, but I need to figure out how to do it.                  //
         //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private IInputSource input;
+        private PlInputBridge input;
 
 
         public void Awake()
         {
-            input = GetComponent<IInputSource>();
+            input = GetComponent<PlInputBridge>();
 
             if (input == null)
-                Debug.LogError("IInputSource not found.");
+                Debug.LogError("PlInputBridge not found.");
         }
 
 

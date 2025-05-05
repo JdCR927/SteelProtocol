@@ -14,7 +14,7 @@ namespace SteelProtocol.Controller
 
         // Units per second for horizontal rotation speed
         [Tooltip("Speed of turret horizontal rotation.")]
-        [SerializeField] private float rotationSpeed = 1f;
+        [SerializeField] private float rotationSpeed = 20f;
 
 
         [Header("Gun Settings")]
@@ -26,7 +26,7 @@ namespace SteelProtocol.Controller
 
         // Units per second for elevation speed
         [Tooltip("Speed of gun vertical elevation.")]
-        [SerializeField] private float elevationSpeed = 1f;
+        [SerializeField] private float elevationSpeed = 20f;
 
         // Maximum upward angle in degrees.
         [Tooltip("Maximum upward angle in degrees. E.g. -15 means the gun can only go down 15 degrees upwards.")]

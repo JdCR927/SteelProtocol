@@ -3,21 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Friend
+  - Enemy
+  - FriendProjectile
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tank
+  - 
   - Water
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Friend
+  - Enemy
+  - FriendProjectile
+  - EnemyProjectile
   - 
   - 
   - 
