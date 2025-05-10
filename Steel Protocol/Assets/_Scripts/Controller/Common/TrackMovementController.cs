@@ -4,10 +4,10 @@ namespace SteelProtocol.Controller
 {
     public class TrackMovementController : MonoBehaviour
     {
-        [SerializeField] private Transform leftTrack;
-        [SerializeField] private Transform rightTrack;
-        [SerializeField] private Transform leftWheels;
-        [SerializeField] private Transform rightWheels;
+        private Transform leftTrack;
+        private Transform rightTrack;
+        private Transform leftWheels;
+        private Transform rightWheels;
 
         private MovementController movement;
         private float currentSpeed;
@@ -16,11 +16,10 @@ namespace SteelProtocol.Controller
 
         void Awake()
         {
-            if (leftTrack == null || rightTrack == null)
-                Debug.LogError("Left or right track not assigned!");
-
-            if (leftWheels == null || rightWheels == null)
-                Debug.LogError("Left or right wheels not assigned!");
+            leftTrack = GetComponent<TankController>().LeftTrack;
+            rightTrack = GetComponent<TankController>().RightTrack;
+            leftWheels = GetComponent<TankController>().LeftWheels;
+            rightWheels = GetComponent<TankController>().RightWheels;
 
             movement = GetComponent<MovementController>();
 

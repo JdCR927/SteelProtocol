@@ -58,6 +58,12 @@ namespace SteelProtocol.Controller.Player
         public void OnExit(InputAction.CallbackContext context)
         {
             exitGame = context.ReadValue<float>() > 0.5f;
+
+            if (exitGame)
+            {
+                Debug.Log("Exiting game...");
+                Application.Quit();
+            }
         }
 
 

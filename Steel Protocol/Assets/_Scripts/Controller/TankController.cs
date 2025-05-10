@@ -1,38 +1,29 @@
-using UnityEngine;
-using SteelProtocol.Input;
 using SteelProtocol.Controller.Player;
-
+using UnityEngine;
 
 namespace SteelProtocol.Controller
 {
     public class TankController : MonoBehaviour
     {
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Todo: Give me some time to think about this and either I'll make it shine or it'll be forgotten. //
-        //                I know what I want to do, but I need to figure out how to do it.                  //
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        private PlInputBridge input;
-
-
-        public void Awake()
-        {
-            input = GetComponent<PlInputBridge>();
-
-            if (input == null)
-                Debug.LogError("PlInputBridge not found.");
-        }
+        [SerializeField] private Transform tank;
+        [SerializeField] private Transform body;
+        [SerializeField] private Transform turret;
+        [SerializeField] private Transform muzzle;
+        [SerializeField] private Transform firingPoint;
+        [SerializeField] private Transform leftTrack;
+        [SerializeField] private Transform rightTrack;
+        [SerializeField] private Transform leftWheels;
+        [SerializeField] private Transform rightWheels;
 
 
-        public void Update()
-        {
-            if (input.IsExiting())
-            {
-                Debug.Log("Exiting game...");
-
-                Application.Quit();
-            }
-        }
+        public Transform Tank {get => tank; set => tank = value; }
+        public Transform Body { get => body; set => body = value; }
+        public Transform Turret { get => turret; set => turret = value; }
+        public Transform Muzzle { get => muzzle; set => muzzle = value; }
+        public Transform FiringPoint { get => firingPoint; set => firingPoint = value; }
+        public Transform LeftTrack { get => leftTrack; set => leftTrack = value; }
+        public Transform RightTrack { get => rightTrack; set => rightTrack = value; }
+        public Transform LeftWheels { get => leftWheels; set => leftWheels = value; }
+        public Transform RightWheels { get => rightWheels; set => rightWheels = value; }
     }
-
 }

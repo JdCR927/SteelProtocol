@@ -17,7 +17,7 @@ namespace SteelProtocol.Controller.Weapons
 
         // The point from which the shell will be fired
         // This should be a child of the muzzle/cannon
-        [SerializeField] private Transform firePoint;
+        private Transform firingPoint;
         
         /////////////////////////////////////////////////////////////////////
         // ToDo: Get the cooldown from somewhere else, just like the force //
@@ -28,6 +28,12 @@ namespace SteelProtocol.Controller.Weapons
         // The cooldown timer for the weapon, initialized to 0
         private float cooldownTimer;
 
+
+        public void Awake()
+        {
+            // Get the fire point from TankController
+            firingPoint = GetComponent<TankController>().FiringPoint;
+        }
 
         private void Update()
         {
@@ -45,7 +51,7 @@ namespace SteelProtocol.Controller.Weapons
             {
                 return;
             }
-            else if (shellPrefab == null || firePoint == null)
+            else if (shellPrefab == null || firingPoint == null)
             {
                 Debug.LogError("Shell prefab or fire point not assigned in MainWeaponController.");
                 return;
@@ -70,7 +76,7 @@ namespace SteelProtocol.Controller.Weapons
         private void InstantiateMuzzleFlash()
         {
             // Play the muzzle flash effect before firing the shell. Makes it a child of the firing point to keep it in place
-            GameObject vfxMuzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation, firePoint);
+            GameObject vfxMuzzleFlash = Instantiate(muzzleFlashPrefab, firingPoint.position, firingPoint.rotation, firingPoint);
             
             
             // Destroys the vfx prefab after 5 seconds to avoid memory leaks
@@ -82,7 +88,7 @@ namespace SteelProtocol.Controller.Weapons
         private void InstantiateShell()
         {
             // Instantiate the shell
-            GameObject shell = Instantiate(shellPrefab, firePoint.position, firePoint.rotation);
+            GameObject shell = Instantiate(shellPrefab, firingPoint.position, firingPoint.rotation);
 
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,7 +106,7 @@ namespace SteelProtocol.Controller.Weapons
                 // ToDo: Change the hardcoded value for a variable. Force/Speed will be extracted from... somewhere (JSON maybe? Structs I guess?) //
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 float shootForce = 3000f;
-                rb.AddForce(firePoint.forward * shootForce);
+                rb.AddForce(firingPoint.forward * shootForce);
             }
         }
     }

@@ -22,3 +22,6 @@ public class ColliderVisualizer : MonoBehaviour
         }
     }
 }
+
+
+// TODO: Debugging stuff, delete the entire class later

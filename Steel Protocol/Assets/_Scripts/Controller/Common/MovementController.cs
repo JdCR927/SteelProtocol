@@ -5,8 +5,6 @@ namespace SteelProtocol.Controller
     [RequireComponent(typeof(Rigidbody))]
     public class MovementController : MonoBehaviour
     {
-        [Header("Tank Movement Settings")]
-
         // Maximum forward/backward speed in units per second
         // Can in theory be surpassed if the tank were to be pushed by another object
         // Or if the tank were to be on a slope

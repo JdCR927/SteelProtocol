@@ -1,21 +1,37 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SteelProtocol.Controller.AI.Aiming;
+using SteelProtocol.Input;
+using SteelProtocol.Controller.AI.Targeting;
 
 namespace SteelProtocol.Controller.AI.Enemy
 {
     
 
-    public class AiEnemyTurretController : TargetAiming
+    public class AiEnemyTurretController : TargetController
     {
         private HashSet<Target> targets = new HashSet<Target>();
-        private Transform currentTarget;
+        private GameObject currentTarget;
+
+
+        // Interface for input handling
+        private AiInputBridge input;
+        // Controller for aiming
+        private TurretController aiming;
 
         // TODO: Debug stuff, remove later
         private SphereCollider detectionRange;
 
         public void Awake()
         {
+            input = GetComponent<AiInputBridge>();
+            aiming = GetComponent<TurretController>();
+
+            if (input == null)
+                Debug.LogError("Missing AiInputBridge component.");
+            if (aiming == null)
+                Debug.LogError("Missing TurretController component.");
+
+            // TODO: Debug stuff, remove later
             detectionRange = GetComponent<SphereCollider>();
             if (detectionRange == null)
             {
@@ -48,12 +64,13 @@ namespace SteelProtocol.Controller.AI.Enemy
 
         public void Update()
         {
-            // TODO: Implement the logic to check if the target is in range and if it is, set it as the target
-        }
+            currentTarget = GetClosestTarget(targets);
 
+            if (currentTarget == null) return;
 
-        
+            input.OnLook(currentTarget);
 
-        
+            aiming.Aim(input.GetLookInput());
+        } 
     }
 }

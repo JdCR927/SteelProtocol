@@ -1461,18 +1461,18 @@ GameObject:
   - component: {fileID: 2433910186508941043}
   - component: {fileID: 7376276528852327949}
   - component: {fileID: 7924295387991704969}
+  - component: {fileID: 8826869862929520300}
+  - component: {fileID: 4179151985384231263}
   - component: {fileID: 4050347290197439323}
   - component: {fileID: 3637014373685174726}
   - component: {fileID: 1086991930971167284}
   - component: {fileID: 1723745870277777942}
   - component: {fileID: 6443488450024926904}
-  - component: {fileID: 8826869862929520300}
   - component: {fileID: 2709860075585312196}
   - component: {fileID: 2018717352883482406}
   - component: {fileID: 6860785457181376146}
   - component: {fileID: 8364111173511609143}
   - component: {fileID: 8327945794759359709}
-  - component: {fileID: 6592572289570835594}
   - component: {fileID: 7383559444388713526}
   m_Layer: 8
   m_Name: Leopard2
@@ -1490,7 +1490,7 @@ Transform:
   m_GameObject: {fileID: 4907197779143617178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: 0}
+  m_LocalPosition: {x: 200, y: 0, z: 61.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1722,11 +1722,49 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3ce5ead3-0b7d-40bb-ab78-43dcae844679
     m_ActionName: 'Player/Exit[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 50ab0a88-7efa-48fc-bd71-80e219ea9271
+    m_ActionName: 'Player/Leave World[/Keyboard/l]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8826869862929520300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907197779143617178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &4179151985384231263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907197779143617178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0951217b6bee84db81508d1ee59b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 5961878131179967928}
+  body: {fileID: 769765733201351701}
+  turret: {fileID: 8394412297602110158}
+  muzzle: {fileID: 7832845892669389018}
+  firingPoint: {fileID: 3768505784474602618}
+  leftTrack: {fileID: 6304974275921283196}
+  rightTrack: {fileID: 7029793447274536721}
+  leftWheels: {fileID: 1247060822296601449}
+  rightWheels: {fileID: 8180442091224456892}
 --- !u!114 &4050347290197439323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,10 +1817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b176aaf9b683944cbc0d525ef884171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 8394412297602110158}
   rotationSpeed: 20
-  gun: {fileID: 7832845892669389018}
-  elevationSpeed: 20
+  elevationSpeed: 5
   maxElevation: -15
   minDepression: 5
 --- !u!114 &6443488450024926904
@@ -1797,19 +1833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94d445ea6837f547aba351fb8ee5828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8826869862929520300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4907197779143617178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &2709860075585312196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,7 +1862,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellPrefab: {fileID: 1906841560533344986, guid: f7c1e7432a6c088458d7f90a3ed26850, type: 3}
   muzzleFlashPrefab: {fileID: 1354102346965951502, guid: 9020aaa518d14714d9850844633fe53e, type: 3}
-  firePoint: {fileID: 3768505784474602618}
   fireCooldown: 2
 --- !u!114 &6860785457181376146
 MonoBehaviour:
@@ -1880,18 +1902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretVolume: 0.2
---- !u!114 &6592572289570835594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4907197779143617178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 333ecb8bf3829fa4891e7d6612e43f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7383559444388713526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,10 +1914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5cb795aceab2d468a67d46e3ae8f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftTrack: {fileID: 6304974275921283196}
-  rightTrack: {fileID: 7029793447274536721}
-  leftWheels: {fileID: 1247060822296601449}
-  rightWheels: {fileID: 8180442091224456892}
 --- !u!1 &5200393786481424189
 GameObject:
   m_ObjectHideFlags: 0
