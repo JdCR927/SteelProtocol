@@ -5,27 +5,19 @@ namespace SteelProtocol.Controller.AI.Targeting
     public struct Target
     {
         private GameObject target;
-        private Ray raycast;
-        private float distance;
 
-        public Target(GameObject target, Ray raycast, float distance)
+
+        public Target(GameObject target)
         {
             this.target = target;
-            this.raycast = raycast;
-            this.distance = distance;
         }
 
-        // Properties to access the private fields
+
+        // Property to access the private fields
         public GameObject TargetObject { readonly get => target; set => target = value; }
 
-        public Ray Raycast { readonly get => raycast; set => raycast = value; }
 
-        public float Distance { readonly get => distance; set => distance = value; }
-
-
-        // HashSet magical stuff, used to compare things
-
-        // Override the Equals method to compare Target objects
+        // HashSet magical stuff, override the Equals method to compare Target objects
         public override bool Equals(object obj)
         {
             if (obj is Target other)
@@ -35,6 +27,7 @@ namespace SteelProtocol.Controller.AI.Targeting
             return false;
         }
 
+        // I don't even know man, this is just needed for the HashSet to work
         public override int GetHashCode()
         {
             return target != null ? target.GetHashCode() : 0;

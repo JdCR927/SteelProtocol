@@ -38,18 +38,56 @@ namespace SteelProtocol.Controller.AI
         {
             if (target == null) return;
 
-            Vector3 toTarget = (target.transform.position - turret.position).normalized;
-
-            // Horizontal (yaw)
-            Vector3 flatTurretFwd = Vector3.ProjectOnPlane(turret.forward, Vector3.up).normalized;
-            Vector3 flatToTarget = Vector3.ProjectOnPlane(toTarget, Vector3.up).normalized;
-            float yawDelta = Vector3.SignedAngle(flatTurretFwd, flatToTarget, Vector3.up);
-
-            // Vertical (pitch)
-            Vector3 gunForward = muzzle.forward;
-            float pitchDelta = Vector3.SignedAngle(gunForward, toTarget, transform.right);
+            float yawDelta = CalculateYawDelta(target.transform.position, turret.position);
+            float pitchDelta = CalculatePitchDelta(target.transform.position);
 
             lookInput = new Vector2(yawDelta, pitchDelta);
+            
+        }
+
+        public float CalculateYawDelta(Vector3 tgtPosition, Vector3 turPosition)
+        {
+            // Calculate the direction to the target
+            Vector3 toTarget = (tgtPosition - turPosition).normalized;
+
+            // Get the vectors of the turret and the target
+            // on a plane, ignoring the Y axis
+            Vector3 turretFwd = Vector3.ProjectOnPlane(turret.forward, Vector3.up).normalized;
+            Vector3 toTgt = Vector3.ProjectOnPlane(toTarget, Vector3.up).normalized;
+
+            // Return the angle between from turretFwd to toTgt, 
+            // negative if it's to the left and positive if it's to the right
+            float yawDelta = Vector3.SignedAngle(turretFwd, toTgt, Vector3.up);
+
+            return yawDelta;
+        }
+
+        public float CalculatePitchDelta(Vector3 tgtPosition)
+        {
+            // Calculate distance between tank and target
+            float sqrDistance = (tgtPosition - transform.position).sqrMagnitude; 
+
+            // actual distance in units
+            float distance = Mathf.Sqrt(sqrDistance); 
+
+
+            // TODO: PROBAR LO SIGUIENTE
+            // TODO: 5.8f * (30f * distance - 1000f) / 1916.47f;
+            // TODO: Y
+            // TODO: 4f * (30f * distance - 1000f) / 1916.47f;
+            // Apply formula to calculate angle
+            // Many thanks to my brother for this formula
+            float targetAngle = 5.8f * (30f * distance - 1000f) / 1916.47f;
+
+
+            // TODO: REWORK THIS FUCKING MESS, THIS IS LITERALLY JUST A THROW SHIT AT THE WALL AND SEE WHAT STICKS
+            float currentAngle = Vector3.SignedAngle(muzzle.forward, turret.forward, Vector3.up);
+
+            currentAngle *= -1f;
+
+            float pitchDelta = targetAngle - currentAngle;
+            
+            return pitchDelta;
         }
 
 

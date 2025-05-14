@@ -7,6 +7,5 @@ namespace SteelProtocol.Controller.AI.Targeting
     {
         Target CreateTarget(Transform target);
         void DestroyTarget(HashSet<Target> targets, Transform target);
-        GameObject GetClosestTarget(HashSet<Target> targets);
     }
 }

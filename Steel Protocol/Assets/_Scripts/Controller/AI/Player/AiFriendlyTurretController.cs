@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace SteelProtocol.Controller.AI.Enemy
+namespace SteelProtocol.Controller.AI.Friendly
 {
-    public class AiEnemyTurretController : DetectionTrigger
+    public class AiFriendlyTurretController : DetectionTrigger
     {
         // Interface for input handling
         private AiInputBridge input;
@@ -38,9 +38,11 @@ namespace SteelProtocol.Controller.AI.Enemy
             aiming.Aim(input.GetLookInput());
         } 
 
+        
         protected override bool ShouldRegisterTarget(Collider other)
         {
-            return other.CompareTag("Player") || other.CompareTag("Friend");
+            // Return true if the object is tagged as "Enemy"
+            return other.CompareTag("Enemy");
         }
     }
 }

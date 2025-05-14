@@ -34,6 +34,7 @@ namespace SteelProtocol
                 Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f * Time.fixedDeltaTime);
 
+                // TODO Debug.Log($"Shell velocity: {rb.linearVelocity.magnitude}");
             }
         }
 

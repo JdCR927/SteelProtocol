@@ -39,8 +39,8 @@ namespace SteelProtocol.Controller
             gun = GetComponent<TankController>().Muzzle;
 
             // Initialize the yaw and pitch angles based on the current local rotation of the turret and gun
-            yaw = turret.localEulerAngles.y;
-            pitch = gun.localEulerAngles.x;
+            yaw = 0f;
+            pitch = 0f;
         }
 
 

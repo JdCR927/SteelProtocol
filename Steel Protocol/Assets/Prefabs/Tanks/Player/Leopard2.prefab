@@ -1459,7 +1459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5961878131179967928}
   - component: {fileID: 2433910186508941043}
-  - component: {fileID: 7376276528852327949}
+  - component: {fileID: 3996410194832004565}
   - component: {fileID: 7924295387991704969}
   - component: {fileID: 8826869862929520300}
   - component: {fileID: 4179151985384231263}
@@ -1530,7 +1530,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7376276528852327949
+--- !u!65 &3996410194832004565
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
