@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace SteelProtocol.Controller.Weapons
 {
-    [RequireComponent(typeof(IInputSource))]
     public class WeaponController : MonoBehaviour
     {
         // Input interface for firing weapons

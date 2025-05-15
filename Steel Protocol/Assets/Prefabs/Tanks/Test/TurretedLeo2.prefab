@@ -51,7 +51,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 100
+  m_Radius: 200
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &277870316538675233
 GameObject:
@@ -968,8 +968,11 @@ GameObject:
   - component: {fileID: 6483815206184382670}
   - component: {fileID: 5651174790939227540}
   - component: {fileID: 4409676796630264841}
+  - component: {fileID: 4073071375036495532}
   - component: {fileID: 573981543448640966}
   - component: {fileID: 1977755154720345878}
+  - component: {fileID: 5005107196772563815}
+  - component: {fileID: 2687174129343494513}
   m_Layer: 10
   m_Name: TurretedLeo2
   m_TagString: Enemy
@@ -1094,6 +1097,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1de36b819ff4a24aa734d120d52a188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4073071375036495532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263050191901626791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c79b62e78c06d746bc5a417e3fb2a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &573981543448640966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,6 +1137,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2b716f3b9781f46b88853c0a8d5b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5005107196772563815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263050191901626791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4ce5382ae353d46834671b15549dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainWeapon: {fileID: 2687174129343494513}
+  secondaryWeapon: {fileID: 0}
+  tertiaryWeapon: {fileID: 0}
+--- !u!114 &2687174129343494513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263050191901626791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ec0b876c04eb4e9416c0f3a324c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellPrefab: {fileID: 1906841560533344986, guid: f7c1e7432a6c088458d7f90a3ed26850, type: 3}
+  muzzleFlashPrefab: {fileID: 1354102346965951502, guid: 9020aaa518d14714d9850844633fe53e, type: 3}
+  fireCooldown: 2
 --- !u!1 &3286232161168115131
 GameObject:
   m_ObjectHideFlags: 0

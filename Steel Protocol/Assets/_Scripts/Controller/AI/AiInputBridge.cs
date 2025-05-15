@@ -45,6 +45,7 @@ namespace SteelProtocol.Controller.AI
             
         }
 
+
         public float CalculateYawDelta(Vector3 tgtPosition, Vector3 turPosition)
         {
             // Calculate the direction to the target
@@ -62,41 +63,34 @@ namespace SteelProtocol.Controller.AI
             return yawDelta;
         }
 
+        // TODO: REFACTOR THIS FUCKING MESS, THIS IS LITERALLY JUST A THROW SHIT AT THE WALL AND SEE WHAT STICKS
+        // Huge thanks to my brother for lending a helping hand with the mathematics in this method
         public float CalculatePitchDelta(Vector3 tgtPosition)
         {
             // Calculate distance between tank and target
-            float sqrDistance = (tgtPosition - transform.position).sqrMagnitude; 
+            float sqrDistance = (tgtPosition - transform.position).sqrMagnitude;
 
             // actual distance in units
-            float distance = Mathf.Sqrt(sqrDistance); 
+            float distance = Mathf.Sqrt(sqrDistance);
 
-
-            // TODO: PROBAR LO SIGUIENTE
-            // TODO: 5.8f * (30f * distance - 1000f) / 1916.47f;
-            // TODO: Y
-            // TODO: 4f * (30f * distance - 1000f) / 1916.47f;
-            // Apply formula to calculate angle
+            // Formula to calculate the desired angle
             // Many thanks to my brother for this formula
-            float targetAngle = 5.8f * (30f * distance - 1000f) / 1916.47f;
+            float targetAngle = -(5.9f * (30f * distance - 1000f) / 1916.47f);
 
+            // I don't even know
+            float currentAngle = muzzle.localEulerAngles.x;
+            if (currentAngle > 180f) currentAngle -= 360f;
 
-            // TODO: REWORK THIS FUCKING MESS, THIS IS LITERALLY JUST A THROW SHIT AT THE WALL AND SEE WHAT STICKS
-            float currentAngle = Vector3.SignedAngle(muzzle.forward, turret.forward, Vector3.up);
+            float pitchDelta = -(targetAngle - currentAngle);
 
-            currentAngle *= -1f;
-
-            float pitchDelta = targetAngle - currentAngle;
-            
             return pitchDelta;
         }
 
 
-        /* TODO:
-        public void OnAttack1( context)
+        public void OnAttack1(bool fire)
         {
-            fireMain = context.ReadValue<float>() > 0.5f;
+            fireMain = fire;
         }
-        */
 
         /* TODO:
         public void OnAttack2( context)

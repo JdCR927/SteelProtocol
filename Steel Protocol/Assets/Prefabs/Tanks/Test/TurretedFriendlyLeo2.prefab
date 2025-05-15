@@ -2457,8 +2457,11 @@ GameObject:
   - component: {fileID: 1242464823493463186}
   - component: {fileID: 9211294378141134162}
   - component: {fileID: 1405417020458061355}
+  - component: {fileID: 4092058941646802499}
   - component: {fileID: 3353431389562944938}
   - component: {fileID: 8768720239007526738}
+  - component: {fileID: 1253960212097108771}
+  - component: {fileID: 4320225137386039156}
   m_Layer: 9
   m_Name: TurretedFriendlyLeo2
   m_TagString: Friend
@@ -2583,6 +2586,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1de36b819ff4a24aa734d120d52a188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4092058941646802499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898077484374529801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c79b62e78c06d746bc5a417e3fb2a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3353431389562944938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,6 +2626,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bed11877d5bcd46a1d68537c8f33cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1253960212097108771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898077484374529801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4ce5382ae353d46834671b15549dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainWeapon: {fileID: 4320225137386039156}
+  secondaryWeapon: {fileID: 0}
+  tertiaryWeapon: {fileID: 0}
+--- !u!114 &4320225137386039156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898077484374529801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ec0b876c04eb4e9416c0f3a324c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellPrefab: {fileID: 1906841560533344986, guid: f7c1e7432a6c088458d7f90a3ed26850, type: 3}
+  muzzleFlashPrefab: {fileID: 1354102346965951502, guid: 9020aaa518d14714d9850844633fe53e, type: 3}
+  fireCooldown: 2
 --- !u!1 &8274076864729206918
 GameObject:
   m_ObjectHideFlags: 0
