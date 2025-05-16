@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5645789c4c55cd44abde68aed936dd24
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264329
+  packageName: Tank Leopard2
+  packageVersion: 1.0.2
+  assetPath: Assets/Kucher/Tank Leopard2/Materials/LeftTrackMaterial.mat
+  uploadId: 652981
