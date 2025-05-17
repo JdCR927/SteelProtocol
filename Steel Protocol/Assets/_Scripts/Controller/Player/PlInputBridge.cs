@@ -12,6 +12,7 @@ namespace SteelProtocol.Controller.Player
         private bool fireSecondary;
         private bool fireTertiary;
         private bool exitGame;
+        private bool leaveLevel;
 
 
         // Get's the context from the input system and assigns it to the movementInput variable
@@ -67,6 +68,18 @@ namespace SteelProtocol.Controller.Player
         }
 
 
+        public void OnLeave(InputAction.CallbackContext context)
+        {
+            leaveLevel = context.ReadValue<float>() > 0.5f;
+            if (leaveLevel)
+            {
+                // Load overworld scene
+                UnityEngine.SceneManagement.SceneManager.LoadScene(EnumScenes.Overworld.ToString());
+            }
+        }
+
+
+
         // Get's the movement input from the player, specifically the W and S keys
         // Or the vertical movement of the left joystick for forward and backward movement
         public float GetForwardInput() => movementInput.y;
@@ -91,7 +104,5 @@ namespace SteelProtocol.Controller.Player
 
         // Get's the fire input from the player, specifically the middle mouse button (Or left shoulder)
         public bool IsFiringTer() => fireTertiary;
-
-        public bool IsExiting() => exitGame;
     }
 }
