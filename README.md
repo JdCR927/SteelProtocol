@@ -2,9 +2,9 @@
 
 #### Indice
 
-- [Como descargar](https://github.com/JdCR927/SteelProtocol/edit/main/README.md#como-descargar)
-- [Controles de teclado](https://github.com/JdCR927/SteelProtocol/edit/main/README.md#controles-de-teclado)
-- [Controles de mando](https://github.com/JdCR927/SteelProtocol/edit/main/README.md#controles-de-mando)
+- [Como descargar](https://github.com/JdCR927/SteelProtocol?tab=readme-ov-file#como-descargar)
+- [Controles de teclado](https://github.com/JdCR927/SteelProtocol?tab=readme-ov-file#controles-de-teclado)
+- [Controles de mando](https://github.com/JdCR927/SteelProtocol?tab=readme-ov-file#controles-de-mando)
 
 ## Como descargar
 
@@ -61,5 +61,7 @@ Triangulo (Playstation) / Y (XBox) / X (Switch) - Disparar arma terciaria // SIN
 Cuadrado (Playstation) / X (XBox) / Y (Switch) - Movimiento especial // SIN IMPLEMENTAR //
 
 START - Salir
+
+SELECT - Salir del mundo
 
 SELECT - Salir del mundo
