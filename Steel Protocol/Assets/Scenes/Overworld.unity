@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 115421685}
   - component: {fileID: 115421684}
   - component: {fileID: 115421683}
+  - component: {fileID: 115421688}
   - component: {fileID: 115421682}
   m_Layer: 0
   m_Name: OutOfBounds
@@ -603,6 +604,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &115421688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115421681}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10000, y: 10000, z: 10000}
+  m_Center: {x: 0, y: -5010, z: 0}
 --- !u!1 &440944179
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +641,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!154 &440944180
 TerrainCollider:
@@ -1599,6 +1621,7 @@ SceneRoots:
   - {fileID: 441090314}
   - {fileID: 1347142526}
   - {fileID: 440944182}
+  - {fileID: 115421687}
   - {fileID: 2267805072490521512}
   - {fileID: 1718222582}
   - {fileID: 375317647842438318}
@@ -1608,4 +1631,3 @@ SceneRoots:
   - {fileID: 93224407}
   - {fileID: 24967991}
   - {fileID: 1514450752}
-  - {fileID: 115421687}

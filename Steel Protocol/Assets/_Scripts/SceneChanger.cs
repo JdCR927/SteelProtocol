@@ -22,8 +22,11 @@ namespace SteelProtocol
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            // Trigger the fade-from-black animation when the new scene is loaded
-            transition.SetTrigger("End");
+            AnimatorStateInfo currentState = transition.GetCurrentAnimatorStateInfo(0);
+            if (!currentState.IsName("Crossfade_End"))
+            {
+                transition.SetTrigger("End");
+            }
         }
 
 
@@ -32,15 +35,18 @@ namespace SteelProtocol
         // How to make AWESOME Scene Transitions in Unity! - https://www.youtube.com/watch?v=CE9VOZivb3I
         public static IEnumerator LoadScene(string sceneName)
         {
-            // Play the animation
-            Instance.transition.SetTrigger("Start");
+            AnimatorStateInfo currentState = Instance.transition.GetCurrentAnimatorStateInfo(0);
+            if (!currentState.IsName("Crossfade_Start"))
+            {
+                // Play the animation
+                Instance.transition.SetTrigger("Start");
 
-            // Wait for the animation to finish
-            yield return new WaitForSeconds(3);
+                // Wait for the animation to finish
+                yield return new WaitForSeconds(3);
 
-            // Load the scene
-            SceneManager.LoadScene(sceneName);
+                // Load the scene
+                SceneManager.LoadScene(sceneName);
+            }
         }
-
     }
 }
