@@ -1,21 +1,46 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SteelProtocol
 {
-    // Many thanks to MetalStorm Games for the awesome tutorial 
-    // On how to easily change scenes in Unity
-    // Unity Basics - How to switch Scenes (Levels) - https://www.youtube.com/watch?v=ztJPnBpae_0
-    public class SceneChanger : MonoBehaviour
+    public class SceneChanger : Singleton<SceneChanger>
     {
-        [SerializeField] private EnumScenes sceneToLoad;
+        [SerializeField] private Animator transition;
 
-        public void OnTriggerEnter(Collider other)
+
+        protected override void Awake()
         {
-            if (other.CompareTag("Player"))
-            {
-                // Load the next scene
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad.ToString());
-            }
+            base.Awake();
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            // Trigger the fade-from-black animation when the new scene is loaded
+            transition.SetTrigger("End");
+        }
+
+
+        // Many thanks to Brackeys for the great tutorial
+        // On transition animations for Unity
+        // How to make AWESOME Scene Transitions in Unity! - https://www.youtube.com/watch?v=CE9VOZivb3I
+        public static IEnumerator LoadScene(string sceneName)
+        {
+            // Play the animation
+            Instance.transition.SetTrigger("Start");
+
+            // Wait for the animation to finish
+            yield return new WaitForSeconds(3);
+
+            // Load the scene
+            SceneManager.LoadScene(sceneName);
+        }
+
     }
 }

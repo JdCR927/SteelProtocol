@@ -74,7 +74,7 @@ namespace SteelProtocol.Controller.Player
             if (leaveLevel)
             {
                 // Load overworld scene
-                UnityEngine.SceneManagement.SceneManager.LoadScene(EnumScenes.Overworld.ToString());
+                StartCoroutine(SceneChanger.LoadScene(EnumScenes.Overworld.ToString()));
             }
         }
 
