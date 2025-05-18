@@ -1,0 +1,34 @@
+[
+    {
+        "id": "standardDrive",
+        "name": "Standard Drive",
+        "traverseSpeed": 20.0,
+        "elevationSpeed": 20.0,
+        "weight": 75.0,
+        "description": "The standard and reliable turret drive system created by Deltatek Instruments for use on their M3 Stuart tanks, providing a balance of speed and control."
+    },
+    {
+        "id": "standardDriveMk2",
+        "name": "Standard Drive Mk.2",
+        "traverseSpeed": 25.0,
+        "elevationSpeed": 25.0,
+        "weight": 80.0,
+        "description": "A further upgrade of the standard drive, found a huge success in all countries for it's enhanced speed at a marginal increase in weight."
+    },
+    {
+        "id": "heavyDrive",
+        "name": "Heavy Drive",
+        "traverseSpeed": 15.0,
+        "elevationSpeed": 15.0,
+        "weight": 100.0,
+        "description": "A heavy-duty drive system developed in NII \"Sever-S\", providing a balance of speed and control."
+    },
+    {
+        "id": "precisionDrive",
+        "name": "Precision Drive",
+        "traverseSpeed": 10.0,
+        "elevationSpeed": 10.0,
+        "weight": 90.0,
+        "description": "A specialized drive system designed for precision targeting created by Taniguchi Keiki, allowing for more accurate aiming and firing."
+    }
+]
