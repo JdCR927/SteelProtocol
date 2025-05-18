@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - FriendProjectile
   - EnemyProjectile
+  - Level
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX

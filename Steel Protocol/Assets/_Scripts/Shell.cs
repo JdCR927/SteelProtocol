@@ -1,5 +1,5 @@
 using UnityEngine;
-using SteelProtocol.Controller;
+using SteelProtocol.Controller.Tank.Common.HP;
 
 namespace SteelProtocol
 {
