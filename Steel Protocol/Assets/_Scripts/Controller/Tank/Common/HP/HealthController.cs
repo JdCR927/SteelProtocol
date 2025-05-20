@@ -1,17 +1,38 @@
 using UnityEngine;
-using UnityEngine.Events;
+using SteelProtocol.Data.Armor;
+using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Tank.Common.HP
 {
     public class HealthController: MonoBehaviour
     {
+        public TankConfigManager configManager;
+
+
         [HideInInspector]
-        public float health = 100f;
+        public float health;
         private float currentHealth;
 
 
         public void Awake()
         {
+            configManager = GetComponentInParent<TankConfigManager>();
+        }
+
+
+        public void Start()
+        {
+            // Initialize the health based on the current armor data
+            var data = configManager.CurrentArmorData;
+            if (data != null)
+                Initialize(data);
+        }
+
+
+        public void Initialize(ArmorData data)
+        {
+            // Sets the health to the maximum value defined in the armor data
+            health = data.health;
             currentHealth = health;
         }
 

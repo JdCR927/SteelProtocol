@@ -11,7 +11,7 @@
         "id": "standardDriveMk2",
         "name": "Standard Drive Mk.2",
         "traverseSpeed": 25.0,
-        "elevationSpeed": 25.0,
+        "elevationSpeed": 20.0,
         "weight": 80.0,
         "description": "A further upgrade of the standard drive, found a huge success in all countries for it's enhanced speed at a marginal increase in weight."
     },

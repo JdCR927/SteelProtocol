@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class ShellManager
+// TODO
+public class ShellManager : MonoBehaviour
 {
-    
+
 }

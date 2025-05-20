@@ -1,4 +1,6 @@
 using UnityEngine;
+using SteelProtocol.Data.Turret;
+using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Tank.Common.Turret
 {
@@ -6,14 +8,16 @@ namespace SteelProtocol.Controller.Tank.Common.Turret
     [AddComponentMenu("")]
     public class TurretController : MonoBehaviour
     {
+        private TankConfigManager configManager;
+
         private Transform turret;
         private Transform gun;
 
         [HideInInspector]
-        public float traverseSpeed = 20f;
+        public float traverseSpeed;
 
         [HideInInspector]
-        public float elevationSpeed = 20f;
+        public float elevationSpeed;
         
         private readonly float maxElevation = -15f;
         private readonly float minDepression = 5f;
@@ -24,12 +28,29 @@ namespace SteelProtocol.Controller.Tank.Common.Turret
 
         private void Awake()
         {
+            configManager = GetComponentInParent<TankConfigManager>();
+
             turret = GetComponent<TankController>().Turret;
             gun = GetComponent<TankController>().Muzzle;
 
             // Initialize the yaw and pitch angles based on the current local rotation of the turret and gun
             yaw = turret.localRotation.eulerAngles.y;
             pitch = gun.localRotation.eulerAngles.x;
+        }
+
+
+        private void Start()
+        {
+            var data = configManager.CurrentTurretData;
+            if (data != null)
+                Initialize(data);
+        }
+
+
+        public void Initialize(TurretData data)
+        {
+            traverseSpeed = data.traverseSpeed;
+            elevationSpeed = data.elevationSpeed;
         }
 
 

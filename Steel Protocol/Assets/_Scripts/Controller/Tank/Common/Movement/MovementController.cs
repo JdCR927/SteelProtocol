@@ -1,4 +1,7 @@
 using UnityEngine;
+using SteelProtocol.Data.Engine;
+using SteelProtocol.Data.Track;
+using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Tank.Common.Movement
 {
@@ -7,16 +10,19 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
     [AddComponentMenu("")]
     public class MovementController : MonoBehaviour
     {
+        private TankConfigManager configManager;
+
+
         // Maximum forward/backward speed in units per second
         // Can in theory be surpassed if the tank were to be pushed by another object
         // Or if the tank were to be on a slope
-        [HideInInspector] public float maxSpeed = 10f;
+        [HideInInspector] public float maxSpeed;
 
-        [HideInInspector] public float acceleration = 10f;
+        [HideInInspector] public float acceleration;
 
-        [HideInInspector] public float deceleration = 10f;
+        [HideInInspector] public float deceleration;
 
-        [HideInInspector] public float rotationSpeed = 30f;
+        [HideInInspector] public float rotationSpeed;
 
         private Rigidbody rb;
         private float currentSpeed = 0f;
@@ -24,7 +30,29 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
 
         private void Awake()
         {
+            configManager = GetComponentInParent<TankConfigManager>();
+
             rb = GetComponentInParent<Rigidbody>();
+        }
+
+
+        private void Start()
+        {
+            var engineData = configManager.CurrentEngineData;
+            var trackData = configManager.CurrentTrackData;
+
+            if (engineData != null && trackData != null)
+                Initialize(engineData, trackData);
+        }
+
+
+        public void Initialize(EngineData engineData, TrackData trackData)
+        {
+            maxSpeed = engineData.maxSpeed;
+            acceleration = engineData.acceleration;
+            deceleration = engineData.deceleration;
+
+            rotationSpeed = trackData.rotationSpeed;
         }
 
 
