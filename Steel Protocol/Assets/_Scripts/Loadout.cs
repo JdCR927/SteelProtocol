@@ -22,7 +22,7 @@ namespace SteelProtocol
 // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
     public enum ShellType
     {
-        armorPiercing,
+        armorPiercing
     }
 
     // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
@@ -53,7 +53,7 @@ namespace SteelProtocol
 
             configManager.SetArmorById(armorId.ToString());
             configManager.SetEngineById(engineId.ToString());
-            // TODO: configManager.SetShellById(shellId.ToString());
+            configManager.SetShellById(shellId.ToString());
             configManager.SetTurretById(turretId.ToString());
         }
     }

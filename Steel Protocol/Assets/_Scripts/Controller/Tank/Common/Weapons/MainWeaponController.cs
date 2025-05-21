@@ -1,29 +1,25 @@
-using SteelProtocol.Manager;
 using UnityEngine;
+using SteelProtocol.Manager;
+using SteelProtocol.Data.Shell;
 
 namespace SteelProtocol.Controller.Tank.Common.Weapons
 {
     [RequireComponent(typeof(WeaponController))]
     public class MainWeaponController : MonoBehaviour
     {
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        // ToDo: Investigate a way to get the shell prefab without manually dragging it in the inspector //
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        // The prefab for the shell that will be fired
-        [SerializeField] private GameObject shellPrefab;
+        private TankConfigManager configManager;
 
-        // The prefab for the muzzle flash effect
-        [SerializeField] private GameObject muzzleFlashPrefab;
+        private GameObject shellPrefab;
+        private GameObject muzzleFlashPrefab;
 
-        // The point from which the shell will be fired
-        // This should be a child of the muzzle/cannon
         private Transform firingPoint;
-        
-        /////////////////////////////////////////////////////////////////////
-        // ToDo: Get the cooldown from somewhere else, just like the force //
-        /////////////////////////////////////////////////////////////////////
-        // The cooldown time between shots, in seconds
-        [SerializeField] private float fireCooldown = 2f;
+
+        // TODO Ammo and reload time are not used yet
+        //private float ammo;
+        private float fireCooldown;
+        //private float reloadTime;
+        private float shellVelocity;
+
 
         // The cooldown timer for the weapon, initialized to 0
         private float cooldownTimer;
@@ -31,9 +27,25 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
         public void Awake()
         {
+            configManager = GetComponentInParent<TankConfigManager>();
+
             // Get the fire point from TankController
             firingPoint = GetComponent<TankController>().FiringPoint;
         }
+
+
+        public void Initialize(ShellData data)
+        {
+            shellPrefab = Resources.Load<GameObject>($"Prefabs/Shells/{data.model}");
+            muzzleFlashPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.muzzleEffect}");
+
+            // TODO Ammo and reload time are not used yet
+            //ammo = data.ammo;
+            fireCooldown = data.cooldown;
+            //reloadTime = data.reloadTime;
+            shellVelocity = data.velocity;
+        }
+
 
         private void Update()
         {
@@ -98,15 +110,15 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             shell.transform.Rotate(-90, 0, 0);
 
 
-            // Add force to shoot it forward
-            // Also, not gonna lie to you chief, the IDE did whatever this If condition is. Thank it, because I have no idea exactly what it does
+            if (shell.TryGetComponent<Shell>(out var shellScript))
+            {
+                shellScript.Initialize(configManager.CurrentShellData);
+            }
+
+
             if (shell.TryGetComponent<Rigidbody>(out var rb))
             {
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                // ToDo: Change the hardcoded value for a variable. Force/Speed will be extracted from... somewhere (JSON maybe? Structs I guess?) //
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                float shootForce = 3000f;
-                rb.AddForce(firingPoint.forward * shootForce);
+                rb.AddForce(firingPoint.forward * shellVelocity);
             }
         }
     }

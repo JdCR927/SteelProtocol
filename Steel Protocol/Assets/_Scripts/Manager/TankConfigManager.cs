@@ -4,6 +4,7 @@ using SteelProtocol.Data.Engine;
 using SteelProtocol.Data.Shell;
 using SteelProtocol.Data.Track;
 using SteelProtocol.Data.Turret;
+using SteelProtocol.Controller.Tank.Common.Weapons;
 
 namespace SteelProtocol.Manager
 {
@@ -32,7 +33,7 @@ namespace SteelProtocol.Manager
 
             armorManager.LoadData();
             engineManager.LoadData();
-            //shellManager.LoadData();
+            shellManager.LoadData();
             trackManager.LoadData();
             turretManager.LoadData();
         }
@@ -47,12 +48,18 @@ namespace SteelProtocol.Manager
             CurrentEngineData = engineManager.GetEngineById(id);
         }
 
-        /* TODO: Uncomment when shell data is available
         public void SetShellById(string id)
         {
             CurrentShellData = shellManager.GetShellById(id);
+
+            // This is fucking retarded, fuck the load order in Unity
+            var weapon = GetComponentInChildren<MainWeaponController>();
+
+            if (CurrentShellData != null && weapon != null)
+            {
+                weapon.Initialize(CurrentShellData);
+            }
         }
-        */
 
         public void SetTrackById(string id)
         {

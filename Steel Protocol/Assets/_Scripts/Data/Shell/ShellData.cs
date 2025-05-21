@@ -6,6 +6,9 @@ namespace SteelProtocol.Data.Shell
         public string id;
         public string name;
         public float damage;
+        public float ammo;
+        public float cooldown;
+        public float reloadTime;
         public float velocity;
         public int weight;
         public string model;
