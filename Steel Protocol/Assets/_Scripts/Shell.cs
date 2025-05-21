@@ -8,8 +8,8 @@ namespace SteelProtocol
 {
     public class Shell : MonoBehaviour
     {
-        [HideInInspector] public GameObject explosionPrefab;
-        [HideInInspector] public float damage = 20f;
+        private GameObject explosionPrefab;
+        private float damage;
 
 
         private Rigidbody rb;
@@ -49,18 +49,20 @@ namespace SteelProtocol
         private void OnCollisionEnter(Collision collision)
         {
             // Try to deal damage if target has a HealthController
-            var health = collision.collider.GetComponent<HealthController>();
+            var health = collision.collider.GetComponentInChildren<HealthController>();
+
             if (health != null)
             {
                 health.TakeDamage(damage);
             }
+
 
             // Spawns explosion effect
             // Explosion effect credited to "Explosion" by "Gabriel Aguiar Prod." from "EASY EXPLOSIONS in Unity - Particle System vs VFX Graph" https://www.youtube.com/watch?v=adgeiUNlajY
             if (explosionPrefab != null)
             {
                 GameObject vfxExplosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                
+
                 // Destroys the explosion prefab after 8 seconds to avoid memory leaks
                 Destroy(vfxExplosion, 8f);
             }

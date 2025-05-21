@@ -6,32 +6,12 @@ namespace SteelProtocol.Controller.Tank.Common.HP
 {
     public class HealthController: MonoBehaviour
     {
-        public TankConfigManager configManager;
-
-
-        [HideInInspector]
-        public float health;
+        private float health;
         private float currentHealth;
-
-
-        public void Awake()
-        {
-            configManager = GetComponentInParent<TankConfigManager>();
-        }
-
-
-        public void Start()
-        {
-            // Initialize the health based on the current armor data
-            var data = configManager.CurrentArmorData;
-            if (data != null)
-                Initialize(data);
-        }
 
 
         public void Initialize(ArmorData data)
         {
-            // Sets the health to the maximum value defined in the armor data
             health = data.health;
             currentHealth = health;
         }
@@ -41,13 +21,13 @@ namespace SteelProtocol.Controller.Tank.Common.HP
         public void TakeDamage(float damage)
         {
             // Makes the tank kinematic to avoid physics interactions while applying damage
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
 
             // Applies damage to the current health
             currentHealth -= damage;
 
             // Makes the tank non-kinematic again to allow physics interactions
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
 
             // Checks for death
             if (currentHealth <= 0)
@@ -65,7 +45,7 @@ namespace SteelProtocol.Controller.Tank.Common.HP
             // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution //
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Destroys the game object
-            Destroy(gameObject); 
+            Destroy(transform.root.gameObject); 
         }
     }
 }

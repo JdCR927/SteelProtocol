@@ -167,13 +167,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3141716843622848402, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
+      propertyPath: armorId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
       propertyPath: m_Name
       value: DumbLeo2 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -218,7 +222,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dummy Tanks (Disabled due to JSON testing, available in version 4.0)
+  m_text: Dummy Tanks (From left to right. Normal armor (100), Medium (150), and
+    Light (75)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -354,7 +359,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.2, y: 30}
-  m_SizeDelta: {x: 100, y: 5}
+  m_SizeDelta: {x: 126, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &330585543
 GameObject:
@@ -1070,13 +1075,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3141716843622848402, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
+      propertyPath: armorId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
       propertyPath: m_Name
       value: DumbLeo2 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1191,10 +1200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DumbLeo2
       objectReference: {fileID: 0}
-    - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1208,6 +1213,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1709059525242578190, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
+      propertyPath: trackId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4907197779143617178, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_Name
       value: Leopard2

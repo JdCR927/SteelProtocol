@@ -25,6 +25,15 @@ namespace SteelProtocol
         armorPiercing
     }
 
+
+    // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
+    public enum TrackType
+    {
+        normalTracks,
+        fastTracks,
+        highGripTracks
+    }
+
     // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
     public enum TurretType
     {
@@ -43,6 +52,8 @@ namespace SteelProtocol
         // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
         public ShellType shellId = ShellType.armorPiercing;
         // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
+        public TrackType trackId = TrackType.normalTracks;
+        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
         public TurretType turretId = TurretType.standardDrive;
 
         private TankConfigManager configManager;
@@ -54,6 +65,7 @@ namespace SteelProtocol
             configManager.SetArmorById(armorId.ToString());
             configManager.SetEngineById(engineId.ToString());
             configManager.SetShellById(shellId.ToString());
+            configManager.SetTrackById(trackId.ToString());
             configManager.SetTurretById(turretId.ToString());
         }
     }
