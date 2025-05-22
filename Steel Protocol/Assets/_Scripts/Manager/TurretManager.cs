@@ -6,7 +6,7 @@ namespace SteelProtocol.Manager
     public class TurretManager : MonoBehaviour
     {
         private TurretData[] turrets;
-        
+
 
         public void LoadData()
         {

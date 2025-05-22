@@ -1,7 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Data.Engine;
 using SteelProtocol.Data.Track;
-using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Tank.Common.Movement
 {

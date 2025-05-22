@@ -1,5 +1,9 @@
 using UnityEngine;
 using SteelProtocol.Manager;
+using SteelProtocol.Controller.Tank.Common.HP;
+using SteelProtocol.Controller.Tank.Common.Movement;
+using SteelProtocol.Controller.Tank.Common.Weapons;
+using SteelProtocol.Controller.Tank.Common.Turret;
 
 namespace SteelProtocol
 {
@@ -62,11 +66,30 @@ namespace SteelProtocol
         {
             configManager = GetComponent<TankConfigManager>();
 
-            configManager.SetArmorById(armorId.ToString());
-            configManager.SetEngineById(engineId.ToString());
-            configManager.SetShellById(shellId.ToString());
-            configManager.SetTrackById(trackId.ToString());
-            configManager.SetTurretById(turretId.ToString());
+            if (GetComponentInChildren<HealthController>() != null)
+                configManager.SetArmorById(armorId.ToString());
+            else
+                Debug.LogWarning(name + ": HealthController not found, skipping armor initialization.");
+
+            if (GetComponentInChildren<MovementController>() != null)
+                configManager.SetEngineById(engineId.ToString());
+            else
+                Debug.LogWarning(name + ": MovementController not found, skipping engine initialization.");
+
+            if (GetComponentInChildren<MainWeaponController>() != null)
+                configManager.SetShellById(shellId.ToString());
+            else
+                Debug.LogWarning(name + ": MainWeaponController not found, skipping shell initialization.");
+
+            if (GetComponentInChildren<MovementController>() != null)
+                configManager.SetTrackById(trackId.ToString());
+            else
+                Debug.LogWarning(name + ": MovementController not found, skipping track initialization.");
+
+            if (GetComponentInChildren<TurretController>() != null)
+                configManager.SetTurretById(turretId.ToString());
+            else
+                Debug.LogWarning(name + ": TurretController not found, skipping turret initialization.");
         }
     }
 

@@ -1,11 +1,8 @@
 using UnityEngine;
 using SteelProtocol.Data.Turret;
-using SteelProtocol.Manager;
 
 namespace SteelProtocol.Controller.Tank.Common.Turret
 {
-    [DisallowMultipleComponent]
-    [AddComponentMenu("")]
     public class TurretController : MonoBehaviour
     {
         private Transform turret;

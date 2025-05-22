@@ -9,6 +9,8 @@ using SteelProtocol.Controller.Tank.Common.Turret;
 using SteelProtocol.Controller.Tank.Common.Movement;
 using SteelProtocol.Controller.Tank.Common.HP;
 
+// TODO: REMOVE ALL THE DEBUG LOGS, INSTEAD CHANGE THEM FOR SOMETHING MORE ELEGANT AND LESS FUCKING STUPID TO LOOK AT
+
 namespace SteelProtocol.Manager
 {
     public class TankConfigManager : MonoBehaviour
@@ -37,44 +39,38 @@ namespace SteelProtocol.Manager
 
 
             if (armorManager == null)
-                Debug.LogWarning("ArmorManager not found on TankConfigManager.");
+                Debug.LogWarning(name + ": ArmorManager not found on TankConfigManager.");
             else
                 armorManager.LoadData();
 
             if (engineManager == null)
-                Debug.LogWarning("EngineManager not found on TankConfigManager.");
+                Debug.LogWarning(name + ": EngineManager not found on TankConfigManager.");
             else
                 engineManager.LoadData();
 
             if (shellManager == null)
-                Debug.LogWarning("ShellManager not found on TankConfigManager.");
+                Debug.LogWarning(name + ": ShellManager not found on TankConfigManager.");
             else
                 shellManager.LoadData();
 
             if (trackManager == null)
-                Debug.LogWarning("TrackManager not found on TankConfigManager.");
+                Debug.LogWarning(name + ": TrackManager not found on TankConfigManager.");
             else
                 trackManager.LoadData();
 
             if (turretManager == null)
-                Debug.LogWarning("TurretManager not found on TankConfigManager.");
+                Debug.LogWarning(name + ": TurretManager not found on TankConfigManager.");
             else
                 turretManager.LoadData();
         }
 
         public void SetArmorById(string id)
         {
-            if (armorManager == null)
-            {
-                Debug.LogWarning("ArmorManager not found on TankConfigManager.");
-                return;
-            }
-
             CurrentArmorData = armorManager.GetArmorById(id);
 
             var armor = GetComponentInChildren<HealthController>();
 
-            if (CurrentArmorData != null)
+            if (CurrentArmorData != null && armor != null)
             {
                 armor.Initialize(CurrentArmorData);
             }
@@ -82,17 +78,11 @@ namespace SteelProtocol.Manager
 
         public void SetEngineById(string id)
         {
-            if (engineManager == null)
-            {
-                Debug.LogWarning("EngineManager not found on TankConfigManager.");
-                return;
-            }
-
             CurrentEngineData = engineManager.GetEngineById(id);
 
             var engine = GetComponentInChildren<MovementController>();
 
-            if (CurrentEngineData != null)
+            if (CurrentEngineData != null && engine != null)
             {
                 engine.InitializeEngine(CurrentEngineData);
             }
@@ -100,12 +90,6 @@ namespace SteelProtocol.Manager
 
         public void SetShellById(string id)
         {
-            if (shellManager == null)
-            {
-                Debug.LogWarning("ShellManager not found on TankConfigManager.");
-                return;
-            }
-
             CurrentShellData = shellManager.GetShellById(id);
 
             // This is fucking retarded, fuck the load order in Unity
@@ -119,16 +103,11 @@ namespace SteelProtocol.Manager
 
         public void SetTrackById(string id)
         {
-            if (trackManager == null)
-            {
-                Debug.LogWarning("TrackManager not found on TankConfigManager");
-            }
-
             CurrentTrackData = trackManager.GetTrackById(id);
 
             var track = GetComponentInChildren<MovementController>();
 
-            if (CurrentTrackData != null)
+            if (CurrentTrackData != null && track != null)
             {
                 track.InitializeTrack(CurrentTrackData);
             }
@@ -136,20 +115,15 @@ namespace SteelProtocol.Manager
 
         public void SetTurretById(string id)
         {
-            if (turretManager == null)
-            {
-                Debug.LogWarning("TurretManager not found on TankConfigManager");
-            }
-
             CurrentTurretData = turretManager.GetTurretById(id);
 
             var turret = GetComponentInChildren<TurretController>();
 
-            if (CurrentTurretData != null)
+            if (CurrentTurretData != null && turret != null)
             {
                 turret.Initialize(CurrentTurretData);
             }
         }
-    
+
     }
 }

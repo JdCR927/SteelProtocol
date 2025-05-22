@@ -23,8 +23,4 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             // ToDo: Implement
         }
     }
-
-    //////////////////////////////////////
-    // ToDo: Implement this when needed //
-    //////////////////////////////////////
 }
