@@ -1,20 +1,17 @@
 using UnityEngine;
+using SteelProtocol.Manager;
+using SteelProtocol.Data.Shell;
 using SteelProtocol.Controller.Tank.Common.HP;
+
 
 namespace SteelProtocol
 {
     public class Shell : MonoBehaviour
     {
-        // The prefab for the explosion effect
-        public GameObject explosionPrefab;
+        private GameObject explosionPrefab;
+        private float damage;
 
-        ////////////////////////////////////////////////
-        // ToDo: Get shell damage from somewhere else //
-        ////////////////////////////////////////////////
-        // Damage dealt by the shell on impact
-        [SerializeField] private float damage = 20f;
 
-        // The Rigidbody component attached to the shell
         private Rigidbody rb;
 
 
@@ -22,6 +19,14 @@ namespace SteelProtocol
         {
             // Get the Rigidbody component attached to the shell
             rb = GetComponent<Rigidbody>();
+        }
+
+
+        public void Initialize(ShellData data)
+        {
+            damage = data.damage;
+
+            explosionPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.explosionEffect}");
         }
 
 
@@ -33,8 +38,6 @@ namespace SteelProtocol
             {
                 Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f * Time.fixedDeltaTime);
-
-                // TODO Debug.Log($"Shell velocity: {rb.linearVelocity.magnitude}");
             }
         }
 
@@ -46,18 +49,20 @@ namespace SteelProtocol
         private void OnCollisionEnter(Collision collision)
         {
             // Try to deal damage if target has a HealthController
-            var health = collision.collider.GetComponent<HealthController>();
+            var health = collision.collider.GetComponentInChildren<HealthController>();
+
             if (health != null)
             {
                 health.TakeDamage(damage);
             }
+
 
             // Spawns explosion effect
             // Explosion effect credited to "Explosion" by "Gabriel Aguiar Prod." from "EASY EXPLOSIONS in Unity - Particle System vs VFX Graph" https://www.youtube.com/watch?v=adgeiUNlajY
             if (explosionPrefab != null)
             {
                 GameObject vfxExplosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                
+
                 // Destroys the explosion prefab after 8 seconds to avoid memory leaks
                 Destroy(vfxExplosion, 8f);
             }

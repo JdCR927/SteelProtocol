@@ -1,17 +1,17 @@
 using UnityEngine;
-using UnityEngine.Events;
+using SteelProtocol.Data.Armor;
 
 namespace SteelProtocol.Controller.Tank.Common.HP
 {
     public class HealthController: MonoBehaviour
     {
-        [HideInInspector]
-        public float health = 100f;
+        private float health;
         private float currentHealth;
 
 
-        public void Awake()
+        public void Initialize(ArmorData data)
         {
+            health = data.health;
             currentHealth = health;
         }
 
@@ -20,13 +20,13 @@ namespace SteelProtocol.Controller.Tank.Common.HP
         public void TakeDamage(float damage)
         {
             // Makes the tank kinematic to avoid physics interactions while applying damage
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
 
             // Applies damage to the current health
             currentHealth -= damage;
 
             // Makes the tank non-kinematic again to allow physics interactions
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
 
             // Checks for death
             if (currentHealth <= 0)
@@ -44,7 +44,7 @@ namespace SteelProtocol.Controller.Tank.Common.HP
             // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution //
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Destroys the game object
-            Destroy(gameObject); 
+            Destroy(transform.root.gameObject); 
         }
     }
 }

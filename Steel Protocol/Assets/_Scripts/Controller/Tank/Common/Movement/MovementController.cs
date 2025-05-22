@@ -1,4 +1,6 @@
 using UnityEngine;
+using SteelProtocol.Data.Engine;
+using SteelProtocol.Data.Track;
 
 namespace SteelProtocol.Controller.Tank.Common.Movement
 {
@@ -10,13 +12,10 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
         // Maximum forward/backward speed in units per second
         // Can in theory be surpassed if the tank were to be pushed by another object
         // Or if the tank were to be on a slope
-        [HideInInspector] public float maxSpeed = 10f;
-
-        [HideInInspector] public float acceleration = 10f;
-
-        [HideInInspector] public float deceleration = 10f;
-
-        [HideInInspector] public float rotationSpeed = 30f;
+        private float maxSpeed;
+        private float acceleration;
+        private float deceleration;
+        private float rotationSpeed;
 
         private Rigidbody rb;
         private float currentSpeed = 0f;
@@ -25,6 +24,20 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
         private void Awake()
         {
             rb = GetComponentInParent<Rigidbody>();
+        }
+
+
+        public void InitializeEngine(EngineData engineData)
+        {
+            maxSpeed = engineData.maxSpeed;
+            acceleration = engineData.acceleration;
+            deceleration = engineData.deceleration;
+        }
+
+
+        public void InitializeTrack(TrackData trackData)
+        {
+            rotationSpeed = trackData.rotationSpeed;
         }
 
 

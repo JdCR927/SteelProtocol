@@ -8,7 +8,7 @@ namespace SteelProtocol.Controller.Tank.AI.Targeting
         public Target CreateTarget(Transform target)
         {
             // Creates and returns new target
-            return new Target (target.gameObject);
+            return new Target(target.gameObject);
         }
 
 

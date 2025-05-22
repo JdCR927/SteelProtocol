@@ -68,7 +68,8 @@ namespace SteelProtocol.Controller.Tank.AI
         public float CalculatePitchDelta(Vector3 tgtPosition)
         {
             // Calculate distance between tank and target
-            float sqrDistance = (tgtPosition - transform.position).sqrMagnitude;
+            // It has to be the parent's position (The tank gameobject, not the _InternalScripts gameobject) if you want this to work and not fuck up
+            float sqrDistance = (tgtPosition - transform.parent.position).sqrMagnitude;
 
             // actual distance in units
             float distance = Mathf.Sqrt(sqrDistance);

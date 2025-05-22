@@ -1,0 +1,23 @@
+[
+    {
+        "id": "normalArmor",
+        "name": "Normal Armor",
+        "health": 100.0,
+        "weight": 100.0,
+        "description": "Standard armor made with steel and then riveted to create the hull."
+    },
+    {
+        "id": "mediumArmor",
+        "name": "Medium Armor",
+        "health": 150.0,
+        "weight": 150.0,
+        "description": "Originally made by the Canonerie Nationale de Chaleix, it's made by casting steel into the shape of the hull or another part."
+    },
+    {
+        "id": "lightArmor",
+        "name": "Light Armor",
+        "health": 75.0,
+        "weight": 75.0,
+        "description": "Light armor made with aluminum. Offers little protection, but it makes the tank lighter.."
+    }
+]

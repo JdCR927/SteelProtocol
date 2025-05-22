@@ -10,11 +10,11 @@ namespace SteelProtocol.Controller.Tank.AI.Targeting
 
 
         private void OnTriggerEnter(Collider other)
-        {
+        {            
             // Check if the collider is a trigger
             if (other.isTrigger) return;
 
-            // If it is, check if it is the type of target we want to register
+            // If it isn't, check if it is the type of target we want to register
             if (ShouldRegisterTarget(other))
             {
                 // If it is, create a new target and add it to the targets HashSet

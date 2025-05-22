@@ -1,0 +1,29 @@
+[
+  {
+    "id": "normalEngine",
+    "name": "Normal Engine",
+    "maxSpeed": 10.0,
+    "acceleration": 10.0,
+    "deceleration": 10.0,
+    "weight": 1000.0,
+    "description": "The standard engine created by Antriebssysteme Grunburg, providing a balance of speed and control."
+  },
+  {
+    "id": "engineMk2",
+    "name": "Engine Mk.2",
+    "maxSpeed": 15.0,
+    "acceleration": 10.0,
+    "deceleration": 10.0,
+    "weight": 1200.0,
+    "description": "An upgraded version of the standard engine, offering an improved maximum speed, but with a slight increase in weight."
+  },
+  {
+    "id": "accelerator",
+    "name": "Accelerator",
+    "maxSpeed": 15.0,
+    "acceleration": 15.0,
+    "deceleration": 10.0,
+    "weight": 1250.0,
+    "description": "A specialized variation of the Engine Mk. 2 designed by Halford Motion Technologies for rapid acceleration, allowing for quick bursts of speed."
+  }
+]
