@@ -1,11 +1,11 @@
-using SteelProtocol.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SteelProtocol.Input;
+using SteelProtocol.Scenes;
 
 namespace SteelProtocol.Controller.Tank.Player
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("")]
     public class PlInputBridge : MonoBehaviour, IInputSource
     {
         private Vector2 movementInput;
@@ -64,8 +64,8 @@ namespace SteelProtocol.Controller.Tank.Player
 
             if (exitGame)
             {
-                Debug.Log("Exiting game...");
-                Application.Quit();
+                // Load main menu scene
+                StartCoroutine(SceneChanger.LoadScene(EnumScenes.MainMenu.ToString()));
             }
         }
 
@@ -73,6 +73,7 @@ namespace SteelProtocol.Controller.Tank.Player
         public void OnLeave(InputAction.CallbackContext context)
         {
             leaveLevel = context.ReadValue<float>() > 0.5f;
+
             if (leaveLevel)
             {
                 // Load overworld scene

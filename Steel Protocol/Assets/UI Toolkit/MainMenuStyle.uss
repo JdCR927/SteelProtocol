@@ -1,0 +1,39 @@
+.header {
+    -unity-text-align: upper-center;
+    font-size: 100px;
+    align-items: auto;
+    align-content: auto;
+    color: rgb(255, 255, 255);
+    margin-top: 200px;
+    margin-right: 200px;
+    margin-bottom: 200px;
+    margin-left: 200px;
+}
+
+.button {
+    font-size: 50px;
+    width: 200px;
+    height: 60px;
+    align-self: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    min-width: 200px;
+    min-height: 60px;
+    max-width: 600px;
+    max-height: 180px;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-direction: column;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    letter-spacing: 5px;
+    text-overflow: clip;
+    white-space: normal;
+    overflow: hidden;
+}

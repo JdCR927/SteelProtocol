@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=0aa1108e360a5694a95dcc37c4aa875f&amp;type=3#MainMenuStyle" />
+    <ui:VisualElement name="HeaderContainer" enabled="true" style="flex-grow: 1; flex-direction: column; align-items: center; justify-content: flex-start; align-self: auto; left: 0%; right: auto; position: relative; align-content: auto; width: auto; top: 0%; flex-basis: auto; flex-wrap: wrap; height: auto; background-color: rgb(0, 10, 0);">
+        <ui:Label text="STEEL PROTOCOL" name="Header" class="header" style="white-space: nowrap; align-items: auto; align-content: auto; -unity-text-align: upper-center; top: 80px;" />
+        <ui:Button text="START" name="BtnStart" class="button" style="margin-top: 150px;" />
+        <ui:Button text="SETTINGS" name="BtnSettings" class="button" style="white-space: normal; width: 300px;" />
+        <ui:Button text="EXIT" name="BtnExit" class="button" />
+    </ui:VisualElement>
+</ui:UXML>

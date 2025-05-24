@@ -739,8 +739,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Turret AI Tank (Enemy tank with medium armor and faster traverse, same
-    as the player, friendly tank with light armor and heavy traverse)
+  m_text: Turret AI Tank (Enemy tank with medium armor and faster traverse just like
+    the player, and a friendly tank with light armor and heavy traverse)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

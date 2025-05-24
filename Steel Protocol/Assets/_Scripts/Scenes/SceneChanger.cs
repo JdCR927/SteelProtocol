@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SteelProtocol
+namespace SteelProtocol.Scenes
 {
     public class SceneChanger : Singleton<SceneChanger>
     {
@@ -47,6 +47,12 @@ namespace SteelProtocol
                 // Load the scene
                 SceneManager.LoadScene(sceneName);
             }
+        }
+
+        public static IEnumerator LoadSceneNoTransition(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+            yield break;
         }
     }
 }
