@@ -9,23 +9,38 @@ namespace SteelProtocol.UI.MainMenu
 
         private UIDocument document;
 
-        private Button startButton;
-        private Button settingsButton;
-        private Button exitButton;
-
+        private VisualElement mainMenu, settingsMenu;
+        private Button startButton, settingsButton, returnButton, exitButton;
+        private SliderInt sfxSlider, musicSlider;
 
         private void Awake()
         {
+            // Initialize the UI Document and get references to the UI elements
             document = GetComponent<UIDocument>();
 
+            // Initialize the visual elements
+            mainMenu = document.rootVisualElement.Q<VisualElement>("MainMenuContainer");
+            settingsMenu = document.rootVisualElement.Q<VisualElement>("SettingsContainer");
+
+            // Initialize the buttons
             startButton = document.rootVisualElement.Q<Button>("BtnStart");
             settingsButton = document.rootVisualElement.Q<Button>("BtnSettings");
+            returnButton = document.rootVisualElement.Q<Button>("BtnReturn");
             exitButton = document.rootVisualElement.Q<Button>("BtnExit");
 
+            // Initialize the sliders
+            sfxSlider = document.rootVisualElement.Q<SliderInt>("SfxSlider");
+            musicSlider = document.rootVisualElement.Q<SliderInt>("MusicSlider");
+
+            // Set the initial state of the visual elements
+            mainMenu.style.display = DisplayStyle.Flex;
+            settingsMenu.style.display = DisplayStyle.None;
+
+            // Register callbacks for button clicks
             startButton.RegisterCallback<ClickEvent>(OnStartButtonClicked);
             settingsButton.RegisterCallback<ClickEvent>(OnSettingsButtonClicked);
+            returnButton.RegisterCallback<ClickEvent>(OnSettingsButtonClicked);
             exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
-
         }
 
 
@@ -35,9 +50,36 @@ namespace SteelProtocol.UI.MainMenu
             StartCoroutine(SceneChanger.LoadSceneNoTransition(EnumScenes.Overworld.ToString()));
         }
 
-        private static void OnSettingsButtonClicked(ClickEvent evt)
+        private void OnSettingsButtonClicked(ClickEvent evt)
         {
-            Debug.Log("Settings button clicked!");
+            if (settingsMenu.style.display == DisplayStyle.None)
+            {
+                // Show settings menu
+                settingsMenu.style.display = DisplayStyle.Flex;
+                mainMenu.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                // Hide settings menu
+                settingsMenu.style.display = DisplayStyle.None;
+                mainMenu.style.display = DisplayStyle.Flex;
+            }
+        }
+
+        public void OnReturnButtonClicked(ClickEvent evt)
+        {
+            if (mainMenu.style.display == DisplayStyle.None)
+            {
+                // Hide settings menu
+                settingsMenu.style.display = DisplayStyle.None;
+                mainMenu.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                // Show settings menu
+                settingsMenu.style.display = DisplayStyle.Flex;
+                mainMenu.style.display = DisplayStyle.None;
+            }
         }
 
         private static void OnExitButtonClicked(ClickEvent evt)
