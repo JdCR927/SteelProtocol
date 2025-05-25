@@ -1475,6 +1475,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
+--- !u!114 &1390694681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4057547193998584474, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
+  m_PrefabInstance: {fileID: 4673846703286631561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ec0b876c04eb4e9416c0f3a324c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1489823860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1498,7 @@ GameObject:
   - component: {fileID: 1489823862}
   - component: {fileID: 1489823863}
   - component: {fileID: 1489823864}
+  - component: {fileID: 1489823865}
   m_Layer: 5
   m_Name: HUDUi
   m_TagString: Untagged
@@ -1554,6 +1566,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideDelay: 3
+--- !u!114 &1489823865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489823860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fca8f027f35734da2dc3c9f6991f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1390694681}
 --- !u!1 &1758992442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretedLeo2
       objectReference: {fileID: 0}
+    - target: {fileID: 3263050191901626791, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3706308394626929789, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -1970,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7898077484374529801, guid: 60785623fcc2ac8439dd072005da84d1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8942962198838968704, guid: 60785623fcc2ac8439dd072005da84d1, type: 3}
       propertyPath: m_LocalPosition.x

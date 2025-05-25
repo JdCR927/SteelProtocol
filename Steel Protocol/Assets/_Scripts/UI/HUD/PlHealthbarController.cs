@@ -8,7 +8,7 @@ namespace SteelProtocol.UI.HUD
     // Building Runtime UI with UI Toolkit In Unity - https://www.youtube.com/watch?v=6DcwHPxCE54
     public class PlHealthbarController : MonoBehaviour
     {
-        public HealthController tank;
+        [SerializeField] private HealthController tank;
 
         void OnEnable()
         {

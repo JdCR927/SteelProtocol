@@ -1,5 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/HUDStyle.uss?fileID=7433441132597879392&amp;guid=56699388646672243832f7d8daf23bdd&amp;type=3#HUDStyle" />
-    <HealthBar name="Healthbar" progress="100.4" style="height: 15px; width: 500px;" />
-    <HealthBar name="EnemyHealthbar" progress="100.3" style="display: none;" />
+    <ui:VisualElement name="AmmoContainer" style="flex-grow: 0; align-self: flex-end; flex-direction: row; justify-content: flex-start; align-items: flex-start; flex-shrink: 0; margin-top: 50px;">
+        <AmmoBar name="MainAmmo" class="Ammo" style="height: 15px; align-self: auto;" />
+        <AmmoBar name="SecAmmo" class="Ammo" style="display: none;" />
+        <AmmoBar name="TerAmmo" class="Ammo" style="display: none;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="HealthContainer" style="flex-grow: 0; align-self: flex-start; flex-shrink: 0;">
+        <HealthBar name="Healthbar" progress="100.4" style="height: 15px; width: 500px;" />
+        <HealthBar name="EnemyHealthbar" progress="100.3" style="display: flex;" />
+    </ui:VisualElement>
 </ui:UXML>

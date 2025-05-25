@@ -16,16 +16,21 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
         private Transform firingPoint;
 
-        // TODO Ammo and reload time are not used yet
-        //private float ammo;
+
+        public float CurrentAmmo { get; private set; }
+        public float MaxAmmo { get; private set; }
+        public float ReloadTime { get; private set; }
+        private bool isReloading = false;
+        private float reloadTimer = 0f;
         private float fireCooldown;
-        //private float reloadTime;
+        private float cooldownTimer = 0f;
         private float shellVelocity;
 
-        // The cooldown timer for the weapon, initialized to 0
-        private float cooldownTimer;
-
         public Faction FiringFaction { get; private set; }
+
+
+        public event System.Action<float, float> OnAmmoChanged;
+        public event System.Action<float> OnReloadStarted;
 
 
         public void Awake()
@@ -45,11 +50,13 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             shellPrefab = Resources.Load<GameObject>($"Prefabs/Shells/{data.model}");
             muzzleFlashPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.muzzleEffect}");
 
-            // TODO Ammo and reload time are not used yet
-            //ammo = data.ammo;
+            MaxAmmo = data.ammo;
             fireCooldown = data.cooldown;
-            //reloadTime = data.reloadTime;
+            ReloadTime = data.reloadTime;
             shellVelocity = data.velocity;
+
+            CurrentAmmo = MaxAmmo;
+            OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo); // Yes, I know this is not on ammo changed technically, but it's a hack to make it appear when initialized
         }
 
 
@@ -58,6 +65,14 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             // Ticks down the cooldown timer
             if (cooldownTimer > 0)
                 cooldownTimer -= Time.deltaTime;
+
+            if (CurrentAmmo <= 0 && !isReloading)
+            {
+                Debug.Log("Reloading started");
+                StartReload();
+            }
+
+            HandleReload();
         }
 
 
@@ -74,72 +89,86 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         }
 
 
-
         public void TryFire()
         {
-            // Checks if either: The cooldown timer is still active, the shell prefab is not assigned, or the fire point is not assigned
-            if (cooldownTimer > 0)
-            {
+            if (isReloading || cooldownTimer > 0)
                 return;
-            }
-            else if (shellPrefab == null || firingPoint == null)
-            {
-                Debug.LogError("Shell prefab or fire point not assigned in MainWeaponController.");
-                return;
-            }
 
 
             // Play the muzzle flash effect before firing the shell
             InstantiateMuzzleFlash();
 
-
             // Instantiate the shell prefab
             InstantiateShell();
 
-
-            // Play sound and reset cooldown
+            // Play sound and set the cooldown timer
             AudioManager.Instance.PlaySFX("Cannon", 1f);
             cooldownTimer = fireCooldown;
+
+            // Decrease the current ammo, call the event for the UI
+            CurrentAmmo--;
+            OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
+            Debug.Log("Current ammo: " + CurrentAmmo);
         }
 
-
-        // This method instantiates the muzzle flash prefab at the fire point and destroys it after 5 seconds to avoid memory leaks
         private void InstantiateMuzzleFlash()
         {
             // Play the muzzle flash effect before firing the shell. Makes it a child of the firing point to keep it in place
             GameObject vfxMuzzleFlash = Instantiate(muzzleFlashPrefab, firingPoint.position, firingPoint.rotation, firingPoint);
 
-
             // Destroys the vfx prefab after 5 seconds to avoid memory leaks
             Destroy(vfxMuzzleFlash, 5f);
         }
 
-
-        // This method instantiates the shell prefab at the fire point and applies force to it
         private void InstantiateShell()
         {
             // Instantiate the shell
             GameObject shell = Instantiate(shellPrefab, firingPoint.position, firingPoint.rotation);
 
-
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             // ToDo: Fucking fix the standard shell prefab, I'm 99% sure it literally only affects that prefab //
             /////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Fucking stupid piece of shit prefab won't rotate properly without this
             shell.transform.Rotate(-90, 0, 0);
 
-
+            // If shell has the shell component, initialize it with
+            // the shell data and give it a faction
             if (shell.TryGetComponent<Shell>(out var shellScript))
             {
                 shellScript.Initialize(configManager.CurrentShellData);
                 shellScript.OriginTag = FiringFaction;
             }
 
-
+            // If the shell has a rigidbody, add force to it
             if (shell.TryGetComponent<Rigidbody>(out var rb))
             {
                 rb.AddForce(firingPoint.forward * shellVelocity);
             }
         }
+
+        private void StartReload()
+        {
+            isReloading = true; // Set isReloading to true
+            reloadTimer = 0f; // Set the reloadTimer to 0
+        }
+
+        private void HandleReload()
+        {
+            if (!isReloading) return;
+
+            // Wait until the reloadTimer reaches the time to reload,
+            // then refill the current ammo, set isReloading to false,
+            // and finally call for the UI event
+            reloadTimer += Time.deltaTime;
+            OnReloadStarted?.Invoke(reloadTimer); // Call the event for the UI
+
+            if (reloadTimer >= ReloadTime)
+            {
+                CurrentAmmo = MaxAmmo;
+                isReloading = false;
+                OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
+                Debug.Log("Reload finished. Time taken: " + reloadTimer);
+            }
+        }
+
     }
 }
