@@ -1,6 +1,8 @@
 using UnityEngine;
 using SteelProtocol.Manager;
 using SteelProtocol.Data.Shell;
+using SteelProtocol.Data;
+using NUnit.Framework.Constraints;
 
 namespace SteelProtocol.Controller.Tank.Common.Weapons
 {
@@ -20,9 +22,10 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         //private float reloadTime;
         private float shellVelocity;
 
-
         // The cooldown timer for the weapon, initialized to 0
         private float cooldownTimer;
+
+        public Faction FiringFaction { get; private set; }
 
 
         public void Awake()
@@ -31,7 +34,10 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
             // Get the fire point from TankController
             firingPoint = GetComponent<TankController>().FiringPoint;
+
+            AssignFaction();
         }
+
 
 
         public void Initialize(ShellData data)
@@ -55,7 +61,20 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         }
 
 
-        // This method is called to fire the weapon.
+        private void AssignFaction()
+        {
+            string rootTag = transform.root.tag;
+
+            FiringFaction = rootTag switch
+            {
+                "Player" => Faction.Player,
+                "Enemy" => Faction.Enemy,
+                _ => Faction.Friend
+            };
+        }
+
+
+
         public void TryFire()
         {
             // Checks if either: The cooldown timer is still active, the shell prefab is not assigned, or the fire point is not assigned
@@ -71,7 +90,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
 
             // Play the muzzle flash effect before firing the shell
-            InstantiateMuzzleFlash(); 
+            InstantiateMuzzleFlash();
 
 
             // Instantiate the shell prefab
@@ -83,19 +102,19 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             cooldownTimer = fireCooldown;
         }
 
-        
+
         // This method instantiates the muzzle flash prefab at the fire point and destroys it after 5 seconds to avoid memory leaks
         private void InstantiateMuzzleFlash()
         {
             // Play the muzzle flash effect before firing the shell. Makes it a child of the firing point to keep it in place
             GameObject vfxMuzzleFlash = Instantiate(muzzleFlashPrefab, firingPoint.position, firingPoint.rotation, firingPoint);
-            
-            
+
+
             // Destroys the vfx prefab after 5 seconds to avoid memory leaks
             Destroy(vfxMuzzleFlash, 5f);
         }
 
-        
+
         // This method instantiates the shell prefab at the fire point and applies force to it
         private void InstantiateShell()
         {
@@ -113,6 +132,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             if (shell.TryGetComponent<Shell>(out var shellScript))
             {
                 shellScript.Initialize(configManager.CurrentShellData);
+                shellScript.OriginTag = FiringFaction;
             }
 
 

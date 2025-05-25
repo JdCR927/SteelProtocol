@@ -1,7 +1,8 @@
 using UnityEngine;
-using SteelProtocol.Manager;
+using SteelProtocol.Data;
 using SteelProtocol.Data.Shell;
 using SteelProtocol.Controller.Tank.Common.HP;
+using SteelProtocol.UI.HUD;
 
 
 namespace SteelProtocol
@@ -11,8 +12,9 @@ namespace SteelProtocol
         private GameObject explosionPrefab;
         private float damage;
 
-
         private Rigidbody rb;
+
+        public Faction OriginTag { get; set; }
 
 
         private void Start()
@@ -42,9 +44,6 @@ namespace SteelProtocol
         }
 
 
-        ///////////////////////////////////////////////////////////
-        // ToDo: Maybe check out layers for collision detection? //
-        ///////////////////////////////////////////////////////////
         // This function is called when the shell collides with something
         private void OnCollisionEnter(Collision collision)
         {
@@ -53,10 +52,18 @@ namespace SteelProtocol
 
             if (health != null)
             {
-                health.TakeDamage(damage);
+                DamageChecker(collision, health);
             }
 
+            CreateExplosion();
 
+            // Destroy the shell after impact
+            Destroy(gameObject);
+        }
+
+
+        private void CreateExplosion()
+        {
             // Spawns explosion effect
             // Explosion effect credited to "Explosion" by "Gabriel Aguiar Prod." from "EASY EXPLOSIONS in Unity - Particle System vs VFX Graph" https://www.youtube.com/watch?v=adgeiUNlajY
             if (explosionPrefab != null)
@@ -66,9 +73,30 @@ namespace SteelProtocol
                 // Destroys the explosion prefab after 8 seconds to avoid memory leaks
                 Destroy(vfxExplosion, 8f);
             }
+        }
 
-            // Destroy the shell after impact
-            Destroy(gameObject);
+
+        private void DamageChecker(Collision collision, HealthController health)
+        {
+            string targetTag = collision.collider.tag;
+
+            if (CanDamage(OriginTag, targetTag))
+            {
+                health.TakeDamage(damage, OriginTag);
+            }
+            else
+                health.TakeDamage(0); // Made so that the RigidBodies can be made kinematic when hit, otherwise they'll get pushed
+        }
+
+        private static bool CanDamage(Faction origin, string targetTag)
+        {
+            return origin switch
+            {
+                Faction.Player => targetTag == "Enemy",
+                Faction.Friend => targetTag == "Enemy",
+                Faction.Enemy => targetTag == "Player" || targetTag == "Friend",
+                _ => false
+            };
         }
         
     }

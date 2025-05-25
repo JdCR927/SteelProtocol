@@ -2,6 +2,8 @@ using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// Kudos to Game Dev Guide for providing a good tutorial on UI Toolkit on Runtime
+// Building Runtime UI with UI Toolkit In Unity - https://www.youtube.com/watch?v=6DcwHPxCE54
 [UxmlElement]
 public partial class HealthBar : VisualElement
 {

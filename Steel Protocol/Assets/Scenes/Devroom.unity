@@ -459,8 +459,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.034896772, y: -0.012477598, z: 0.00043572724, w: 0.999313}
-  m_LocalPosition: {x: 200.2734, y: 4.0500154, z: -20.946589}
+  m_LocalRotation: {x: 0.03489949, y: 0, z: 0, w: 0.99939084}
+  m_LocalPosition: {x: 200, y: 4.0500154, z: -20.950003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1486,6 +1486,7 @@ GameObject:
   - component: {fileID: 1489823861}
   - component: {fileID: 1489823862}
   - component: {fileID: 1489823863}
+  - component: {fileID: 1489823864}
   m_Layer: 5
   m_Name: HUDUi
   m_TagString: Untagged
@@ -1540,6 +1541,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 200059474}
+--- !u!114 &1489823864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489823860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4593d325db7d549940c5137082d67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideDelay: 3
 --- !u!1 &1758992442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,10 +1724,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DumbLeo2
       objectReference: {fileID: 0}
-    - target: {fileID: 5672783543536178951, guid: d4493af1f6274b94883c12924f7cfe8a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1828,10 +1838,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2866829011996150139, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
-      propertyPath: m_Name
-      value: _PlInternalScripts
-      objectReference: {fileID: 0}
     - target: {fileID: 4907197779143617178, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_Name
       value: Leopard2
@@ -1850,19 +1856,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999221
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.012485203
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1870,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -1.431
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5961878131179967928, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1892,14 +1898,6 @@ PrefabInstance:
     - target: {fileID: 3263050191901626791, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
       propertyPath: m_Name
       value: TurretedLeo2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3263050191901626791, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641269899405629504, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706308394626929789, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1941,18 +1939,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4414180441559785756, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6565055835275715699, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6616987129479687039, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9073068786807907823, guid: 033587fa5a89b8e43a19ac40abba1e57, type: 3}
       propertyPath: armorId
       value: 1
@@ -1981,6 +1967,10 @@ PrefabInstance:
     - target: {fileID: 7898077484374529801, guid: 60785623fcc2ac8439dd072005da84d1, type: 3}
       propertyPath: m_Name
       value: TurretedFriendlyLeo2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898077484374529801, guid: 60785623fcc2ac8439dd072005da84d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8942962198838968704, guid: 60785623fcc2ac8439dd072005da84d1, type: 3}
       propertyPath: m_LocalPosition.x

@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 6662214479029726763}
   - component: {fileID: 5050480763810602342}
   m_Layer: 8
-  m_Name: _InternalScripts
+  m_Name: _PlInternalScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
