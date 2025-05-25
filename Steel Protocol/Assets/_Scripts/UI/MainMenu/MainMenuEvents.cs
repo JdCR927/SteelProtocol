@@ -4,6 +4,8 @@ using SteelProtocol.Scenes;
 
 namespace SteelProtocol.UI.MainMenu
 {
+    // Many thanks to Sasquatch B Studios for providing a great tutorial on how to use UI Toolkit
+    // Get started with UI Toolkit in Unity - https://www.youtube.com/watch?v=_jtj73lu2Ko
     public class MainMenuEvents : MonoBehaviour
     {
 
@@ -15,7 +17,7 @@ namespace SteelProtocol.UI.MainMenu
 
         private void Awake()
         {
-            // Initialize the UI Document and get references to the UI elements
+            // Initialize the UI Document
             document = GetComponent<UIDocument>();
 
             // Initialize the visual elements
@@ -39,7 +41,7 @@ namespace SteelProtocol.UI.MainMenu
             // Register callbacks for button clicks
             startButton.RegisterCallback<ClickEvent>(OnStartButtonClicked);
             settingsButton.RegisterCallback<ClickEvent>(OnSettingsButtonClicked);
-            returnButton.RegisterCallback<ClickEvent>(OnSettingsButtonClicked);
+            returnButton.RegisterCallback<ClickEvent>(OnReturnButtonClicked);
             exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
         }
 
@@ -52,34 +54,18 @@ namespace SteelProtocol.UI.MainMenu
 
         private void OnSettingsButtonClicked(ClickEvent evt)
         {
-            if (settingsMenu.style.display == DisplayStyle.None)
-            {
-                // Show settings menu
-                settingsMenu.style.display = DisplayStyle.Flex;
-                mainMenu.style.display = DisplayStyle.None;
-            }
-            else
-            {
-                // Hide settings menu
-                settingsMenu.style.display = DisplayStyle.None;
-                mainMenu.style.display = DisplayStyle.Flex;
-            }
+            bool switchingToSettings = mainMenu.style.display != DisplayStyle.None;
+
+            mainMenu.style.display = switchingToSettings ? DisplayStyle.None : DisplayStyle.Flex;
+            settingsMenu.style.display = switchingToSettings ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         public void OnReturnButtonClicked(ClickEvent evt)
         {
-            if (mainMenu.style.display == DisplayStyle.None)
-            {
-                // Hide settings menu
-                settingsMenu.style.display = DisplayStyle.None;
-                mainMenu.style.display = DisplayStyle.Flex;
-            }
-            else
-            {
-                // Show settings menu
-                settingsMenu.style.display = DisplayStyle.Flex;
-                mainMenu.style.display = DisplayStyle.None;
-            }
+            bool switchingToMain = settingsMenu.style.display != DisplayStyle.None;
+
+            mainMenu.style.display = switchingToMain ? DisplayStyle.Flex : DisplayStyle.None;
+            settingsMenu.style.display = switchingToMain ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         private static void OnExitButtonClicked(ClickEvent evt)
