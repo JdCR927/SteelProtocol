@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &200059474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 95416817332924513, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
+  m_PrefabInstance: {fileID: 4673846703286631561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &269476010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1474,6 +1485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1489823861}
   - component: {fileID: 1489823862}
+  - component: {fileID: 1489823863}
   m_Layer: 5
   m_Name: HUDUi
   m_TagString: Untagged
@@ -1515,6 +1527,19 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1489823863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489823860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bcbe1531c00044b958c59d8d2838da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 200059474}
 --- !u!1 &1758992442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1828,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2866829011996150139, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
+      propertyPath: m_Name
+      value: _PlInternalScripts
+      objectReference: {fileID: 0}
     - target: {fileID: 4907197779143617178, guid: 783586de84c75314db0c3abb9246d6a3, type: 3}
       propertyPath: m_Name
       value: Leopard2

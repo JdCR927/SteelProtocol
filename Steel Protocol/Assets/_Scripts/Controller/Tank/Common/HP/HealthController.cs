@@ -1,37 +1,48 @@
 using UnityEngine;
 using SteelProtocol.Data.Armor;
+using System;
 
 namespace SteelProtocol.Controller.Tank.Common.HP
 {
     public class HealthController: MonoBehaviour
     {
-        private float health;
+        private float maxHealth;
+
+        public event Action<float> OnHealthChanged;
         private float currentHealth;
+        public float CurrentHealth
+        {
+            get => currentHealth;
+            set
+            {
+                currentHealth = Mathf.Clamp(value, 0.01f, maxHealth);
+                OnHealthChanged?.Invoke((currentHealth / maxHealth) * 100f);
+            }
+        }
 
 
         public void Initialize(ArmorData data)
         {
-            health = data.health;
-            currentHealth = health;
+            maxHealth = data.health;
+            currentHealth = maxHealth;
         }
 
 
-        // Method to apply damage to the tank's health
         public void TakeDamage(float damage)
         {
             // Makes the tank kinematic to avoid physics interactions while applying damage
             gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
 
             // Applies damage to the current health
-            currentHealth -= damage;
+            CurrentHealth -= damage;
 
             // Makes the tank non-kinematic again to allow physics interactions
             gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
 
             // Checks for death
-            if (currentHealth <= 0)
+            if (currentHealth <= 0.01f)
             {
-                currentHealth = 0;
+                currentHealth = 0.01f;
                 Die();
             }
         }

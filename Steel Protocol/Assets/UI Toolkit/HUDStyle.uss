@@ -1,1 +1,17 @@
-VisualElement {}
+#Healthbar {
+    --fill-color: rgb(50, 120, 30);
+    --background-color: rgb(64, 85, 143);
+    width: 500px;
+    height: 15px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+#EnemyHealthbar {
+    --fill-color: rgb(50, 120, 30);
+    --background-color: rgb(64, 85, 143);
+    height: 15px;
+    width: 150px;
+    margin-left: 50px;
+    margin-top: 30px;
+}

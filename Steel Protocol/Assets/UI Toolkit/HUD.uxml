@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/HUDStyle.uss?fileID=7433441132597879392&amp;guid=56699388646672243832f7d8daf23bdd&amp;type=3#HUDStyle" />
+    <HealthBar name="Healthbar" progress="100.4" style="height: 15px; width: 500px;" />
+    <HealthBar name="EnemyHealthbar" progress="100.3" style="display: none;" />
 </ui:UXML>
