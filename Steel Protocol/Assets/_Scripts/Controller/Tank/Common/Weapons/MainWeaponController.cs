@@ -68,7 +68,6 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
             if (CurrentAmmo <= 0 && !isReloading)
             {
-                Debug.Log("Reloading started");
                 StartReload();
             }
 
@@ -165,7 +164,6 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
                 CurrentAmmo = MaxAmmo;
                 isReloading = false;
                 OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
-                Debug.Log("Reload finished.");
             }
         }
 
