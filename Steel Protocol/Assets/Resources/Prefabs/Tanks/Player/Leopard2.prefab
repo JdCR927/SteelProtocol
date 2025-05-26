@@ -1856,7 +1856,7 @@ GameObject:
   - component: {fileID: 5961878131179967928}
   - component: {fileID: 2433910186508941043}
   - component: {fileID: 3996410194832004565}
-  - component: {fileID: 1709059525242578190}
+  - component: {fileID: 7914425799400044498}
   - component: {fileID: 810840014673172837}
   - component: {fileID: 3260322579779113504}
   - component: {fileID: 5390880434499987071}
@@ -1941,7 +1941,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6476576, y: 2.468135, z: 7.7616405}
   m_Center: {x: -0.00023543835, y: 1.27168, z: -0.99492025}
---- !u!114 &1709059525242578190
+--- !u!114 &7914425799400044498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4907197779143617178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86b21049db760f14dbce2dffa6180776, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c2d289aec960f6418da013efa65d3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   armorId: 1

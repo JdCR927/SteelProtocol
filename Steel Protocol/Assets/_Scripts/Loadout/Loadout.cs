@@ -5,7 +5,7 @@ using SteelProtocol.Controller.Tank.Common.Movement;
 using SteelProtocol.Controller.Tank.Common.Weapons;
 using SteelProtocol.Controller.Tank.Common.Turret;
 
-namespace SteelProtocol
+namespace SteelProtocol.Loadout
 {
     // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
     public enum ArmorType
