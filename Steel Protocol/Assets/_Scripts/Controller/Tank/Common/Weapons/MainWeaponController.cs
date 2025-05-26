@@ -108,7 +108,6 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             // Decrease the current ammo, call the event for the UI
             CurrentAmmo--;
             OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
-            Debug.Log("Current ammo: " + CurrentAmmo);
         }
 
         private void InstantiateMuzzleFlash()
@@ -159,14 +158,14 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             // then refill the current ammo, set isReloading to false,
             // and finally call for the UI event
             reloadTimer += Time.deltaTime;
-            OnReloadStarted?.Invoke(reloadTimer); // Call the event for the UI
+            OnReloadStarted?.Invoke(ReloadTime); // Call the event for the UI
 
             if (reloadTimer >= ReloadTime)
             {
                 CurrentAmmo = MaxAmmo;
                 isReloading = false;
                 OnAmmoChanged?.Invoke(CurrentAmmo, MaxAmmo);
-                Debug.Log("Reload finished. Time taken: " + reloadTimer);
+                Debug.Log("Reload finished.");
             }
         }
 
