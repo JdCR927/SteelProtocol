@@ -27,41 +27,36 @@ Muy recomendado bajar el volumen del ordenador y ajustar una vez se esta dentro 
 
 ## Controles de teclado
 
-W - Adelante
-A - Izquierda
-S - Atras
-D - Derecha
+<br>W - Adelante
+<br>A - Izquierda
+<br>S - Atras
+<br>D - Derecha
 
-Mov. del raton horizontal - Girar torreta
-Mov. del raton vertical - Elevacion del cañon
+<br>Mov. del raton horizontal - Girar torreta
+<br>Mov. del raton vertical - Elevacion del cañon
 
-Click Izq. / Z - Disparar arma primaria
-Click Der. / X - Disparar arma secundaria // SIN IMPLEMENTAR //
-Click rueda raton / C - Disparar arma terciaria // SIN IMPLEMENTAR //
+<br>Click Izq. / Z - Disparar arma primaria
+<br>Click Der. / X - Disparar arma secundaria // SIN IMPLEMENTAR //
+<br>Click rueda raton / C - Disparar arma terciaria // SIN IMPLEMENTAR //
 
-Espacio / Shift - Movimiento especial // SIN IMPLEMENTAR //
+<br>Espacio / Shift - Movimiento especial // SIN IMPLEMENTAR //
 
-Esc|Escape - Salir
-
-L - Salir del mundo
-
+<br>Esc|Escape - Menu de pausa
 
 
 ## Controles de mando
 
-Mov. del joystick izquierdo - Movimiento del tanque
+<br>Mov. del joystick izquierdo - Movimiento del tanque
 
-Mov. del joystick derecho horizontal - Girar torreta
-Mov. del joystick derecho vertical - Elevacion del cañon
+<br>Mov. del joystick derecho horizontal - Girar torreta
+<br>Mov. del joystick derecho vertical - Elevacion del cañon
 
-O (Playstation) / B (XBox) / A (Switch) - Disparar arma primaria
-X (Playstation) / A (XBox) / B (Switch) - Disparar arma secundaria // SIN IMPLEMENTAR //
-Triangulo (Playstation) / Y (XBox) / X (Switch) - Disparar arma terciaria // SIN IMPLEMENTAR //
+<br>O (Playstation) / B (XBox) / A (Switch) - Disparar arma primaria
+<br>X (Playstation) / A (XBox) / B (Switch) - Disparar arma secundaria // SIN IMPLEMENTAR //
+<br>Triangulo (Playstation) / Y (XBox) / X (Switch) - Disparar arma terciaria // SIN IMPLEMENTAR //
 
-Cuadrado (Playstation) / X (XBox) / Y (Switch) - Movimiento especial // SIN IMPLEMENTAR //
+<br>Cuadrado (Playstation) / X (XBox) / Y (Switch) - Movimiento especial // SIN IMPLEMENTAR //
 
-START - Salir
+<br>START - Menu de pausa
 
-SELECT - Salir del mundo
-
-SELECT - Salir del mundo
+<br>SELECT - Salir del mundo

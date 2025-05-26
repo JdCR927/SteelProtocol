@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SteelProtocol
+namespace SteelProtocol.Scenes
 {
     // Many thanks to MetalStorm Games for the awesome tutorial 
     // On how to easily change scenes in Unity

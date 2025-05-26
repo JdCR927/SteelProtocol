@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 6662214479029726763}
   - component: {fileID: 5050480763810602342}
   m_Layer: 8
-  m_Name: _InternalScripts
+  m_Name: _PlInternalScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
       - m_Target: {fileID: 9153327983078138503}
         m_TargetAssemblyTypeName: SteelProtocol.Controller.Tank.Player.PlInputBridge,
           Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1173,20 +1173,7 @@ MonoBehaviour:
     m_ActionId: 3ce5ead3-0b7d-40bb-ab78-43dcae844679
     m_ActionName: 'Player/Exit[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9153327983078138503}
-        m_TargetAssemblyTypeName: SteelProtocol.Controller.Tank.Player.PlInputBridge,
-          Assembly-CSharp
-        m_MethodName: OnLeave
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 50ab0a88-7efa-48fc-bd71-80e219ea9271
     m_ActionName: 'Player/Leave World[/Keyboard/l]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -1239,7 +1226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &8444148655173317421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,10 +1238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8523c5ceabb1d8342ac3f93688e5c0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 10
-  deceleration: 10
-  rotationSpeed: 30
 --- !u!114 &7502517251871365098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,8 +1274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b176aaf9b683944cbc0d525ef884171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traverseSpeed: 20
-  elevationSpeed: 20
 --- !u!114 &1602642313191344582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,9 +1313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ec0b876c04eb4e9416c0f3a324c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shellPrefab: {fileID: 1906841560533344986, guid: f7c1e7432a6c088458d7f90a3ed26850, type: 3}
-  muzzleFlashPrefab: {fileID: 1354102346965951502, guid: 9020aaa518d14714d9850844633fe53e, type: 3}
-  fireCooldown: 2
 --- !u!114 &4149489122040675478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,9 +1953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b21049db760f14dbce2dffa6180776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorId: 0
+  armorId: 1
   engineId: 2
   shellId: 0
+  trackId: 1
   turretId: 1
 --- !u!114 &810840014673172837
 MonoBehaviour:

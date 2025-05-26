@@ -1,11 +1,11 @@
-using SteelProtocol.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SteelProtocol.Input;
+using SteelProtocol.UI.PauseMenu;
 
 namespace SteelProtocol.Controller.Tank.Player
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("")]
     public class PlInputBridge : MonoBehaviour, IInputSource
     {
         private Vector2 movementInput;
@@ -13,8 +13,6 @@ namespace SteelProtocol.Controller.Tank.Player
         private bool fireMain;
         private bool fireSecondary;
         private bool fireTertiary;
-        private bool exitGame;
-        private bool leaveLevel;
 
 
         // Get's the context from the input system and assigns it to the movementInput variable
@@ -40,46 +38,53 @@ namespace SteelProtocol.Controller.Tank.Player
         // Get the context from when the player presses the fire button (Left mouse button or right trigger)
         public void OnAttack1(InputAction.CallbackContext context)
         {
-            fireMain = context.ReadValue<float>() > 0.5f;
+            if (Time.timeScale == 0f) return; // Lazy, but fuck you
+
+            fireMain = context.performed;
         }
 
 
         // Get the context from when the player presses the fire button (Right mouse button or left trigger)
         public void OnAttack2(InputAction.CallbackContext context)
         {
-            fireSecondary = context.ReadValue<float>() > 0.5f;
+            if (Time.timeScale == 0f) return;
+
+            fireSecondary = context.performed;
         }
 
 
         // Get the context from when the player presses the fire button (Middle mouse button or left shoulder)
         public void OnAttack3(InputAction.CallbackContext context)
         {
-            fireTertiary = context.ReadValue<float>() > 0.5f;
+            if (Time.timeScale == 0f) return;
+            
+            fireTertiary = context.performed;
         }
 
 
-        public void OnExit(InputAction.CallbackContext context)
+        public static void OnPause(InputAction.CallbackContext context)
         {
-            exitGame = context.ReadValue<float>() > 0.5f;
-
-            if (exitGame)
+            if (context.performed)
             {
-                Debug.Log("Exiting game...");
-                Application.Quit();
+                TogglePause();
             }
         }
 
-
-        public void OnLeave(InputAction.CallbackContext context)
+        private static void TogglePause()
         {
-            leaveLevel = context.ReadValue<float>() > 0.5f;
-            if (leaveLevel)
+            bool isPaused = Time.timeScale == 0f;
+            Time.timeScale = isPaused ? 1f : 0f;
+
+            var pauseMenu = FindFirstObjectByType<PauseMenuEvents>();
+            if (pauseMenu != null)
             {
-                // Load overworld scene
-                StartCoroutine(SceneChanger.LoadScene(EnumScenes.Overworld.ToString()));
+                pauseMenu.SetPauseMenuVisible(!isPaused);
+            }
+            else
+            {
+                Debug.Log("Pause menu not found.");
             }
         }
-
 
 
         // Get's the movement input from the player, specifically the W and S keys

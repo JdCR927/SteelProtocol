@@ -1959,7 +1959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8083102681851396366}
   - component: {fileID: 3776076250872378522}
-  - component: {fileID: 7902318406128798450}
+  - component: {fileID: 5681844175115914368}
   m_Layer: 10
   m_Name: _InternalScripts
   m_TagString: Untagged
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   rightTrack: {fileID: 790308945638041974}
   leftWheels: {fileID: 3125889077917504593}
   rightWheels: {fileID: 3594908156879764112}
---- !u!114 &7902318406128798450
+--- !u!114 &5681844175115914368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6055185795575092162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e56ab430b64d9c4caed40929e5de121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6057779220969759761

@@ -1,0 +1,55 @@
+.header {
+    -unity-text-align: upper-center;
+    font-size: 100px;
+    align-items: auto;
+    align-content: auto;
+    color: rgb(255, 255, 255);
+    margin-top: 200px;
+    margin-right: 200px;
+    margin-bottom: 200px;
+    margin-left: 200px;
+}
+
+.unity-button {
+    font-size: 40px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(180, 180, 180);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(130, 130, 130);
+}
+
+.slider {
+    font-size: 30px;
+    -unity-text-align: upper-center;
+    align-items: center;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    margin-top: 65px;
+}
+
+.unity-base-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 30px;
+    border-width: 0;
+}
+
+.unity-base-slider__text-field {
+    width: 80px;
+}

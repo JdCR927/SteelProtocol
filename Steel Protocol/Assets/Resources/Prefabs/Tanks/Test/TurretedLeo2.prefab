@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 643006640983911102}
   - component: {fileID: 3641269899405629504}
   - component: {fileID: 1061682610639946758}
-  - component: {fileID: 7386976888774292447}
+  - component: {fileID: 2876313748945338198}
   - component: {fileID: 8923735833182029437}
   - component: {fileID: 3369877269996850185}
   - component: {fileID: 1015424776076075621}
@@ -476,7 +476,7 @@ MonoBehaviour:
   rightTrack: {fileID: 5802492339444742493}
   leftWheels: {fileID: 7009884301524204328}
   rightWheels: {fileID: 7520977550123284991}
---- !u!114 &7386976888774292447
+--- !u!114 &2876313748945338198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 573550252137711480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4490eaf0b55754c40b7fe8c33bc4cecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e56ab430b64d9c4caed40929e5de121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8923735833182029437

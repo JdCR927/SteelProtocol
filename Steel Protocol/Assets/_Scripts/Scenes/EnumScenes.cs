@@ -1,8 +1,9 @@
-namespace SteelProtocol
+namespace SteelProtocol.Scenes
 {
     public enum EnumScenes
     {
-        Overworld = 0,
-        Devroom = 1
+        MainMenu = 0,
+        Overworld = 1,
+        Devroom = 2
     }
 }

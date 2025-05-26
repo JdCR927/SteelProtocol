@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SteelProtocol
+namespace SteelProtocol.Scenes
 {
     public class SceneChanger : Singleton<SceneChanger>
     {
@@ -46,6 +46,28 @@ namespace SteelProtocol
 
                 // Load the scene
                 SceneManager.LoadScene(sceneName);
+            }
+        }
+
+        public static IEnumerator LoadSceneNoTransition(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+            yield break;
+        }
+
+        public static IEnumerator ReloadCurrentScene()
+        {
+            AnimatorStateInfo currentState = Instance.transition.GetCurrentAnimatorStateInfo(0);
+            if (!currentState.IsName("Crossfade_Start"))
+            {
+                // Play the animation
+                Instance.transition.SetTrigger("Start");
+
+                // Wait for the animation to finish
+                yield return new WaitForSeconds(3);
+
+                // Reload the current scene
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }

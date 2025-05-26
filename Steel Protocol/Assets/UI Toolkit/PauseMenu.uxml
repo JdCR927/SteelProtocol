@@ -1,0 +1,19 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/PauseMenuStyle.uss?fileID=7433441132597879392&amp;guid=c9466df7b346df34ba9d7458d651cb61&amp;type=3#PauseMenuStyle" />
+    <ui:VisualElement name="Panel" enabled="true" class="panel" style="flex-grow: 1; display: flex;">
+        <ui:VisualElement name="Container" class="menu" style="flex-grow: 0; align-items: center; align-content: center; display: flex;">
+            <ui:VisualElement name="PauseMenu" class="menu fade-border" style="flex-grow: 1; justify-content: center; display: flex;">
+                <ui:Button text="Continue" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnContinue" class="unity-button" />
+                <ui:Button text="Settings" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnSettings" />
+                <ui:Button text="Restart" name="BtnRestart" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" />
+                <ui:Button text="Exit level" name="BtnExitLevel" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" />
+                <ui:Button text="Exit to menu" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnMenu" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SettingsMenu" style="flex-grow: 1; display: none;">
+                <ui:SliderInt label="SFX volume" value="50" high-value="100" focusable="false" show-input-field="true" fill="true" name="SFXSlider" class="slider" />
+                <ui:SliderInt label="Music volume" value="50" high-value="100" name="MusicSlider" focusable="false" fill="true" show-input-field="true" class="slider" />
+                <ui:Button text="Return" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnReturn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
