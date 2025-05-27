@@ -4,6 +4,7 @@ namespace SteelProtocol.Scenes
     {
         MainMenu = 0,
         Overworld = 1,
-        Devroom = 2
+        Devroom = 2,
+        Garage = 3
     }
 }
