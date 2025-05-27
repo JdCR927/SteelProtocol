@@ -27,18 +27,11 @@ namespace SteelProtocol.UI.Garage
             trackDrop = document.rootVisualElement.Q<EnumField>("TrackDrop");
             turretDrop = document.rootVisualElement.Q<EnumField>("TurretDrop");
 
-            // Initialize the dropdowns with the corresponding data
-            armorDrop.Init(EnumArmor.normalArmor);
-            engineDrop.Init(EnumEngine.normalEngine);
-            shellDrop.Init(EnumShell.armorPiercing);
-            trackDrop.Init(EnumTrack.normalTracks);
-            turretDrop.Init(EnumTurret.standardDrive);
+            InitializeDropdowns();
 
-            armorId = ((EnumArmor)armorDrop.value).ToString();
-            engineId = ((EnumEngine)engineDrop.value).ToString();
-            shellId = ((EnumShell)shellDrop.value).ToString();
-            trackId = ((EnumTrack)trackDrop.value).ToString();
-            turretId = ((EnumTurret)turretDrop.value).ToString();
+            LoadCurrentLoadout();
+
+            ValuesToString();
 
             // Initialize the button
             btnExit = document.rootVisualElement.Q<Button>("BtnExit");
@@ -47,53 +40,56 @@ namespace SteelProtocol.UI.Garage
             btnExit.RegisterCallback<ClickEvent>(OnBtnExitClick);
         }
 
+        private void InitializeDropdowns()
+        {
+            armorDrop.Init(EnumArmor.normalArmor);
+            engineDrop.Init(EnumEngine.normalEngine);
+            shellDrop.Init(EnumShell.armorPiercing);
+            trackDrop.Init(EnumTrack.normalTracks);
+            turretDrop.Init(EnumTurret.standardDrive);
+        }
+
+        private void LoadCurrentLoadout()
+        {
+            LoadoutSaveData data = LoadoutSaveSystem.LoadLoadout();
+            if (data != null)
+            {
+                if (System.Enum.TryParse(data.armorId, out EnumArmor armor))
+                    armorDrop.value = armor;
+                if (System.Enum.TryParse(data.engineId, out EnumEngine engine))
+                    engineDrop.value = engine;
+                if (System.Enum.TryParse(data.shellId, out EnumShell shell))
+                    shellDrop.value = shell;
+                if (System.Enum.TryParse(data.trackId, out EnumTrack track))
+                    trackDrop.value = track;
+                if (System.Enum.TryParse(data.turretId, out EnumTurret turret))
+                    turretDrop.value = turret;
+            }
+        }
+
+        private void ValuesToString()
+        {
+            armorId = ((EnumArmor)armorDrop.value).ToString();
+            engineId = ((EnumEngine)engineDrop.value).ToString();
+            shellId = ((EnumShell)shellDrop.value).ToString();
+            trackId = ((EnumTrack)trackDrop.value).ToString();
+            turretId = ((EnumTurret)turretDrop.value).ToString();
+        }
 
         private void OnEnable()
         {
-            ArmorRegisterChange();
-            EngineRegisterChange();
-            ShellRegisterChange();
-            TrackRegisterChange();
-            TurretRegisterChange();
+            RegisterChange<EnumArmor>(armorDrop, val => armorId = val);
+            RegisterChange<EnumEngine>(engineDrop, val => engineId = val);
+            RegisterChange<EnumShell>(shellDrop, val => shellId = val);
+            RegisterChange<EnumTrack>(trackDrop, val => trackId = val);
+            RegisterChange<EnumTurret>(turretDrop, val => turretId = val);
         }
 
-        private void ArmorRegisterChange()
+        private static void RegisterChange<T>(EnumField field, System.Action<string> setter) where T : System.Enum
         {
-            armorDrop.RegisterValueChangedCallback(evt =>
+            field.RegisterValueChangedCallback(evt =>
             {
-                armorId = ((EnumArmor)evt.newValue).ToString();
-            });
-        }
-
-        private void EngineRegisterChange()
-        {
-            engineDrop.RegisterValueChangedCallback(evt =>
-            {
-                engineId = ((EnumEngine)evt.newValue).ToString();
-            });
-        }
-
-        private void ShellRegisterChange()
-        {
-            shellDrop.RegisterValueChangedCallback(evt =>
-            {
-                shellId = ((EnumShell)evt.newValue).ToString();
-            });
-        }
-
-        private void TrackRegisterChange()
-        {
-            trackDrop.RegisterValueChangedCallback(evt =>
-            {
-                trackId = ((EnumTrack)evt.newValue).ToString();
-            });
-        }
-
-        private void TurretRegisterChange()
-        {
-            turretDrop.RegisterValueChangedCallback(evt =>
-            {
-                turretId = ((EnumTurret)evt.newValue).ToString();
+                setter(((T)evt.newValue).ToString());
             });
         }
 
