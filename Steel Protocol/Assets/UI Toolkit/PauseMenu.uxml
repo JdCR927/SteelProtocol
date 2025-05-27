@@ -9,7 +9,7 @@
                 <ui:Button text="Exit level" name="BtnExitLevel" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" />
                 <ui:Button text="Exit to menu" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnMenu" />
             </ui:VisualElement>
-            <ui:VisualElement name="SettingsMenu" style="flex-grow: 1; display: none;">
+            <ui:VisualElement name="SettingsMenu" class="menu" style="flex-grow: 1; display: none;">
                 <ui:SliderInt label="SFX volume" value="50" high-value="100" focusable="false" show-input-field="true" fill="true" name="SFXSlider" class="slider" />
                 <ui:SliderInt label="Music volume" value="50" high-value="100" name="MusicSlider" focusable="false" fill="true" show-input-field="true" class="slider" />
                 <ui:Button text="Return" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" name="BtnReturn" />

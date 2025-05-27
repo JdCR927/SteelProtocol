@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GarageStyle.uss?fileID=7433441132597879392&amp;guid=9e64c7a6c047522438ce59a7c43020d1&amp;type=3#GarageStyle" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-color: rgb(0, 10, 0);">
+        <ui:VisualElement name="Container" class="container" style="flex-grow: 0;">
+            <ui:Label text="Garage" name="GarageHeader" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" emoji-fallback-support="false" class="header" style="padding-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0; margin-top: 100px; margin-bottom: 100px;" />
+            <ui:VisualElement name="ComponentsMenu" class="menu" style="flex-grow: 1; width: auto; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+                <ui:EnumField label="Armor:" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" include-obsolete-values="false" name="ArmorDrop" focusable="false" enabled="true" style="color: rgb(0, 0, 0); font-size: 30px;" />
+                <ui:EnumField label="Engine" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" focusable="false" name="EngineDrop" style="font-size: 30px;" />
+                <ui:EnumField label="Shell&#x9;" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="ShellDrop" style="font-size: 30px;" />
+                <ui:EnumField label="Track" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="TrackDrop" style="font-size: 30px;" />
+                <ui:EnumField label="Turret" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="TurretDrop" style="font-size: 30px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ExitMenu" style="flex-grow: 1; align-self: auto;">
+                <ui:Button text="Save and exit" name="BtnExit" style="margin-top: 80px; margin-bottom: 80px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

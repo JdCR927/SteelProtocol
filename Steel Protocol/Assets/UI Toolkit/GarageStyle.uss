@@ -1,0 +1,76 @@
+.panel {
+    background-color: rgba(20, 20, 20, 0.69);
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    align-items: center;
+}
+
+.menu {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(219, 219, 219, 0.29);
+    border-right-color: rgba(219, 219, 219, 0.29);
+    border-top-color: rgba(219, 219, 219, 0.29);
+    border-bottom-color: rgba(219, 219, 219, 0.29);
+    background-color: rgba(20, 20, 20, 0.16);
+}
+
+.slider {
+    font-size: 30px;
+    -unity-text-align: upper-center;
+    color: rgb(180, 180, 180);
+    width: 300%;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header {
+    -unity-text-align: upper-center;
+    font-size: 100px;
+    align-items: auto;
+    align-content: auto;
+    color: rgb(255, 255, 255);
+    margin-top: 200px;
+    margin-right: 200px;
+    margin-bottom: 200px;
+    margin-left: 200px;
+}
+
+.unity-button {
+    font-size: 40px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(180, 180, 180);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(130, 130, 130);
+}
+
+.unity-base-field__label {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(180, 180, 180);
+    font-size: 30px;
+    border-width: 0;
+}

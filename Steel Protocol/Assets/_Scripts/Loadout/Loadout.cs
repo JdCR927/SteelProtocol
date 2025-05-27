@@ -1,5 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Manager;
+using SteelProtocol.Data.Enum;
 using SteelProtocol.Controller.Tank.Common.HP;
 using SteelProtocol.Controller.Tank.Common.Movement;
 using SteelProtocol.Controller.Tank.Common.Weapons;
@@ -7,58 +8,13 @@ using SteelProtocol.Controller.Tank.Common.Turret;
 
 namespace SteelProtocol.Loadout
 {
-    // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-    public enum ArmorType
-    {
-        normalArmor,
-        mediumArmor,
-        lightArmor
-    }
-
-// TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-    public enum EngineType
-    {
-        normalEngine,
-        engineMk2,
-        accelerator
-    }
-
-// TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-    public enum ShellType
-    {
-        armorPiercing
-    }
-
-
-    // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-    public enum TrackType
-    {
-        normalTracks,
-        fastTracks,
-        highGripTracks
-    }
-
-    // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-    public enum TurretType
-    {
-        standardDrive,
-        standardDriveMk2,
-        heavyDrive,
-        precisionDrive
-    }
-
     public class Loadout : MonoBehaviour
     {
-        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-        public ArmorType armorId = ArmorType.normalArmor;
-        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-        public EngineType engineId = EngineType.normalEngine;
-        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-        public ShellType shellId = ShellType.armorPiercing;
-        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-        public TrackType trackId = TrackType.normalTracks;
-        // TODO: THIS SHIT IS JUST FOR TESTING, REMOVE
-        public TurretType turretId = TurretType.standardDrive;
+        public EnumArmor armorId = EnumArmor.normalArmor;
+        public EnumEngine engineId = EnumEngine.normalEngine;
+        public EnumShell shellId = EnumShell.armorPiercing;
+        public EnumTrack trackId = EnumTrack.normalTracks;
+        public EnumTurret turretId = EnumTurret.standardDrive;
 
         private TankConfigManager configManager;
 

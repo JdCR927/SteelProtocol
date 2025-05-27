@@ -1,5 +1,5 @@
+using SteelProtocol.Data.Enum;
 using SteelProtocol.Data.Save;
-using UnityEngine;
 
 namespace SteelProtocol.Loadout
 {
@@ -30,15 +30,15 @@ namespace SteelProtocol.Loadout
             if (data == null)
                 SaveLoadout(); // If no data exists, save default loadout
 
-            if (System.Enum.TryParse(data.armorId, out ArmorType armor))
+            if (System.Enum.TryParse(data.armorId, out EnumArmor armor))
                 armorId = armor;
-            if (System.Enum.TryParse(data.engineId, out EngineType engine))
+            if (System.Enum.TryParse(data.engineId, out EnumEngine engine))
                 engineId = engine;
-            if (System.Enum.TryParse(data.shellId, out ShellType shell))
+            if (System.Enum.TryParse(data.shellId, out EnumShell shell))
                 shellId = shell;
-            if (System.Enum.TryParse(data.trackId, out TrackType track))
+            if (System.Enum.TryParse(data.trackId, out EnumTrack track))
                 trackId = track;
-            if (System.Enum.TryParse(data.turretId, out TurretType turret))
+            if (System.Enum.TryParse(data.turretId, out EnumTurret turret))
                 turretId = turret;
         }
     }
