@@ -20,7 +20,14 @@ namespace SteelProtocol.Data.Save
                 string json = File.ReadAllText(SavePath);
                 return JsonUtility.FromJson<LoadoutSaveData>(json);
             }
-            return null; // or return a new LoadoutSaveData() if you want to ensure a valid object
+            return new LoadoutSaveData
+            {
+                armorId = "standardArmor",
+                engineId = "standardEngine",
+                shellId = "armorPiercing",
+                trackId = "standardTracks",
+                turretId = "standardTurret"
+            };
         }
     }
 }

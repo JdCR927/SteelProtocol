@@ -27,8 +27,6 @@ namespace SteelProtocol.UI.Garage
             trackDrop = document.rootVisualElement.Q<EnumField>("TrackDrop");
             turretDrop = document.rootVisualElement.Q<EnumField>("TurretDrop");
 
-            InitializeDropdowns();
-
             LoadCurrentLoadout();
 
             ValuesToString();
@@ -38,15 +36,6 @@ namespace SteelProtocol.UI.Garage
 
             // Register callbacks for button clicks
             btnExit.RegisterCallback<ClickEvent>(OnBtnExitClick);
-        }
-
-        private void InitializeDropdowns()
-        {
-            armorDrop.Init(EnumArmor.normalArmor);
-            engineDrop.Init(EnumEngine.normalEngine);
-            shellDrop.Init(EnumShell.armorPiercing);
-            trackDrop.Init(EnumTrack.normalTracks);
-            turretDrop.Init(EnumTurret.standardDrive);
         }
 
         private void LoadCurrentLoadout()

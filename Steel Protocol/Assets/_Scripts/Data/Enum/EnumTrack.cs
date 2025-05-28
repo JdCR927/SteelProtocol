@@ -2,7 +2,7 @@ namespace SteelProtocol.Data.Enum
 {
     public enum EnumTrack
     {
-        normalTracks,
+        standardTracks,
         fastTracks,
         highGripTracks
     }

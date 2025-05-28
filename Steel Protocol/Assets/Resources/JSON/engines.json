@@ -1,7 +1,7 @@
 [
   {
-    "id": "normalEngine",
-    "name": "Normal Engine",
+    "id": "standardEngine",
+    "name": "Standard Engine",
     "maxSpeed": 10.0,
     "acceleration": 10.0,
     "deceleration": 10.0,

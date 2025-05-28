@@ -1,8 +1,8 @@
 using UnityEngine;
 using SteelProtocol.Manager;
-using SteelProtocol.Data.Shell;
 using SteelProtocol.Data;
-using NUnit.Framework.Constraints;
+using SteelProtocol.Data.Shell;
+using SteelProtocol.Controller.Tank.Common.Audio;
 
 namespace SteelProtocol.Controller.Tank.Common.Weapons
 {
@@ -31,6 +31,9 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
         public event System.Action<float, float> OnAmmoChanged;
         public event System.Action<float> OnReloadStarted;
+
+
+        private AudioSource source;
 
 
         public void Awake()
@@ -101,7 +104,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             InstantiateShell();
 
             // Play sound and set the cooldown timer
-            AudioManager.Instance.PlaySFX("Cannon", 1f);
+            PlaySfx();
             cooldownTimer = fireCooldown;
 
             // Decrease the current ammo, call the event for the UI
@@ -140,6 +143,27 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             if (shell.TryGetComponent<Rigidbody>(out var rb))
             {
                 rb.AddForce(firingPoint.forward * shellVelocity);
+            }
+        }
+
+        private void PlaySfx()
+        {
+            var pool = GetComponent<TankAudioPool>();
+            source = pool?.GetSource((int)EnumAudioIndex.Cannon);
+            
+            var clip = AudioManager.Instance.GetSFXClip("Cannon");
+            if (clip != null && source != null)
+            {
+                source.Stop(); // Optional: ensure it's not already playing
+                source.clip = clip;
+                source.loop = false;
+                source.spatialBlend = 1f;
+                source.rolloffMode = AudioRolloffMode.Logarithmic;
+                source.minDistance = 20f;
+                source.maxDistance = 300f;
+                source.volume = AudioManager.Instance.SfxVolume; // Optional, to sync with settings
+
+                source.Play();
             }
         }
 
