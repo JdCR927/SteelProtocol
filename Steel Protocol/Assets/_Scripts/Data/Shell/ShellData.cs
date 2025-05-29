@@ -16,6 +16,8 @@ namespace SteelProtocol.Data.Shell
         public string explosionEffect;
         public float explosionRadius;
         public float explosionDamage;
+        public string explosionSound;
+        public string cannonSound;
         public string description;
     }
 }

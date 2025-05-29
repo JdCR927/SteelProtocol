@@ -2,7 +2,7 @@ using UnityEngine;
 using SteelProtocol.Data;
 using SteelProtocol.Data.Shell;
 using SteelProtocol.Controller.Tank.Common.HP;
-using SteelProtocol.UI.HUD;
+using SteelProtocol.Manager;
 
 
 namespace SteelProtocol
@@ -10,12 +10,14 @@ namespace SteelProtocol
     public class Shell : MonoBehaviour
     {
         private GameObject explosionPrefab;
+        private string explosionSfx;
         private float damage;
 
         private Rigidbody rb;
 
         public Faction OriginTag { get; set; }
 
+        private AudioSource source;
 
         private void Start()
         {
@@ -29,6 +31,7 @@ namespace SteelProtocol
             damage = data.damage;
 
             explosionPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.explosionEffect}");
+            explosionSfx = data.explosionSound;
         }
 
 
@@ -57,22 +60,10 @@ namespace SteelProtocol
 
             CreateExplosion();
 
+            PlaySfx();
+
             // Destroy the shell after impact
             Destroy(gameObject);
-        }
-
-
-        private void CreateExplosion()
-        {
-            // Spawns explosion effect
-            // Explosion effect credited to "Explosion" by "Gabriel Aguiar Prod." from "EASY EXPLOSIONS in Unity - Particle System vs VFX Graph" https://www.youtube.com/watch?v=adgeiUNlajY
-            if (explosionPrefab != null)
-            {
-                GameObject vfxExplosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
-                // Destroys the explosion prefab after 8 seconds to avoid memory leaks
-                Destroy(vfxExplosion, 8f);
-            }
         }
 
 
@@ -97,6 +88,47 @@ namespace SteelProtocol
                 Faction.Enemy => targetTag == "Player" || targetTag == "Friend",
                 _ => false
             };
+        }
+
+
+        private void CreateExplosion()
+        {
+            // Spawns explosion effect
+            // Explosion effect credited to "Explosion" by "Gabriel Aguiar Prod." from "EASY EXPLOSIONS in Unity - Particle System vs VFX Graph" https://www.youtube.com/watch?v=adgeiUNlajY
+            if (explosionPrefab != null)
+            {
+                GameObject vfxExplosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+                // Destroys the explosion prefab after 8 seconds to avoid memory leaks
+                Destroy(vfxExplosion, 8f);
+            }
+        }
+
+        private void PlaySfx()
+        {
+            source = GetComponent<AudioSource>();
+            var clip = AudioManager.Instance.GetSFXClip(explosionSfx);
+            
+            if (clip != null && source != null)
+            {
+                // Creates it's own AudioSource component so that 
+                // It doesn't get destroyed with the shell game object
+                AudioSource sfxSource = new GameObject("ShellExplosionSFX").AddComponent<AudioSource>();
+                sfxSource.transform.position = transform.position;
+
+                sfxSource.clip = clip;
+                sfxSource.loop = false;
+                sfxSource.spatialBlend = 1f;
+                sfxSource.rolloffMode = AudioRolloffMode.Logarithmic;
+                sfxSource.minDistance = 20f;
+                sfxSource.maxDistance = 300f;
+                sfxSource.volume = AudioManager.Instance.SfxVolume;
+
+                sfxSource.Play();
+
+                // Destroy audio source GameObject after clip finishes
+                Destroy(sfxSource.gameObject, clip.length);
+            }
         }
         
     }

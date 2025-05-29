@@ -36,9 +36,9 @@ namespace SteelProtocol.Controller.Tank.Common.Audio
             input = GetComponent<IInputSource>();
             lastYRotation = transform.eulerAngles.y;
 
-            engineSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Engine), "Engine", engineVolume, true);
-            trackSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Tracks), "Tracks", trackVolume, true);
-            turretSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Turret), "Turret", turretVolume, true);
+            engineSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Engine), "engine", engineVolume, true);
+            trackSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Tracks), "tracks", trackVolume, true);
+            turretSound = CreateSound(pool.GetSource((int)EnumAudioIndex.Turret), "turret", turretVolume, true);
 
             engineSound?.Play();
         }

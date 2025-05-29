@@ -13,6 +13,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
         private GameObject shellPrefab;
         private GameObject muzzleFlashPrefab;
+        private string cannonSfx;
 
         private Transform firingPoint;
 
@@ -52,6 +53,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         {
             shellPrefab = Resources.Load<GameObject>($"Prefabs/Shells/{data.model}");
             muzzleFlashPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.muzzleEffect}");
+            cannonSfx = data.cannonSound;
 
             MaxAmmo = data.ammo;
             fireCooldown = data.cooldown;
@@ -151,7 +153,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             var pool = GetComponent<TankAudioPool>();
             source = pool?.GetSource((int)EnumAudioIndex.Cannon);
             
-            var clip = AudioManager.Instance.GetSFXClip("Cannon");
+            var clip = AudioManager.Instance.GetSFXClip(cannonSfx);
             if (clip != null && source != null)
             {
                 source.Stop(); // Optional: ensure it's not already playing
