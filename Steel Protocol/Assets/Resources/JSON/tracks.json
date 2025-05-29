@@ -1,7 +1,7 @@
 [
     {
-        "id": "normalTracks",
-        "name": "Normal Tracks",
+        "id": "standardTracks",
+        "name": "Standard Tracks",
         "rotationSpeed": 30.0,
         "grip": 1.0,
         "weight": 30.0,

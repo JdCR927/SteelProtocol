@@ -1,7 +1,7 @@
 [
     {
-        "id": "normalArmor",
-        "name": "Normal Armor",
+        "id": "standardArmor",
+        "name": "Standard Armor",
         "health": 100.0,
         "weight": 100.0,
         "description": "Standard armor made with steel and then riveted to create the hull."

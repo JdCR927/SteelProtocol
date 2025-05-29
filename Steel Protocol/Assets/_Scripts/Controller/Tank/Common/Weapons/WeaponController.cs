@@ -9,7 +9,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         private IInputSource input;
 
         // Controllers for the different weapon slots
-        [Header("Weapon Slot Controllers")]
+        [Header("Weapon controllers")]
         [SerializeField] private MainWeaponController mainWeapon;
         [SerializeField] private SecWeaponController secondaryWeapon;
         [SerializeField] private TerWeaponController tertiaryWeapon;

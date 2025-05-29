@@ -32,17 +32,17 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
         {
             currentSpeed = movement.GetCurrentSpeed();
 
-            rotateTracks(leftTrack, currentSpeed);
-            rotateTracks(rightTrack, currentSpeed);
-            rotateWheels(leftWheels, currentSpeed);
-            rotateWheels(rightWheels, currentSpeed);
+            RotateTracks(leftTrack, currentSpeed);
+            RotateTracks(rightTrack, currentSpeed);
+            RotateWheels(leftWheels, currentSpeed);
+            RotateWheels(rightWheels, currentSpeed);
         }
 
 
         // Many thanks to reignamation from the Unity Forums for suggesting the change of "_MainTex" to "_BaseMap"
         // What a legend
         // https://discussions.unity.com/t/kinda-solved-cant-change-texture-offset-via-script-in-urp/757393/14
-        private void rotateTracks(Transform track, float speed)
+        private void RotateTracks(Transform track, float speed)
         {
             if (track == null)
             {
@@ -68,7 +68,7 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
             material.SetTextureOffset("_BaseMap", new Vector2(0, -offset));
         }
 
-        private void rotateWheels(Transform wheels, float speed)
+        private static void RotateWheels(Transform wheels, float speed)
         {
             if (wheels == null)
             {

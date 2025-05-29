@@ -2,7 +2,7 @@ namespace SteelProtocol.Data.Enum
 {
     public enum EnumEngine
     {
-        normalEngine,
+        standardEngine,
         engineMk2,
         accelerator
     }

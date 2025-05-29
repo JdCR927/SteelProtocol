@@ -1,8 +1,8 @@
 using UnityEngine;
 using SteelProtocol.Manager;
-using SteelProtocol.Data.Shell;
 using SteelProtocol.Data;
-using NUnit.Framework.Constraints;
+using SteelProtocol.Data.Shell;
+using SteelProtocol.Controller.Tank.Common.Audio;
 
 namespace SteelProtocol.Controller.Tank.Common.Weapons
 {
@@ -13,6 +13,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
         private GameObject shellPrefab;
         private GameObject muzzleFlashPrefab;
+        private string cannonSfx;
 
         private Transform firingPoint;
 
@@ -33,6 +34,9 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         public event System.Action<float> OnReloadStarted;
 
 
+        private AudioSource source;
+
+
         public void Awake()
         {
             configManager = GetComponentInParent<TankConfigManager>();
@@ -49,6 +53,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         {
             shellPrefab = Resources.Load<GameObject>($"Prefabs/Shells/{data.model}");
             muzzleFlashPrefab = Resources.Load<GameObject>($"Prefabs/Effects/{data.muzzleEffect}");
+            cannonSfx = data.cannonSound;
 
             MaxAmmo = data.ammo;
             fireCooldown = data.cooldown;
@@ -101,7 +106,7 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             InstantiateShell();
 
             // Play sound and set the cooldown timer
-            AudioManager.Instance.PlaySFX("Cannon", 1f);
+            PlaySfx();
             cooldownTimer = fireCooldown;
 
             // Decrease the current ammo, call the event for the UI
@@ -140,6 +145,27 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             if (shell.TryGetComponent<Rigidbody>(out var rb))
             {
                 rb.AddForce(firingPoint.forward * shellVelocity);
+            }
+        }
+
+        private void PlaySfx()
+        {
+            var pool = GetComponent<TankAudioPool>();
+            source = pool?.GetSource((int)EnumAudioIndex.Cannon);
+            
+            var clip = AudioManager.Instance.GetSFXClip(cannonSfx);
+            if (clip != null && source != null)
+            {
+                source.Stop(); // Optional: ensure it's not already playing
+                source.clip = clip;
+                source.loop = false;
+                source.spatialBlend = 1f;
+                source.rolloffMode = AudioRolloffMode.Logarithmic;
+                source.minDistance = 20f;
+                source.maxDistance = 300f;
+                source.volume = AudioManager.Instance.SfxVolume; // Optional, to sync with settings
+
+                source.Play();
             }
         }
 

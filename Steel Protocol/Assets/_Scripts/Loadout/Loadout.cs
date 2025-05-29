@@ -10,10 +10,10 @@ namespace SteelProtocol.Loadout
 {
     public class Loadout : MonoBehaviour
     {
-        public EnumArmor armorId = EnumArmor.normalArmor;
-        public EnumEngine engineId = EnumEngine.normalEngine;
+        public EnumArmor armorId = EnumArmor.standardArmor;
+        public EnumEngine engineId = EnumEngine.standardEngine;
         public EnumShell shellId = EnumShell.armorPiercing;
-        public EnumTrack trackId = EnumTrack.normalTracks;
+        public EnumTrack trackId = EnumTrack.standardTracks;
         public EnumTurret turretId = EnumTurret.standardDrive;
 
         private TankConfigManager configManager;

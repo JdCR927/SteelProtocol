@@ -13,6 +13,8 @@
         "explosionEffect": "vfxExplosion",
         "explosionRadius": 0.0,
         "explosionDamage": 0.0,
+        "explosionSound": "explosion",
+        "cannonSound": "cannon",
         "description": "Standard armor-piercing shell, manufactured and widely used by Claymore Armaments."
     },
     {
@@ -29,6 +31,8 @@
         "explosionEffect": "vfxExplosion",
         "explosionRadius": 0.0,
         "explosionDamage": 0.0,
+        "explosionSound": "explosion",
+        "cannonSound": "cannon",
         "description": "An improved version of the AP shell, designed to penetrate armor more effectively. However, it is heavier and has a lower velocity than the standard AP shell."
     },
     {
@@ -45,6 +49,8 @@
         "explosionEffect": "BigExplosion",
         "explosionRadius": 15.0,
         "explosionDamage": 30.0,
+        "explosionSound": "bigExplosion",
+        "cannonSound": "bigCannon",
         "description": "Manufactured by OAO \"Chelvogradmet\", it's a shell made to explode on impact, causing damage to the target and surrounding area. It doesn't penetrate armor but can cause significant damage by the explosion."
     },
     {
@@ -61,6 +67,8 @@
         "explosionEffect": "vfxExplosion",
         "explosionRadius": 5.0,
         "explosionDamage": 15.0,
+        "explosionSound": "bigExplosion",
+        "cannonSound": "bigCannon",
         "description": "A specialized shell designed to penetrate a specified amount of armor at any range. It has a smaller explosion radius than the standard HE shell, but it is more effective against armored targets and faster thanks to the fins."
     },
     {
@@ -77,6 +85,8 @@
         "explosionEffect": "vfxSolidHit",
         "explosionRadius": 0.0,
         "explosionDamage": 0.0,
+        "explosionSound": "explosion",
+        "cannonSound": "cannon",
         "description": "A shell with a hard core made of tungsten made to penetrate thick armor. It has a higher velocity than the standard AP shell."
     },
     {
@@ -93,6 +103,8 @@
         "explosionEffect": "vfxSolidHit",
         "explosionRadius": 0.0,
         "explosionDamage": 0.0,
+        "explosionSound": "explosion",
+        "cannonSound": "cannon",
         "description": "An upgrade of the APCR shell, it has a higher velocity and is more effective against armor."
     },
     {
@@ -102,13 +114,15 @@
         "ammo": 5,
         "cooldown": 5,
         "reloadTime":20,
-        "velocity": 500.0,
+        "velocity": 5000.0,
         "weight": 100,
         "model": "apfsdsShell",
         "muzzleEffect": "vfxMuzzleFlash",
-        "explosionEffect": "vfxSolidHit",
+        "explosionEffect": "vfxExplosion",
         "explosionRadius": 0.0,
         "explosionDamage": 0.0,
+        "explosionSound": "explosion",
+        "cannonSound": "cannon",
         "description": "The ultimate anti-tank shell, it has a very high velocity and is very effective against armor. A long and very precise rod penetrator made of depleted uranium."
     }
 ]

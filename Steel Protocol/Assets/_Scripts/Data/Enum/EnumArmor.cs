@@ -2,7 +2,7 @@ namespace SteelProtocol.Data.Enum
 {
     public enum EnumArmor
     {
-        normalArmor,
+        standardArmor,
         mediumArmor,
         lightArmor
     }

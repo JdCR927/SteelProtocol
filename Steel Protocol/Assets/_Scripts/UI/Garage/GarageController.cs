@@ -42,10 +42,10 @@ namespace SteelProtocol.UI.Garage
 
         private void InitializeDropdowns()
         {
-            armorDrop.Init(EnumArmor.normalArmor);
-            engineDrop.Init(EnumEngine.normalEngine);
+            armorDrop.Init(EnumArmor.standardArmor);
+            engineDrop.Init(EnumEngine.standardEngine);
             shellDrop.Init(EnumShell.armorPiercing);
-            trackDrop.Init(EnumTrack.normalTracks);
+            trackDrop.Init(EnumTrack.standardTracks);
             turretDrop.Init(EnumTurret.standardDrive);
         }
 
