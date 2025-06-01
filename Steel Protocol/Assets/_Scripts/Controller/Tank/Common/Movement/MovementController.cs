@@ -51,8 +51,8 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
             HandleAcceleration(forwardInput);
 
             // Calculate movement and rotation based on current speed and input
-            Vector3 movement = currentSpeed * Time.fixedDeltaTime * transform.forward;
-            Quaternion rotation = Quaternion.Euler(0f, turnInput * rotationSpeed * Time.fixedDeltaTime, 0f);
+            Vector3 movement = currentSpeed * Time.deltaTime * transform.forward;
+            Quaternion rotation = Quaternion.Euler(0f, turnInput * rotationSpeed * Time.deltaTime, 0f);
 
             // Apply movement and rotation to the tank's Rigidbody
             rb.MovePosition(rb.position + movement);
@@ -66,13 +66,13 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
             {
                 // Accelerate towards the maximum speed in the direction of input
                 // If input is positive, accelerate forward; if negative, accelerate backward
-                currentSpeed += input * acceleration * Time.fixedDeltaTime;
+                currentSpeed += input * acceleration * Time.deltaTime;
                 currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
             }
             else
             {
                 // If no input, decelerate towards zero speed at the specified rate (deceleration)
-                currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.fixedDeltaTime);
+                currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
             }
         }
 

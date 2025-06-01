@@ -1,5 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Controller.Tank.Common.Movement;
+using System.Collections;
 
 namespace SteelProtocol.Controller.Tank.AI.Common.Movement
 {
@@ -12,40 +13,50 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
         private int currentIndex = 0;
         private readonly float waypointThreshold = 1f;
 
+        private readonly float movementTickRate = 0.001f; // Tick rate for AI thinking
+        private Coroutine movementRoutine;
+
         public void Awake()
         {
             input = GetComponent<AiInputBridge>();
             movement = GetComponent<MovementController>();
         }
 
-        public void FixedUpdate()
+        private void Start()
         {
-            if (waypoints.Length > 0)
-            {
-                //MoveTo();
-                Patrol();
-            }
+            movementRoutine = StartCoroutine(WaypointLoop());
         }
 
-        private void MoveTo()
+        private void OnDisable()
         {
-            Vector3 waypoint = waypoints[currentIndex];
+            if (movementRoutine != null)
+                StopCoroutine(movementRoutine);
+        }
 
-            input.OnMove(waypoint);
+        private IEnumerator WaypointLoop()
+        {
+            WaitForSeconds wait = new WaitForSeconds(movementTickRate);
 
-            movement.Move(input.GetForwardInput(), input.GetTurnInput());
+            while (true)
+            {
+                Patrol(); // 👈 modular call
+
+                yield return wait;
+            }
         }
 
         private void Patrol()
         {
+            if (waypoints.Length == 0) return;
+
             Vector3 currentTarget = waypoints[currentIndex];
 
             input.OnMove(currentTarget);
 
             movement.Move(input.GetForwardInput(), input.GetTurnInput());
 
-            float distance = Vector3.Distance(transform.position, currentTarget);
-            if (distance < waypointThreshold)
+            float sqrDistance = (transform.position - currentTarget).sqrMagnitude;
+            if (sqrDistance < waypointThreshold)
             {
                 currentIndex = (currentIndex + 1) % waypoints.Length; // loop around
             }

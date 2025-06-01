@@ -78,7 +78,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.FCS
 
         private IEnumerator ReleaseAttack1()
         {
-            yield return null; // Wait one frame
+            yield return new WaitForSeconds(0.05f); 
             input.OnAttack1(false);
         }
 
