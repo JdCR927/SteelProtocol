@@ -1,6 +1,7 @@
 using UnityEngine;
 using SteelProtocol.Data.Engine;
 using SteelProtocol.Data.Track;
+using System;
 
 namespace SteelProtocol.Controller.Tank.Common.Movement
 {
@@ -43,6 +44,9 @@ namespace SteelProtocol.Controller.Tank.Common.Movement
 
         public void Move(float forwardInput, float turnInput)
         {
+            forwardInput = Mathf.Clamp(forwardInput, -1f, 1f);
+            turnInput = Mathf.Clamp(turnInput, -1f, 1f);
+
             // Handle acceleration and deceleration based on input
             HandleAcceleration(forwardInput);
 

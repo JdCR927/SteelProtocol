@@ -26,12 +26,49 @@ namespace SteelProtocol.Controller.Tank.AI
                 Debug.LogError("Missing muzzle transform.");
         }
 
-        /* TODO:
-        public void OnMove( context)
+        public void OnMove(Vector3 waypoint)
         {
-            movementInput = context.ReadValue<Vector2>();
+            Vector3 toWaypoint = waypoint - transform.parent.position;
+
+            float forwardInput = CalculateForwardInput(toWaypoint);
+
+            float turnInput = CalculateTurnInput(toWaypoint);
+
+            movementInput = new Vector2(forwardInput, turnInput);
         }
-        */
+
+        private float CalculateForwardInput(Vector3 toWaypoint)
+        {
+            Vector3 forward = Vector3.ProjectOnPlane(transform.parent.forward, Vector3.up).normalized;
+            Vector3 direction = Vector3.ProjectOnPlane(toWaypoint, Vector3.up).normalized;
+
+            float angle = Vector3.Angle(forward, direction); // 0° is forward, 180° is behind
+
+            float distance = toWaypoint.magnitude;
+
+            // If we're close, fine-tune forward/back
+            if (distance <= 50f)
+            {
+                return angle <= 90f ? distance : -distance;
+            }
+            else
+            {
+                return distance;
+            }
+        }
+
+        private float CalculateTurnInput(Vector3 toWaypoint)
+        {
+            Vector3 forward = Vector3.ProjectOnPlane(transform.parent.forward, Vector3.up).normalized;
+            Vector3 direction = Vector3.ProjectOnPlane(toWaypoint, Vector3.up).normalized;
+
+            float yawInput = Vector3.SignedAngle(forward, direction, Vector3.up);
+
+            if (Mathf.Abs(yawInput) < 1f)
+                return 0f;
+
+            return Mathf.Sign(yawInput);
+        }
 
 
         public void OnLook(GameObject target)
@@ -42,7 +79,7 @@ namespace SteelProtocol.Controller.Tank.AI
             float pitchDelta = CalculatePitchDelta(target.transform.position);
 
             lookInput = new Vector2(yawDelta, pitchDelta);
-            
+
         }
 
 
@@ -109,10 +146,10 @@ namespace SteelProtocol.Controller.Tank.AI
         */
 
 
-        public float GetForwardInput() => movementInput.y;
+        public float GetForwardInput() => movementInput.x;
 
 
-        public float GetTurnInput() => movementInput.x;
+        public float GetTurnInput() => movementInput.y;
 
 
         public Vector2 GetLookInput() => lookInput;
