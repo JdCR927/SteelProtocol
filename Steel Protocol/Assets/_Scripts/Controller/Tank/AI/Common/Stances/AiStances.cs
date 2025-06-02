@@ -1,20 +1,26 @@
 using UnityEngine;
 using SteelProtocol.Controller.Tank.AI.Common.FCS;
 using SteelProtocol.Controller.Tank.Common.Movement;
+using SteelProtocol.Controller.Tank.AI.Common.Movement;
+using SteelProtocol.Controller.Tank.AI.Common.Targeting;
 
 namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 {
-    public abstract class AiStance : MonoBehaviour
+    public abstract class AiStance
     {
         protected AiInputBridge input;
         protected MovementController movement;
         protected FiringControlSystem fcs;
+        protected AiMover mover;
+        protected DetectionTrigger detection;
 
-        protected virtual void Awake()
+        public virtual void Initialize(AiInputBridge input, MovementController movement, FiringControlSystem fcs, AiMover mover, DetectionTrigger detection)
         {
-            input = GetComponent<AiInputBridge>();
-            movement = GetComponent<MovementController>();
-            fcs = GetComponent<FiringControlSystem>();
+            this.input = input;
+            this.movement = movement;
+            this.fcs = fcs;
+            this.mover = mover;
+            this.detection = detection;
         }
 
         public abstract void OnStanceUpdate(); // Called in Update

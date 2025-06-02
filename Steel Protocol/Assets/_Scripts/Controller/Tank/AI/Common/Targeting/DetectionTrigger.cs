@@ -24,7 +24,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
 
             if (closestTargetTimer >= closestTargetUpdateInterval)
             {
-                currentTarget = GetClosestTarget(targets);
+                currentTarget = GetClosestTarget();
                 closestTargetTimer = 0f;
             }
 
@@ -65,7 +65,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
         protected abstract bool ShouldRegisterTarget(Collider other);
 
 
-        public GameObject GetClosestTarget(HashSet<Target> targets)
+        public GameObject GetClosestTarget()
         {
             // If there are no targets, return null
             if (targets == null || targets.Count == 0)

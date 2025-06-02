@@ -4,14 +4,14 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 {
     public enum EnumStancesPrimary
     {
-        AggressiveStance,
-        DefensiveStance,
+        AggroStance,
+        HoldStance,
         PatrolStance
     }
 
     public enum EnumStancesSecondary
     {
-        AggressiveStance,
-        DefensiveStance
+        AggroStance,
+        HoldStance
     }
 }

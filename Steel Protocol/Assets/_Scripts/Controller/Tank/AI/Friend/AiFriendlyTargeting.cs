@@ -28,7 +28,7 @@ namespace SteelProtocol.Controller.Tank.AI.Friend
         public void Update()
         {
             // Check for the closest target
-            currentTarget = GetClosestTarget(targets);
+            currentTarget = GetClosestTarget();
 
             // If no target is found, return
             if (currentTarget == null) return;
