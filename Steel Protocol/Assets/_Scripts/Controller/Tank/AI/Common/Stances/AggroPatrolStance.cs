@@ -1,6 +1,6 @@
 namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 {
-    public class PatrolStance : AiStance
+    public class AggroPatrolStance : AiStance
     {
         public override void OnStanceEnter()
         {
@@ -19,6 +19,6 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
         public override void OnStanceUpdate()
         {
             throw new System.NotImplementedException();
-        }    
+        }
     }
 }

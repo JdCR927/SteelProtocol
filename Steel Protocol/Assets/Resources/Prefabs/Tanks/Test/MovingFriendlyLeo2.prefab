@@ -1929,7 +1929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11332645f958df3419d81e218bacc3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
 --- !u!114 &6115386153931672554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,7 +2475,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 200
+  m_Radius: 190
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7642817501868374181
 MonoBehaviour:

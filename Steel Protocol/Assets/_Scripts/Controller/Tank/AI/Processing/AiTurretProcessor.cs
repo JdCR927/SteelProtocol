@@ -18,7 +18,7 @@ namespace SteelProtocol.Controller.Tank.AI.Processing
 
             // Formula to calculate the desired angle
             // Many thanks to my brother for this formula
-            float targetAngle = -(5.9f * (30f * dist - 1000f) / 1916.47f);
+            float targetAngle = -(6f * (30f * dist - 1000f) / 1916.47f);
 
             float currentAngle = muzzleLocalEulerX.x;
             if (currentAngle > 180f) currentAngle -= 360f;

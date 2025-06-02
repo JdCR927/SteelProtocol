@@ -1,17 +1,10 @@
-using UnityEngine;
-
 namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 {
-    public enum EnumStancesPrimary
+    public enum EnumStances
     {
         AggroStance,
         HoldStance,
-        PatrolStance
-    }
-
-    public enum EnumStancesSecondary
-    {
-        AggroStance,
-        HoldStance
+        AggroPatrolStance,
+        HoldPatrolStance
     }
 }

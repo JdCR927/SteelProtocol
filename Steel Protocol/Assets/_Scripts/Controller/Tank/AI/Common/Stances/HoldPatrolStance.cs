@@ -1,10 +1,10 @@
 namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 {
-    public class HoldStance : AiStance
+    public class HoldPatrolStance : AiStance
     {
         public override void OnStanceEnter()
         {
-            mover.Loop = false;
+            mover.Loop = true;
             mover.Pause = false;
         }
 
@@ -24,7 +24,10 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
             {
                 float sqrDistance = (target.transform.position - rootTransform.position).sqrMagnitude;
 
-                if (sqrDistance <= 150f * 150f)
+                // Changes slightly from HoldStance, stopping from further away.
+                // Look, this is just a hack because at 200 units, the shells
+                // they fire fall just centimeters from hitting the enemies.
+                if (sqrDistance <= 190f * 190f)
                 {
                     mover.Pause = true;
                     movement.Move(0f, 0f); // Let MovementController slow down naturally

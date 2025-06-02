@@ -9,8 +9,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
     public class StanceManager : MonoBehaviour
     {
         private AiStance currentStance;
-        [SerializeField] private EnumStancesPrimary primaryStance;
-        [SerializeField] private EnumStancesSecondary secondaryStance;
+        [SerializeField] private EnumStances stance;
 
         [SerializeField] private Vector3[] waypoints;
 
@@ -22,7 +21,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 
             mover.SetWaypoints(waypoints);
 
-            SetStanceFromEnum(primaryStance);
+            SetStanceFromEnum(stance);
         }
 
         public void SetStance(AiStance newStance)
@@ -40,7 +39,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
                 currentStance.OnStanceUpdate();
         }
 
-        private void SetStanceFromEnum(EnumStancesPrimary stance)
+        private void SetStanceFromEnum(EnumStances stance)
         {
             var input = GetComponentInChildren<AiInputBridge>();
             var movement = GetComponentInChildren<MovementController>();
@@ -49,9 +48,10 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
 
             AiStance stanceComponent = stance switch
             {
-                EnumStancesPrimary.PatrolStance => new PatrolStance(),
-                EnumStancesPrimary.AggroStance => new AggroStance(),
-                EnumStancesPrimary.HoldStance => new HoldStance(),
+                EnumStances.AggroPatrolStance => new AggroPatrolStance(),
+                EnumStances.AggroStance => new AggroStance(),
+                EnumStances.HoldPatrolStance => new HoldPatrolStance(),
+                EnumStances.HoldStance => new HoldStance(),
                 _ => null
             };
 

@@ -64,7 +64,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
             movement.Move(input.GetForwardInput(), input.GetTurnInput());
 
             float sqrDistance = (transform.position - currentTarget).sqrMagnitude;
-            if (sqrDistance < waypointThreshold)
+            if (sqrDistance < waypointThreshold * waypointThreshold)
             {
                 currentIndex++;
                 if (currentIndex >= waypoints.Length)
