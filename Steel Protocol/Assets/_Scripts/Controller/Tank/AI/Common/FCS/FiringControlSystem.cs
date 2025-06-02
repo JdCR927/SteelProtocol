@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SteelProtocol.Controller.Tank.AI.FCS
+namespace SteelProtocol.Controller.Tank.AI.Common.FCS
 {
     // Credits for the whole coroutine thing go to the following for explaining:
     // Answer of Max Yankov (05/05/2015) - https://stackoverflow.com/a/30057705
@@ -78,7 +78,7 @@ namespace SteelProtocol.Controller.Tank.AI.FCS
 
         private IEnumerator ReleaseAttack1()
         {
-            yield return null; // Wait one frame
+            yield return new WaitForSeconds(0.05f); 
             input.OnAttack1(false);
         }
 

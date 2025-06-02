@@ -1,16 +1,43 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace SteelProtocol.Controller.Tank.AI.Targeting
+namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
 {
     public abstract class DetectionTrigger : TargetController
     {
         protected HashSet<Target> targets = new HashSet<Target>();
         protected GameObject currentTarget;
+        
+        protected float closestTargetUpdateInterval = 0.2f;
+        protected float targetCleanupInterval = 1.5f;
+
+        private float closestTargetTimer = 0f;
+        private float cleanupTimer = 0f;
+
+
+        // Slows down the checks for finding the closest targets to help with performance
+        // Also cleans nulls after x amount of time to clean the memory of any pesky cunts like that
+        private void Update()
+        {
+            closestTargetTimer += Time.deltaTime;
+            cleanupTimer += Time.deltaTime;
+
+            if (closestTargetTimer >= closestTargetUpdateInterval)
+            {
+                currentTarget = GetClosestTarget();
+                closestTargetTimer = 0f;
+            }
+
+            if (cleanupTimer >= targetCleanupInterval)
+            {
+                CleanupInvalidTargets();
+                cleanupTimer = 0f;
+            }
+        }
 
 
         private void OnTriggerEnter(Collider other)
-        {            
+        {
             // Check if the collider is a trigger
             if (other.isTrigger) return;
 
@@ -38,7 +65,7 @@ namespace SteelProtocol.Controller.Tank.AI.Targeting
         protected abstract bool ShouldRegisterTarget(Collider other);
 
 
-        public GameObject GetClosestTarget(HashSet<Target> targets)
+        public GameObject GetClosestTarget()
         {
             // If there are no targets, return null
             if (targets == null || targets.Count == 0)
@@ -56,9 +83,6 @@ namespace SteelProtocol.Controller.Tank.AI.Targeting
                 if (target.TargetObject == null) continue;
 
                 // Calculate the distance from this tank to the target
-                // I've been scouring the internet to find a way to get the distance between two objects
-                // and they recommended using the sqrMagnitude method for optimization
-                // Thanks to the very helpful special "chapi" for helping with coding this
                 float distance = (target.TargetObject.transform.position - transform.position).sqrMagnitude;
 
                 // Check if this target is closer than the previous closest target
@@ -72,6 +96,11 @@ namespace SteelProtocol.Controller.Tank.AI.Targeting
             return closestTarget;
         }
 
+
+        private void CleanupInvalidTargets()
+        {
+            targets.RemoveWhere(t => t.TargetObject == null);
+        }
 
         // Just visibility methods, to clean up the code
         public void RegisterTarget(Transform target) => targets.Add(CreateTarget(target));

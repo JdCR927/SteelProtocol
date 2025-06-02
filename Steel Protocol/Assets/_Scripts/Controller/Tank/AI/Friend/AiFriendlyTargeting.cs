@@ -1,7 +1,7 @@
 using UnityEngine;
-using SteelProtocol.Controller.Tank.AI.FCS;
-using SteelProtocol.Controller.Tank.AI.Targeting;
 using SteelProtocol.Controller.Tank.Common.Turret;
+using SteelProtocol.Controller.Tank.AI.Common.FCS;
+using SteelProtocol.Controller.Tank.AI.Common.Targeting;
 
 namespace SteelProtocol.Controller.Tank.AI.Friend
 {
@@ -28,7 +28,7 @@ namespace SteelProtocol.Controller.Tank.AI.Friend
         public void Update()
         {
             // Check for the closest target
-            currentTarget = GetClosestTarget(targets);
+            currentTarget = GetClosestTarget();
 
             // If no target is found, return
             if (currentTarget == null) return;

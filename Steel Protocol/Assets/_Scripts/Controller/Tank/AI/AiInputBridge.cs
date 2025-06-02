@@ -1,10 +1,15 @@
 using UnityEngine;
 using SteelProtocol.Input;
+using SteelProtocol.Controller.Tank.AI.Processing;
 
 namespace SteelProtocol.Controller.Tank.AI
 {
     public class AiInputBridge : MonoBehaviour, IInputSource
     {
+        private readonly AiMovementProcessor moveProc = new AiMovementProcessor();
+        private readonly AiTurretProcessor turretProc = new AiTurretProcessor();
+
+        private Transform root;
         private Transform turret;
         private Transform muzzle;
 
@@ -17,81 +22,33 @@ namespace SteelProtocol.Controller.Tank.AI
 
         public void Awake()
         {
+            root = GetComponent<TankController>().Tank;
             turret = GetComponent<TankController>().Turret;
             muzzle = GetComponent<TankController>().Muzzle;
-
-            if (turret == null)
-                Debug.LogError("Missing turret transform.");
-            if (muzzle == null)
-                Debug.LogError("Missing muzzle transform.");
         }
 
-        /* TODO:
-        public void OnMove( context)
+        public void OnMove(Vector3 waypoint)
         {
-            movementInput = context.ReadValue<Vector2>();
+            Vector3 from = root.position;
+            Vector3 forward = root.forward;
+
+            movementInput.x = moveProc.CalculateForwardInput(from, waypoint, forward);
+            movementInput.y = moveProc.CalculateTurnInput(from, waypoint, forward);
         }
-        */
 
 
         public void OnLook(GameObject target)
         {
             if (target == null) return;
 
-            float yawDelta = CalculateYawDelta(target.transform.position, turret.position);
-            float pitchDelta = CalculatePitchDelta(target.transform.position);
+            Vector3 tgtPos = target.transform.position;
 
-            lookInput = new Vector2(yawDelta, pitchDelta);
-            
+            lookInput.x = turretProc.CalculateYawDelta(turret.position, turret.forward, tgtPos);
+            lookInput.y = turretProc.CalculatePitchDelta(root.position, muzzle.localEulerAngles, tgtPos);
         }
 
 
-        public float CalculateYawDelta(Vector3 tgtPosition, Vector3 turPosition)
-        {
-            // Calculate the direction to the target
-            Vector3 toTarget = (tgtPosition - turPosition).normalized;
-
-            // Get the vectors of the turret and the target
-            // on a plane, ignoring the Y axis
-            Vector3 turretFwd = Vector3.ProjectOnPlane(turret.forward, Vector3.up).normalized;
-            Vector3 toTgt = Vector3.ProjectOnPlane(toTarget, Vector3.up).normalized;
-
-            // Return the angle between from turretFwd to toTgt, 
-            // negative if it's to the left and positive if it's to the right
-            float yawDelta = Vector3.SignedAngle(turretFwd, toTgt, Vector3.up);
-
-            return yawDelta;
-        }
-
-        // TODO: REFACTOR THIS FUCKING MESS, THIS IS LITERALLY JUST A THROW SHIT AT THE WALL AND SEE WHAT STICKS
-        // Huge thanks to my brother for lending a helping hand with the mathematics in this method
-        public float CalculatePitchDelta(Vector3 tgtPosition)
-        {
-            // Calculate distance between tank and target
-            // It has to be the parent's position (The tank gameobject, not the _InternalScripts gameobject) if you want this to work and not fuck up
-            float sqrDistance = (tgtPosition - transform.parent.position).sqrMagnitude;
-
-            // actual distance in units
-            float distance = Mathf.Sqrt(sqrDistance);
-
-            // Formula to calculate the desired angle
-            // Many thanks to my brother for this formula
-            float targetAngle = -(5.9f * (30f * distance - 1000f) / 1916.47f);
-
-            // I don't even know
-            float currentAngle = muzzle.localEulerAngles.x;
-            if (currentAngle > 180f) currentAngle -= 360f;
-
-            float pitchDelta = -(targetAngle - currentAngle);
-
-            return pitchDelta;
-        }
-
-
-        public void OnAttack1(bool fire)
-        {
-            fireMain = fire;
-        }
+        public void OnAttack1(bool fire) => fireMain = fire;
 
         /* TODO:
         public void OnAttack2( context)
@@ -109,21 +66,11 @@ namespace SteelProtocol.Controller.Tank.AI
         */
 
 
-        public float GetForwardInput() => movementInput.y;
-
-
-        public float GetTurnInput() => movementInput.x;
-
-
+        public float GetForwardInput() => movementInput.x;
+        public float GetTurnInput() => movementInput.y;
         public Vector2 GetLookInput() => lookInput;
-
-
         public bool IsFiringMain() => fireMain;
-
-
         public bool IsFiringSec() => fireSecondary;
-        
-        
         public bool IsFiringTer() => fireTertiary;
     }
 }
