@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace SteelProtocol.Controller.Tank.AI.Targeting
+namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
 {
     public abstract class DetectionTrigger : TargetController
     {

@@ -14,7 +14,16 @@ namespace SteelProtocol.Controller.Tank.AI.Processing
 
             float brakingDistance = distance / 20;
 
-            return distance <= 50f ? (angle <= 90f ? brakingDistance : -brakingDistance) : brakingDistance;
+            float result;
+            if (distance <= 50f)
+            {
+                result = angle <= 90f ? brakingDistance : -brakingDistance;
+            }
+            else
+            {
+                result = brakingDistance;
+            }
+            return result;
         }
 
         public float CalculateTurnInput(Vector3 fromPos, Vector3 toPos, Vector3 forward)

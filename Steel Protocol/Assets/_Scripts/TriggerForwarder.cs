@@ -1,5 +1,5 @@
 using UnityEngine;
-using SteelProtocol.Controller.Tank.AI.Targeting;
+using SteelProtocol.Controller.Tank.AI.Common.Targeting;
 
 namespace SteelProtocol
 {

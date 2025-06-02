@@ -4,14 +4,15 @@ using System.Collections;
 
 namespace SteelProtocol.Controller.Tank.AI.Common.Movement
 {
-    public class WaypointFollower : MonoBehaviour
+    public class AiMover : MonoBehaviour
     {
         private AiInputBridge input;
         private MovementController movement;
         [SerializeField] private Vector3[] waypoints;
 
         private int currentIndex = 0;
-        private readonly float waypointThreshold = 1f;
+        private readonly float waypointThreshold = 2f;
+        private bool reachedFinalWaypoint = false;
 
         private readonly float movementTickRate = 0.001f; // Tick rate for AI thinking
         private Coroutine movementRoutine;
@@ -35,30 +36,35 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
 
         private IEnumerator WaypointLoop()
         {
-            WaitForSeconds wait = new WaitForSeconds(movementTickRate);
+            WaitForSeconds wait = new(movementTickRate);
 
             while (true)
             {
-                Patrol(); // 👈 modular call
+                MoveTo();
 
                 yield return wait;
             }
         }
 
-        private void Patrol()
+        private void MoveTo()
         {
-            if (waypoints.Length == 0) return;
+            if (waypoints.Length == 0 || reachedFinalWaypoint)
+            {
+                // Stop naturally if finished
+                movement.Move(0f, 0f);
+                return;
+            }
 
             Vector3 currentTarget = waypoints[currentIndex];
-
             input.OnMove(currentTarget);
-
             movement.Move(input.GetForwardInput(), input.GetTurnInput());
 
             float sqrDistance = (transform.position - currentTarget).sqrMagnitude;
             if (sqrDistance < waypointThreshold)
             {
-                currentIndex = (currentIndex + 1) % waypoints.Length; // loop around
+                currentIndex++;
+                if (currentIndex >= waypoints.Length)
+                    reachedFinalWaypoint = true;
             }
         }
 

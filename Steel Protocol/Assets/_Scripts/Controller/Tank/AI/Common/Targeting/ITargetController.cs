@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SteelProtocol.Controller.Tank.AI.Targeting
+namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
 {
     public interface ITargetControl
     {
