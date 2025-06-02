@@ -14,6 +14,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
         protected AiMover mover;
         protected DetectionTrigger detection;
         protected Transform rootTransform;
+        protected float rng;
 
         public virtual void Initialize(AiInputBridge input, MovementController movement, FiringControlSystem fcs, AiMover mover, DetectionTrigger detection)
         {
@@ -24,6 +25,7 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Stances
             this.detection = detection;
 
             rootTransform = movement.transform.root;
+            rng = Random.Range(50f, 100f);
         }
 
         public abstract void OnStanceUpdate(); // Called in Update
