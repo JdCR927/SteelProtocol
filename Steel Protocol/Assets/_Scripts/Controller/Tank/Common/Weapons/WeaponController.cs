@@ -11,8 +11,6 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
         // Controllers for the different weapon slots
         [Header("Weapon controllers")]
         [SerializeField] private MainWeaponController mainWeapon;
-        [SerializeField] private SecWeaponController secondaryWeapon;
-        [SerializeField] private TerWeaponController tertiaryWeapon;
 
 
         private void Awake()
@@ -28,12 +26,6 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
 
             if (input.IsFiringMain())
                 FireMain();
-
-            if (input.IsFiringSec())
-                FireSecondary();
-
-            if (input.IsFiringTer())
-                FireTertiary();
         }
 
 
@@ -50,24 +42,5 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             }
         }
 
-
-        // Fires the secondary weapon if it exists
-        public void FireSecondary()
-        {
-            if (secondaryWeapon != null)
-            {
-                secondaryWeapon.TryFire();
-            }        
-        }
-
-
-        // Fires the tertiary weapon if it exists
-        public void FireTertiary()
-        {
-            if (tertiaryWeapon != null)
-            {
-                tertiaryWeapon.TryFire();
-            }
-        }
     }
 }

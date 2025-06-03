@@ -1,109 +1,70 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace SteelProtocol.Controller.Tank.AI.Common.Targeting
 {
-    public abstract class DetectionTrigger : TargetController
+    public abstract class DetectionTrigger : MonoBehaviour
     {
-        protected HashSet<Target> targets = new HashSet<Target>();
-        protected GameObject currentTarget;
-        
-        protected float closestTargetUpdateInterval = 0.2f;
-        protected float targetCleanupInterval = 1.5f;
+        private readonly float detectionRadius = 200f * 200f;
+        [SerializeField] protected LayerMask targetMask;
 
-        private float closestTargetTimer = 0f;
-        private float cleanupTimer = 0f;
+        private GameObject currentTarget;
+        private readonly Collider[] detectionBuffer = new Collider[32]; // Pre-allocated buffer to avoid Garbage Collector
+
+        private readonly float updateInterval = 0.2f;
+        private float nextUpdateTime = 0f;
+        private float tickOffset;
 
 
-        // Slows down the checks for finding the closest targets to help with performance
-        // Also cleans nulls after x amount of time to clean the memory of any pesky cunts like that
-        private void Update()
+        protected virtual void Start()
         {
-            closestTargetTimer += Time.deltaTime;
-            cleanupTimer += Time.deltaTime;
-
-            if (closestTargetTimer >= closestTargetUpdateInterval)
-            {
-                currentTarget = GetClosestTarget();
-                closestTargetTimer = 0f;
-            }
-
-            if (cleanupTimer >= targetCleanupInterval)
-            {
-                CleanupInvalidTargets();
-                cleanupTimer = 0f;
-            }
+            // Offset polling to spread CPU load
+            tickOffset = Random.Range(0f, 0.1f);
         }
 
-
-        private void OnTriggerEnter(Collider other)
+        protected void TickDetection()
         {
-            // Check if the collider is a trigger
-            if (other.isTrigger) return;
+            if (Time.time < nextUpdateTime + tickOffset)
+                return;
 
-            // If it isn't, check if it is the type of target we want to register
-            if (ShouldRegisterTarget(other))
-            {
-                // If it is, create a new target and add it to the targets HashSet
-                RegisterTarget(other.transform);
-            }
+            UpdateClosestTarget();
+            nextUpdateTime = Time.time + updateInterval + tickOffset;
         }
 
-        private void OnTriggerExit(Collider other)
+        private void UpdateClosestTarget()
         {
-            // Check if the collider is a trigger
-            if (other.isTrigger) return;
+            int count = Physics.OverlapSphereNonAlloc(transform.position, detectionRadius, detectionBuffer, targetMask);
 
-            // If it is, check if it is the type of target we want to unregister
-            if (ShouldRegisterTarget(other))
+            GameObject closest = null;
+            float closestSqrDist = Mathf.Infinity;
+            Vector3 selfPos = transform.position;
+
+            for (int i = 0; i < count; i++)
             {
-                // If it is, destroy the target and remove it from the targets HashSet
-                UnregisterTarget(other.transform);
-            }
-        }
+                var col = detectionBuffer[i];
+                if (col == null) continue;
 
-        protected abstract bool ShouldRegisterTarget(Collider other);
+                GameObject candidate = col.attachedRigidbody ? col.attachedRigidbody.gameObject : col.gameObject;
 
+                if (!IsValidTarget(candidate)) continue;
 
-        public GameObject GetClosestTarget()
-        {
-            // If there are no targets, return null
-            if (targets == null || targets.Count == 0)
-                return null;
+                float sqrDist = (candidate.transform.position - selfPos).sqrMagnitude;
 
-            // Initialize variables to track the closest target
-            // and the closest distance
-            GameObject closestTarget = null;
-            float closestDistance = Mathf.Infinity;
-
-            foreach (Target target in targets)
-            {
-                // Check if the target is null or not
-                // If it is null, skip to the next target
-                if (target.TargetObject == null) continue;
-
-                // Calculate the distance from this tank to the target
-                float distance = (target.TargetObject.transform.position - transform.position).sqrMagnitude;
-
-                // Check if this target is closer than the previous closest target
-                if (distance < closestDistance)
+                if (sqrDist < closestSqrDist)
                 {
-                    closestDistance = distance;
-                    closestTarget = target.TargetObject;
+                    closest = candidate;
+                    closestSqrDist = sqrDist;
                 }
             }
 
-            return closestTarget;
+            currentTarget = closest;
         }
 
-
-        private void CleanupInvalidTargets()
+        public GameObject GetClosestTarget()
         {
-            targets.RemoveWhere(t => t.TargetObject == null);
+            return currentTarget;
         }
 
-        // Just visibility methods, to clean up the code
-        public void RegisterTarget(Transform target) => targets.Add(CreateTarget(target));
-        public void UnregisterTarget(Transform target) => DestroyTarget(targets, target);
+
+        protected abstract bool IsValidTarget(GameObject target);
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424531101469116633}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 3LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4622584207800047686}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 5RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7784066509622645926}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 3RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3484434431644899142}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 1LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8394412297602110158}
   - component: {fileID: 6129759121022768033}
   - component: {fileID: 1456019660476521088}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4991663702858305676}
   - component: {fileID: 4457959548018001275}
   - component: {fileID: 1773909099499312002}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 6RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 5808307778069950906}
   - component: {fileID: 166018526237479389}
   - component: {fileID: 6349012084211376322}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 4LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2613613037306199406}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 7RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 2674462771814213273}
   - component: {fileID: 1426697634596976431}
   - component: {fileID: 6418593531299775386}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 1LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1473448895968242864}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 2RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4363291779319191985}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 1RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 7996615122120769644}
   - component: {fileID: 5597513610873022263}
   - component: {fileID: 4801608053205815501}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 504076128858117885}
   - component: {fileID: 1271412409442197750}
   - component: {fileID: 6010441020322215085}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rearLeftGear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 5557981875628330830}
   - component: {fileID: 6097545305065561306}
   - component: {fileID: 6121381871864101134}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rearRightGear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 8356633730788054565}
   - component: {fileID: 4253182085852213096}
   - component: {fileID: 1646339511418462096}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 3LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247060822296601449}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: leftWheelGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 8244779832315228020}
   - component: {fileID: 170447925744279328}
   - component: {fileID: 7696527700617663112}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: _PlInternalScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,10 +1079,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
-    m_ActionName: 'Player/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -1126,40 +1122,6 @@ MonoBehaviour:
       - m_Target: {fileID: 9153327983078138503}
         m_TargetAssemblyTypeName: SteelProtocol.Controller.Tank.Player.PlInputBridge,
           Assembly-CSharp
-        m_MethodName: OnAttack2
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a5f11db3-19cd-4faf-a659-832c383937a9
-    m_ActionName: 'Player/Attack2[/Mouse/rightButton,/Keyboard/x]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9153327983078138503}
-        m_TargetAssemblyTypeName: SteelProtocol.Controller.Tank.Player.PlInputBridge,
-          Assembly-CSharp
-        m_MethodName: OnAttack3
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 676a0e57-ff11-4725-8168-3701ca673df1
-    m_ActionName: 'Player/Attack3[/Mouse/middleButton,/Keyboard/c]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9153327983078138503}
-        m_TargetAssemblyTypeName: SteelProtocol.Controller.Tank.Player.PlInputBridge,
-          Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
@@ -1172,10 +1134,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3ce5ead3-0b7d-40bb-ab78-43dcae844679
     m_ActionName: 'Player/Exit[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 50ab0a88-7efa-48fc-bd71-80e219ea9271
-    m_ActionName: 'Player/Leave World[/Keyboard/l]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1299,8 +1257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainWeapon: {fileID: 4057547193998584474}
-  secondaryWeapon: {fileID: 0}
-  tertiaryWeapon: {fileID: 0}
 --- !u!114 &4057547193998584474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,7 +1318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026908433999179786}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rootBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8897965736128928048}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 6LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,7 +1398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7135805016862509915}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 2LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1431,7 @@ GameObject:
   - component: {fileID: 5135990613210435177}
   - component: {fileID: 5181668488456321855}
   - component: {fileID: 3193157705471846054}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 7RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1517,7 @@ GameObject:
   - component: {fileID: 2388546493895046264}
   - component: {fileID: 2074732222829334465}
   - component: {fileID: 6266187424127908689}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 4RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1647,7 +1603,7 @@ GameObject:
   - component: {fileID: 769765733201351701}
   - component: {fileID: 8621909612109080862}
   - component: {fileID: 9193254991743598574}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1731,7 +1687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3244993827543519685}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: frontRightGearBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1762,7 +1718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4047465434192666023}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rearLeftGearBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3768505784474602618}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: firingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1824,7 +1780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2663604051891068466}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 6RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,7 +1824,7 @@ GameObject:
   - component: {fileID: 944735801322569018}
   - component: {fileID: 5951760204792170245}
   - component: {fileID: 3747647653720420152}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Leopard2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2434,7 +2390,7 @@ GameObject:
   - component: {fileID: 5613955796338933689}
   - component: {fileID: 1562065534826658180}
   - component: {fileID: 7845933287321045971}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 2LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2518,7 +2474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 158226650912101192}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rearRightGearBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2551,7 +2507,7 @@ GameObject:
   - component: {fileID: 229456194802602854}
   - component: {fileID: 6423958975243537805}
   - component: {fileID: 8777184064582786523}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 5LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2636,7 +2592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6304974275921283196}
   - component: {fileID: 1274025221429677185}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: leftTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,7 +2698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7435985806034680809}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 5LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2773,7 +2729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8180442091224456892}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rightWheelGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2815,7 +2771,7 @@ GameObject:
   - component: {fileID: 5277624018087668780}
   - component: {fileID: 8049329815066874502}
   - component: {fileID: 8468709827645516328}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 6LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2899,7 +2855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3124845613052951422}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2931,7 +2887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8846110991564078440}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: frontLeftGearBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2964,7 +2920,7 @@ GameObject:
   - component: {fileID: 1906351042936941458}
   - component: {fileID: 6847222683815623152}
   - component: {fileID: 709812678502176588}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: frontRightGear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3050,7 +3006,7 @@ GameObject:
   - component: {fileID: 7169287527894835624}
   - component: {fileID: 8708962941177182890}
   - component: {fileID: 3958221209354602595}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 7LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3136,7 +3092,7 @@ GameObject:
   - component: {fileID: 4523813861373034715}
   - component: {fileID: 4284718436538818175}
   - component: {fileID: 8373575392988617265}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 2RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3222,7 +3178,7 @@ GameObject:
   - component: {fileID: 7365352142931934468}
   - component: {fileID: 7344153357599176440}
   - component: {fileID: 446366754979953517}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 1RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3308,7 +3264,7 @@ GameObject:
   - component: {fileID: 7832845892669389018}
   - component: {fileID: 2063650041322746718}
   - component: {fileID: 1719312223947225618}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3395,7 +3351,7 @@ GameObject:
   - component: {fileID: 8359712872371732083}
   - component: {fileID: 2421168547157724639}
   - component: {fileID: 5985626062659027591}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 3RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3479,7 +3435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 459117900363149371}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 7LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3510,7 +3466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703083143702052050}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 4RightWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3541,7 +3497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1813535684190271807}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 4LeftWheelBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3574,7 +3530,7 @@ GameObject:
   - component: {fileID: 4073207189857986409}
   - component: {fileID: 335216399323528296}
   - component: {fileID: 800321908674812076}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 5RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3660,7 +3616,7 @@ GameObject:
   - component: {fileID: 6646635724086485133}
   - component: {fileID: 1666035064589731873}
   - component: {fileID: 4649293169758422996}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: frontLeftGear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,7 +3701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7029793447274536721}
   - component: {fileID: 5795322745837752642}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: rightTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

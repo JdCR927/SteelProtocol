@@ -81,18 +81,5 @@ namespace SteelProtocol.Controller.Tank.AI.Common.FCS
             yield return new WaitForSeconds(0.05f); 
             input.OnAttack1(false);
         }
-
-        /*
-        public void AttackSecond()
-        {
-
-        }
-
-
-        public void AttackThird()
-        {
-
-        }
-        */
     }
 }

@@ -919,72 +919,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2164369513531481702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2538184215562667174
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8335173366810236247}
-  - component: {fileID: 2223735049693795511}
-  - component: {fileID: 9208068081136106593}
-  m_Layer: 13
-  m_Name: DetectionSphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8335173366810236247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538184215562667174}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5851154771052626529}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2223735049693795511
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538184215562667174}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 190
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9208068081136106593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538184215562667174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0846bc605b1c96e4984cacef6418040b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2644757981849180848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,7 +1781,6 @@ Transform:
   - {fileID: 4335376690069548192}
   - {fileID: 7084062470204134148}
   - {fileID: 802326928264481523}
-  - {fileID: 8335173366810236247}
   - {fileID: 3333406948395522984}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1977,11 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stance: 0
-  waypoints:
-  - {x: -384, y: 0, z: -200}
-  - {x: -384, y: 0, z: 0}
-  - {x: -384, y: 0, z: -100}
-  - {x: -384, y: 0, z: -50}
+  waypoints: []
 --- !u!114 &8612528621948671282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,8 +2790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainWeapon: {fileID: 4965147609611822241}
-  secondaryWeapon: {fileID: 0}
-  tertiaryWeapon: {fileID: 0}
 --- !u!114 &4965147609611822241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2b716f3b9781f46b88853c0a8d5b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2915406876610530547
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -128,9 +128,8 @@ namespace SteelProtocol.Controller.Tank.Common.Weapons
             // Instantiate the shell
             GameObject shell = Instantiate(shellPrefab, firingPoint.position, firingPoint.rotation);
 
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-            // ToDo: Fucking fix the standard shell prefab, I'm 99% sure it literally only affects that prefab //
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Shells are weird as fuck and the spawn facing downwards for some reason
+            // So manually flip them upwards
             shell.transform.Rotate(-90, 0, 0);
 
             // If shell has the shell component, initialize it with

@@ -1,49 +1,48 @@
 using System.Collections;
+using SteelProtocol.Scenes;
 using UnityEngine;
 
-public class OutOfBounds : MonoBehaviour
+namespace SteelProtocol
 {
-    private bool isOutOfBounds = false;
-
-
-    private void OnTriggerEnter(Collider other)
+    public class OutOfBounds : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
-        {
-            isOutOfBounds = true;
-            StartCoroutine(CheckOutOfBounds());
-        }
-        else if (other.CompareTag("Friend") || other.CompareTag("Enemy"))
-        {
-            // TODO: Teleport to spawn point
-        }
-    }
+        private bool isOutOfBounds = false;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isOutOfBounds = false;
-            StopCoroutine(CheckOutOfBounds());
-        }
-    }
 
-    IEnumerator CheckOutOfBounds()
-    {
-        float timer = 0f;
-
-        while (timer < 5f)
+        private void OnTriggerEnter(Collider other)
         {
-            if (!isOutOfBounds)
+            if (other.CompareTag("Player"))
             {
-                yield break;
+                isOutOfBounds = true;
+                StartCoroutine(CheckOutOfBounds());
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                isOutOfBounds = false;
+                StopCoroutine(CheckOutOfBounds());
+            }
+        }
+
+        IEnumerator CheckOutOfBounds()
+        {
+            float timer = 0f;
+
+            while (timer < 3f)
+            {
+                if (!isOutOfBounds)
+                {
+                    yield break;
+                }
+
+                timer += Time.deltaTime;
+                yield return null;
             }
 
-            timer += Time.deltaTime;
-            yield return null;
+            StartCoroutine(SceneChanger.ReloadCurrentScene());
         }
-
-        // TODO: Do something when out of bounds for 5 seconds
-        // Kill player or teleport to spawn point, whatever seems fit
     }
 }

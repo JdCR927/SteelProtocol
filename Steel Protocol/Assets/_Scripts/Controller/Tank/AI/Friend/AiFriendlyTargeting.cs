@@ -7,47 +7,35 @@ namespace SteelProtocol.Controller.Tank.AI.Friend
 {
     public class AiFriendlyTargeting : DetectionTrigger
     {
-        // Interface for input handling
         private AiInputBridge input;
-
         private TurretController aiming;
-
         private FiringControlSystem fcs;
 
         private bool attackFlag = false;
 
-
-        public void Awake()
+        private void Awake()
         {
             input = GetComponent<AiInputBridge>();
             aiming = GetComponent<TurretController>();
             fcs = GetComponent<FiringControlSystem>();
         }
 
-
-        public void Update()
+        private void Update()
         {
-            // Check for the closest target
-            currentTarget = GetClosestTarget();
+            TickDetection();
 
-            // If no target is found, return
-            if (currentTarget == null) return;
+            if (GetClosestTarget() is not GameObject target) return;
 
-            // Update the input with the current target
-            input.OnLook(currentTarget);
-                        
-            // Aim at the target
+            input.OnLook(target);
             aiming.Aim(input.GetLookInput());
 
             attackFlag = Mathf.Abs(input.GetLookInput().y) <= 1f;
-
             fcs.FireWeapons(attackFlag);
-        } 
+        }
 
-        
-        protected override bool ShouldRegisterTarget(Collider other)
+        protected override bool IsValidTarget(GameObject target)
         {
-            return other.CompareTag("Enemy");
+            return target.CompareTag("Enemy");
         }
     }
 }

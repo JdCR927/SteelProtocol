@@ -13,11 +13,9 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
         private int currentIndex = 0;
         private readonly float waypointThreshold = 2f;
         private bool reachedFinalWaypoint = false;
+
         [HideInInspector] public bool Pause { get; set; }
         [HideInInspector] public bool Loop { get; set; }
-
-        private readonly float movementTickRate = 0.01f; // Tick rate for AI thinking
-        private Coroutine movementRoutine;
 
         public void Awake()
         {
@@ -25,36 +23,11 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
             movement = GetComponent<MovementController>();
         }
 
-        private void Start()
-        {
-            movementRoutine = StartCoroutine(WaypointLoop());
-        }
-
-        private void OnDisable()
-        {
-            if (movementRoutine != null)
-                StopCoroutine(movementRoutine);
-        }
-
-        private IEnumerator WaypointLoop()
-        {
-            WaitForSeconds wait = new(movementTickRate);
-
-            while (true)
-            {
-                MoveTo();
-
-                yield return wait;
-            }
-        }
-
-        private void MoveTo()
+        private void FixedUpdate()
         {
             if (Pause) return;
-
             if (waypoints.Length == 0 || reachedFinalWaypoint)
             {
-                // Stop naturally if finished
                 movement.Move(0f, 0f);
                 return;
             }
@@ -70,17 +43,12 @@ namespace SteelProtocol.Controller.Tank.AI.Common.Movement
                 if (currentIndex >= waypoints.Length)
                 {
                     if (Loop)
-                    {
                         currentIndex = 0;
-                    }
                     else
-                    {
                         reachedFinalWaypoint = true;
-                    }
                 }
             }
         }
-
 
         public void SetWaypoints(Vector3[] waypointArr)
         {

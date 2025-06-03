@@ -60,9 +60,6 @@ namespace SteelProtocol.Controller.Tank.Common.HP
         // Method called when the tank runs out of health
         public void Die()
         {
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution //
-            ////////////////////////////////////////////////////////////////////////////////////////////
             // Destroys the game object
             Destroy(transform.root.gameObject);
         }
