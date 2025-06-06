@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Garage.unity
     guid: 51641eade51ad624d9afc0675d72fb34
+  - enabled: 1
+    path: Assets/Scenes/Level01/Level01.unity
+    guid: 65c9cdc6855b62e4e86d0eb35dff84cf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
