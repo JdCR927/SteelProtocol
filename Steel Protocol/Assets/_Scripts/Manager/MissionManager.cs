@@ -1,5 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Mission;
+using System;
 
 namespace SteelProtocol
 {
@@ -9,6 +10,9 @@ namespace SteelProtocol
         [SerializeField] private GameObject player;
 
         private bool missionEnd = false;
+
+        public event Action OnVictory;
+        public event Action OnDefeat;
 
         private void Start()
         {
@@ -27,11 +31,15 @@ namespace SteelProtocol
         private void HandleVictory()
         {
             missionEnd = true;
+
+            OnVictory?.Invoke();
         }
 
         private void HandleDefeat()
         {
             missionEnd = true;
+
+            OnDefeat?.Invoke();
         }
     }
 }
