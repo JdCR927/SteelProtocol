@@ -24,28 +24,18 @@ namespace SteelProtocol.Loadout
 
             if (GetComponentInChildren<HealthController>() != null)
                 configManager.SetArmorById(armorId.ToString());
-            else
-                Debug.LogWarning(name + ": HealthController not found, skipping armor initialization.");
 
             if (GetComponentInChildren<MovementController>() != null)
                 configManager.SetEngineById(engineId.ToString());
-            else
-                Debug.LogWarning(name + ": MovementController not found, skipping engine initialization.");
 
             if (GetComponentInChildren<MainWeaponController>() != null)
                 configManager.SetShellById(shellId.ToString());
-            else
-                Debug.LogWarning(name + ": MainWeaponController not found, skipping shell initialization.");
 
             if (GetComponentInChildren<MovementController>() != null)
                 configManager.SetTrackById(trackId.ToString());
-            else
-                Debug.LogWarning(name + ": MovementController not found, skipping track initialization.");
 
             if (GetComponentInChildren<TurretController>() != null)
                 configManager.SetTurretById(turretId.ToString());
-            else
-                Debug.LogWarning(name + ": TurretController not found, skipping turret initialization.");
         }
     }
 

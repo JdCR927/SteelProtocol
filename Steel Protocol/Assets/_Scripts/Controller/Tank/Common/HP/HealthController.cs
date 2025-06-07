@@ -1,7 +1,7 @@
 using UnityEngine;
-using SteelProtocol.Data.Armor;
 using System;
-using SteelProtocol.Data;
+using SteelProtocol.Data.Enum;
+using SteelProtocol.Data.Armor;
 
 namespace SteelProtocol.Controller.Tank.Common.HP
 {

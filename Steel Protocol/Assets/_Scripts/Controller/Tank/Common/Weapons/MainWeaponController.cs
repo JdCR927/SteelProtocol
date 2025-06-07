@@ -1,6 +1,6 @@
 using UnityEngine;
 using SteelProtocol.Manager;
-using SteelProtocol.Data;
+using SteelProtocol.Data.Enum;
 using SteelProtocol.Data.Shell;
 using SteelProtocol.Controller.Tank.Common.Audio;
 
