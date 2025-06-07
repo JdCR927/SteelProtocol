@@ -36,10 +36,6 @@ Muy recomendado bajar el volumen del ordenador y ajustar una vez se esta dentro 
 <br>Mov. del raton vertical - Elevacion del cañon
 
 <br>Click Izq. / Z - Disparar arma primaria
-<br>Click Der. / X - Disparar arma secundaria // SIN IMPLEMENTAR //
-<br>Click rueda raton / C - Disparar arma terciaria // SIN IMPLEMENTAR //
-
-<br>Espacio / Shift - Movimiento especial // SIN IMPLEMENTAR //
 
 <br>Esc|Escape - Menu de pausa
 
@@ -52,10 +48,6 @@ Muy recomendado bajar el volumen del ordenador y ajustar una vez se esta dentro 
 <br>Mov. del joystick derecho vertical - Elevacion del cañon
 
 <br>O (Playstation) / B (XBox) / A (Switch) - Disparar arma primaria
-<br>X (Playstation) / A (XBox) / B (Switch) - Disparar arma secundaria // SIN IMPLEMENTAR //
-<br>Triangulo (Playstation) / Y (XBox) / X (Switch) - Disparar arma terciaria // SIN IMPLEMENTAR //
-
-<br>Cuadrado (Playstation) / X (XBox) / Y (Switch) - Movimiento especial // SIN IMPLEMENTAR //
 
 <br>START - Menu de pausa
 
