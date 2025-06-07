@@ -1,7 +1,7 @@
 using UnityEngine;
-using SteelProtocol.Data.Armor;
 using System;
-using SteelProtocol.Data;
+using SteelProtocol.Data.Enum;
+using SteelProtocol.Data.Armor;
 
 namespace SteelProtocol.Controller.Tank.Common.HP
 {
@@ -60,9 +60,6 @@ namespace SteelProtocol.Controller.Tank.Common.HP
         // Method called when the tank runs out of health
         public void Die()
         {
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            // ToDo: Crude way to destroy the object, should be replaced with a more elegant solution //
-            ////////////////////////////////////////////////////////////////////////////////////////////
             // Destroys the game object
             Destroy(transform.root.gameObject);
         }

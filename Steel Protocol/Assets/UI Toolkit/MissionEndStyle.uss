@@ -1,0 +1,22 @@
+.panel {
+    background-color: rgba(20, 20, 20, 0.69);
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    align-items: center;
+}
+
+.menu {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(219, 219, 219, 0.29);
+    border-right-color: rgba(219, 219, 219, 0.29);
+    border-top-color: rgba(219, 219, 219, 0.29);
+    border-bottom-color: rgba(219, 219, 219, 0.29);
+    background-color: rgba(20, 20, 20, 0.16);
+}

@@ -11,8 +11,6 @@ namespace SteelProtocol.Controller.Tank.Player
         private Vector2 movementInput;
         private Vector2 lookInput;
         private bool fireMain;
-        private bool fireSecondary;
-        private bool fireTertiary;
 
 
         // Get's the context from the input system and assigns it to the movementInput variable
@@ -41,24 +39,6 @@ namespace SteelProtocol.Controller.Tank.Player
             if (Time.timeScale == 0f) return; // Lazy, but fuck you
 
             fireMain = context.performed;
-        }
-
-
-        // Get the context from when the player presses the fire button (Right mouse button or left trigger)
-        public void OnAttack2(InputAction.CallbackContext context)
-        {
-            if (Time.timeScale == 0f) return;
-
-            fireSecondary = context.performed;
-        }
-
-
-        // Get the context from when the player presses the fire button (Middle mouse button or left shoulder)
-        public void OnAttack3(InputAction.CallbackContext context)
-        {
-            if (Time.timeScale == 0f) return;
-            
-            fireTertiary = context.performed;
         }
 
 
@@ -103,13 +83,5 @@ namespace SteelProtocol.Controller.Tank.Player
 
         // Get's the fire input from the player, specifically the left mouse button (Or right trigger)
         public bool IsFiringMain() => fireMain;
-
-
-        // Get's the fire input from the player, specifically the right mouse button (Or left trigger)
-        public bool IsFiringSec() => fireSecondary;
-
-
-        // Get's the fire input from the player, specifically the middle mouse button (Or left shoulder)
-        public bool IsFiringTer() => fireTertiary;
     }
 }

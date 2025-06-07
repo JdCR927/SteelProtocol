@@ -16,8 +16,6 @@ namespace SteelProtocol.Controller.Tank.AI
         private Vector2 movementInput;
         private Vector2 lookInput;
         private bool fireMain;
-        private bool fireSecondary;
-        private bool fireTertiary;
 
 
         public void Awake()
@@ -50,27 +48,10 @@ namespace SteelProtocol.Controller.Tank.AI
 
         public void OnAttack1(bool fire) => fireMain = fire;
 
-        /* TODO:
-        public void OnAttack2( context)
-        {
-            fireSecondary = context.ReadValue<float>() > 0.5f;
-        }
-        */
-
-
-        /* TODO:
-        public void OnAttack3( context)
-        {
-            fireTertiary = context.ReadValue<float>() > 0.5f;
-        }
-        */
-
 
         public float GetForwardInput() => movementInput.x;
         public float GetTurnInput() => movementInput.y;
         public Vector2 GetLookInput() => lookInput;
         public bool IsFiringMain() => fireMain;
-        public bool IsFiringSec() => fireSecondary;
-        public bool IsFiringTer() => fireTertiary;
     }
 }

@@ -9,8 +9,6 @@ using SteelProtocol.Controller.Tank.Common.Turret;
 using SteelProtocol.Controller.Tank.Common.Movement;
 using SteelProtocol.Controller.Tank.Common.HP;
 
-// TODO: REMOVE ALL THE DEBUG LOGS, INSTEAD CHANGE THEM FOR SOMETHING MORE ELEGANT AND LESS FUCKING STUPID TO LOOK AT
-
 namespace SteelProtocol.Manager
 {
     public class TankConfigManager : MonoBehaviour
@@ -38,29 +36,19 @@ namespace SteelProtocol.Manager
 
 
 
-            if (armorManager == null)
-                Debug.LogWarning(name + ": ArmorManager not found on TankConfigManager.");
-            else
+            if (armorManager != null)
                 armorManager.LoadData();
 
-            if (engineManager == null)
-                Debug.LogWarning(name + ": EngineManager not found on TankConfigManager.");
-            else
+            if (engineManager != null)
                 engineManager.LoadData();
 
-            if (shellManager == null)
-                Debug.LogWarning(name + ": ShellManager not found on TankConfigManager.");
-            else
+            if (shellManager != null)
                 shellManager.LoadData();
 
-            if (trackManager == null)
-                Debug.LogWarning(name + ": TrackManager not found on TankConfigManager.");
-            else
+            if (trackManager != null)
                 trackManager.LoadData();
 
-            if (turretManager == null)
-                Debug.LogWarning(name + ": TurretManager not found on TankConfigManager.");
-            else
+            if (turretManager != null)
                 turretManager.LoadData();
         }
 

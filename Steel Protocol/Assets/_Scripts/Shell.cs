@@ -1,8 +1,9 @@
 using UnityEngine;
-using SteelProtocol.Data;
+using SteelProtocol.Manager;
+using SteelProtocol.Data.Enum;
 using SteelProtocol.Data.Shell;
 using SteelProtocol.Controller.Tank.Common.HP;
-using SteelProtocol.Manager;
+
 
 
 namespace SteelProtocol

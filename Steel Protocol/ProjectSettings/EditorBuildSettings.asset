@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2f644e12170442244acd848fcb1606d6
   - enabled: 1
-    path: Assets/Scenes/Overworld.unity
+    path: Assets/Scenes/Overworld/Overworld.unity
     guid: ea06f00460a9ca84cb4a761bd1075574
   - enabled: 1
-    path: Assets/Scenes/Devroom.unity
+    path: Assets/Scenes/Devroom/Devroom.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Garage.unity
     guid: 51641eade51ad624d9afc0675d72fb34
+  - enabled: 1
+    path: Assets/Scenes/Level01/Level01.unity
+    guid: 65c9cdc6855b62e4e86d0eb35dff84cf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

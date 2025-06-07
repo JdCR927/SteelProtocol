@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MissionEndStyle.uss?fileID=7433441132597879392&amp;guid=27a154a93350d894db3e188b154b84f3&amp;type=3#MissionEndStyle" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-color: rgba(20, 20, 20, 0.39); display: none;">
+        <ui:VisualElement name="Container" class="container" style="flex-grow: 1;">
+            <ui:VisualElement name="ClearMenu" style="flex-grow: 1; justify-content: center; display: none;">
+                <ui:Label text="MISSION CLEARED" name="ClearText" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" emoji-fallback-support="false" style="justify-content: center; align-self: center; align-items: center; align-content: center; background-color: rgba(0, 255, 0, 0.63); font-size: 40px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="FailedMenu" enabled="true" style="flex-grow: 1; display: none; align-items: center; justify-content: center; align-self: center; align-content: center;">
+                <ui:Label text="MISSION FAILED" name="ClearText" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" emoji-fallback-support="false" style="justify-content: center; align-self: center; align-items: center; align-content: center; background-color: rgba(255, 0, 0, 0.63); font-size: 40px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
